@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+body {
+	background:#d2b48c;
+	margin-left:20%;
+	margin-right:20%;
+	border:2px dotted black;
+	padding:10px 10px 10px 10px;
+	font-family:sans-serif;
+}
+/*
+注释的用法
+*/
