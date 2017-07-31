@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Look What I Drew</title>
+    <meta charset="utf-8">
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        //一些 3d 的插件  SpiderGL, SceneJS and three.js.
+        window.onload = function() {
+            var canvas = document.getElementById('lookwhatIdrew');
+            if (canvas.getContext) {
+                //
+                console.log('have canvas support');
+            }
+            var context = canvas.getContext("2d");
+
+            context.fillRect(10, 10, 100, 100);
+        };
+    </script>
+</head>
+<body>
+<!-- 修改 -->
+<canvas id="lookwhatIdrew" width="600" height="200"></canvas>
+</body>
+</html>
