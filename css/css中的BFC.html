@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <title>Look What I Drew</title>
+ <meta charset="utf-8">
+ <style>
+  canvas {
+   border: 1px solid black;
+  }
+ </style>
+ <script>
+
+     // 原文: http://www.w3cplus.com/css/understanding-block-formatting-contexts-in-css.html © w3cplus.com
+     //https://segmentfault.com/a/1190000006041960
+
+     //float 与 absolute 到底多彻底脱离文档流
+
+     //BFC  概念 Block formating Context
+
+     //垂直外边距折叠只有他们是在同一BFC时才会发生。如果他们属于不同的BFC，他们之间的外边距将不会折叠。
+
+     //激活BFC的几种方式
+//
+//     float的值不为none
+//     position的值不为static或者relative
+//     display的值为 table-cell, table-caption, inline-block, flex, 或者 inline-flex中的其中一个
+//     overflow的值不为visible
+
+ </script>
+ <style>
+  .container {
+      background-color:red;
+      overflow: hidden;/* creates a block formatting context */
+  }
+  .newBFC {
+      overflow:hidden; /* creates a block formatting context,导致垂直塌陷现象不存在 */
+  }
+  p {
+   background-color: lightgreen;
+   margin:10px 0;
+  }
+
+  .container2 {
+      overflow:hidden;/*激活bfc  修复height为0的情况*/
+      background-color: green;
+  }
+  .float_p {
+      float:left;
+      background-color:lightgreen;
+      margin: 10px;
+  }
+
+  .container0 {
+     overflow: hidden;
+  }
+
+  .red{
+   background-color:red;
+  }
+  .blue {
+   background-color:blue;
+  }
+  .white {
+   background-color:white;
+  }
+  .yellow {
+   background-color:yellow;
+  }
+  .green {
+   background-color:green;
+  }
+  .brown {
+   background-color: brown;
+  }
+
+  .float_div {
+   float:left;
+  }
+
+  </style>
+</head>
+<body>
+ <div class="container0" desc="bfc ">
+     <div class="red">1</div>
+     <div class="blue">2</div>
+     <div class="white">3</div>
+     <div class="yellow float_div">4</div>
+     <div class="green">5</div>
+     <div class="brown">6</div>
+ </div>
+
+<div class="container" desc="激活bfc，避免垂直方向塌缩">
+    <p>sibling 1</p>
+    <p>sibling 2</p>
+    <div class="newBFC">
+        <p>sibling 3</p>
+    </div>
+</div>
+
+<div class="container2" desc="修正在float中，父类容器height为0的问题?method1:clearfix;; method2:激活父容器bfc ;">
+    <p class="float_p" desc="在这个BFC，这些元素将会回到页面的常规文档流。">sibling 1</p>
+    <p class="float_p">sibling 2</p>
+
+</div>
+
+</body>
+</html>

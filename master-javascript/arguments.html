@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Look What I Drew</title>
+    <meta charset="utf-8">
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        //     http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E3%80%81%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8B%93%E5%B1%95%E4%B8%80/
+        var sum = function () {
+            var args = Array.prototype.slice.call(arguments);//转换成标准数组
+            var i, total = 0;
+            for (i = 0; i < arguments.length; i += 1) {
+                total += arguments[i];
+            }
+            return total;
+        };
+        console.log(sum(1,2,3,4,5,6,7,8,9)); // prints 45
+        console.log(sum(1,2,3,4,5)); // prints 15
+        //this
+        // For methods,  this is bound to the object on invocation:
+        var person = {
+            name : 'Albert Einstein',
+            age : 66,
+            greet: function() {
+                console.log(this.name);
+            }
+        };
+
+        person.name = 'yaowen'; // invocation了 这个时候this就确定了
+        person.greet();
+
+        function testF(){ return this; }
+        console.log(testF());
+        var testFCopy = testF;
+        console.log(testFCopy());
+        var testObj = {
+            name : 'ttt',
+            testObjFunc: testF
+        };
+        console.log(testObj.testObjFunc ().name);
+
+        // Constructor functions
+        //we precede the function invocation with the new
+//        keyword. When this happens,  'this' is bound to the new object.
+
+        var Person = function (name) {
+            this.name = name;
+        };
+        Person.prototype.greet = function () {
+            return this.name;
+        };
+        var albert = new Person('Albert Einstein');//这个时候进行了this的绑定
+        console.log(albert.greet());
+
+        //closure 闭包
+        var outer = 'Outer'; //Variable declared in global scope
+        var copy;
+        function outerFn(){ //Function declared in global scope
+            var inner = 'Inner'; //Variable has function scope only, can not be
+                //accessed from outside
+            function innerFn(){ //Inner function within Outer function,
+                //both global context and outer
+                //context are available hence can access
+                //'outer' and 'inner'
+                console.log(outer);
+                console.log(inner);
+            }
+            copy=innerFn; //Store reference to inner function,
+            //because 'copy' itself is declared
+            //in global context, it will be available
+            //outside also
+        }
+        outerFn();
+        copy(); //Cant invoke innerFn() directly but can invoke via a
+                //variable declared in global scope
+        //尝试写个计数器
+        function counterFn() {
+            var num = 1;
+            return function() {
+                console.log(num++);
+            };
+        }
+        var closureFunc = counterFn();
+        closureFunc();
+        closureFunc();
+        closureFunc();
+
+        //对象 构造器  私有变量
+        function privateTest(){
+            var points=0;
+            this.getPoints=function(){
+                return points;
+            };
+            this.score=function(){
+                points++;
+            };
+        }
+        var private = new privateTest();
+        private.score();
+        console.log(private.points); // undefined
+        console.log(private.getPoints());
+
+        // closures and looping
+        for (var i=1; i<=5; i++) {
+            setTimeout( function delay(){
+                console.log( i );
+            }, i*100);
+        }
+        //打印都是5 是多个引用  但是这个地方 i 是引用了  最后i的改变影响到了所有闭包中的i的值
+        for (var i=1; i<=5; i++) {
+            (function(j){
+                setTimeout( function delay(){
+                    console.log( j );
+                }, j*100);
+            })( i );
+        }
+        //修复版本 j 肯定还是个引用 包了层  临时变量  解引用
+        //each iteration creates a new scope for each iteration
+
+        var superModule = (function (){
+            var secret = 'supersecretkey';
+            var passcode = 'nuke';
+            function getSecret() {
+                console.log( secret );
+            }
+            function getPassCode() {
+                console.log( passcode );
+            }
+            return {
+                getSecret: getSecret,
+                getPassCode: getPassCode
+            };
+        })();
+        //We return the public functions to make sure that we have a closure
+//        over the private scope.
+        superModule.getSecret();
+        superModule.getPassCode();
+
+        //regular 正则
+        var pattern = /orange/;
+        console.log(pattern.test("orange")); // true
+        var patternIgnoreCase = /orange/i;
+        console.log(patternIgnoreCase.test("Orange")); // true
+        var patternGlobal = /orange/ig;
+        console.log(patternGlobal.test("Orange Juice")); // true
+
+        var strToMatch = 'A Toyota! Race fast, safe car! A Toyota!';
+        var regExAt = /Toy/g;
+        var arrMatches = regExAt.exec(strToMatch);
+        console.log(arrMatches);
+
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+</body>
+</html>
