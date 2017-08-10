@@ -1,0 +1,125 @@
+<!--http://blog.csdn.net/linda_417/article/details/51507176-->
+<!--参考网址 https://www.sitepoint.com/developer-center/-->
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    <style>
+        @media screen and (min-width: 900px) and (max-width:1080px) {
+            .main{
+                width:900px;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width:899px) {
+            .main{
+                width:768px;
+            }
+        }
+
+
+
+        * {
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-color:#f7f7f7;
+        }
+        .f-small {
+            font-size:0.875rem;
+        }
+        .f-bold {
+            font-weight: 700;
+        }
+        .f-uppercase {
+            text-transform:uppercase;
+        }
+
+        .f-c-grey-300 {
+            color:#a2a2a2;
+        }
+
+        .main{
+
+        }
+        .top {
+
+            height:40px;
+            margin-bottom: 15px;
+            background-color:lightblue;
+        }
+        .list-container {
+            width:90%;
+            margin:0 auto;
+            display:flex;
+            justify-content: space-between;
+            flex-flow: wrap;
+        }
+
+        .list-container a {
+            display:flex;
+            width:280px;
+            height:326px;
+            background-color:#fff;
+        }
+
+        .list-item-img {
+            background-image:url(./image/1479266074projects-and-learning-js-300x167.png);
+            width: 300px;
+            height: 167px;
+            background-repeat:no-repeat;
+
+            /*height:60px;*/
+        }
+
+        .list-item-desc {
+            display:flex;
+            flex-direction: column;
+            flex:1;
+            overflow:hidden;
+        }
+
+    </style>
+    <script>
+        //http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+        //        http://www.ruanyifeng.com/blog/2015/07/flex-examples.html
+        //这个页面中 的class  把display font size color 大小写 都做成了独立的小件的class
+        // 这种思想很重要  也就是看到一个页面的时候  多少种字体 颜色 bold  可以直接写起来
+        // 后面布局的时候就是填这些class的组合
+        // 这样的好处是 不会为特点的div 写特定的样式，只要拿出来直接组合就好了
+        // padding-top  width 等都配置了一组class 列表，供选择
+        //只有各种 预先配好的 class的组合 不存在 直接指定样式
+        //不用这种方式  会生成出来很多重复的定义不同元素的各种属性
+    </script>
+</head>
+<body>
+
+<div class="main">
+    <div class="top"></div>
+    <div class="list-container">
+        <a>
+            <div class="list-item-img"></div>
+            <div class="list-item-desc">
+                <div>
+
+                </div>
+                <h3>SitePoint WordPress Restaurant Theme</h3>
+                <div></div>
+            </div>
+        </a>
+        <a>
+
+        </a>
+        <a>
+
+        </a>
+        <a>
+
+        </a>
+
+    </div>
+</div>
+
+</body>
+
+</html>

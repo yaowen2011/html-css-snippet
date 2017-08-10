@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <title>css权威指南笔记</title>
+ <meta charset="utf-8">
+ <style>
+  canvas {
+   border: 1px solid black;
+  }
+
+  p[class~="warning"] {font-weight: bold;}/*class属性包含这个名字的*/
+ </style>
+ <script>
+
+  //Above all, regardless of how abstract things may seem, keep going! Your persever-
+//  ance will be rewarded.
+
+  //css the definitive guide
+//  [foo^="bar"] Selects any element with an attribute foo whose value begins with "bar" .
+//      [foo$="bar"] Selects any element with an attribute foo whose value ends with "bar" .
+//      [foo*="bar"] Selects any element with an attribute foo whose value contains the substring "bar"
+//伪类 状态选 有静态伪类和动态伪类
+//  a#footer-copyright:link{font-weight: bold;}
+//  a#footer-copyright:visited {font-weight: normal;}
+  //*:lang(fr) {font-style: italic;}
+
+//  h2:first-letter {font-size: 200%;}
+//  加号选择器
+//  h1 + p {margin-top: 0;}
+//  The selector is read as, “selects any paragraph that immediately follows an h1 ele-
+//  ment that shares a parent with the p element.”
+
+  //3个li标签 <li></li><li></li><li></li>
+//  if you write li + li {font-weight : bold;} 只有后面2个可以选中
+
+  //优先级
+//  h1 {color: red;} /* 0,0,0,1 */ /* 0,id,class,element和伪类*/
+//  body h1 {color: green;} /* 0,0,0,2 (winner)*/
+//  h2.grape {color: purple;} /* 0,0,1,1 (winner) */
+//  h2 {color: silver;} /* 0,0,0,1 */
+
+
+  //values and units  colors distances sizes of property
+  //-------颜色 单位
+  //h2 {color: rgb(25.5%,40%,98.6%);} 注意这里 rgb函数的调用方式  0-255的值以及1-100%
+//  h1 {color: #FF0000;} /* set H1s to red */
+//  #00FF00 #0F0
+
+//  Web-safe colors
+
+//--  Length Units长度单位
+  //The only exception to
+//  this rule is a length of 0 (zero), which need not be followed by a unit.
+//  两种方式：
+//  1、absolute length units
+//  2、relative length units.
+//      There are three relative length units: em , ex , and px
+//  font-szie 注意，实际上它设置的是字体中字符框的高度
+//  refers to the height of a lowercase x in the font being used
+//  body {background: url(http://www.pix.web/picture1.jpg);} /* url 和 括号间不能有空格*/
+
+//  大概 5种font-family（应该只是指英文）
+//  多个单词字体 'New Century Schoolbook'
+//  font-faimly font-size font-weight font-style font-variant  font-stretch
+//  h1 {font: italic 900 small-caps 30px Verdana, Helvetica, Arial, sans-serif;}
+
+//  存在文本属性 、字体属性的概念
+//  fact that line-height is a
+//  text property, not a font property
+
+  //h2 {font: bold italic 200%/1.2 Verdana, Helvetica, Arial, sans-serif;}
+  //这里 的 1.2 就是 line-height = （14px*2）*1.2 = 28.8px；
+
+//  font   When the short-
+//  hand property font is used, any omitted values are reset to their defaults.
+//  h2 {font: normal normal normal 200% sans-serif;}
+
+  //----------text
+//  p {text-indent: 3em;}
+//  p {text-indent: -4em; padding-left: 4em;}
+//  p {text-indent: 10%;}  of it's parent element's width
+  //text-align 只能用于 block-level element  注意 justify  属性值
+//  both ends of a line of text are placed at the inner edge of the
+//  parent element, as Figure 6-6 shows
+
+// 一行就是 line box  文字等 inline-box 最高最低的文字决定了 高度
+//  A line box is exactly as tall as
+//  needed to enclose the top of the tallest inline box and the bottom of the lowest inline
+//  box.
+
+
+//  div {line-height: 1em;} /* computes to '10px' */
+//  p {font-size: 18px;}
+//
+//  div {line-height: 1.5;}
+//  p {font-size: 18px;}
+
+//  When you specify a number, you cause the scaling factor（计算因子） to be an inherited value
+//  instead of a computed value.
+//
+//  In CSS, the vertical-align
+//  property applies only to inline elements and replaced elements such as images and
+//  form inputs. vertical-align is not an inherited property.
+
+//  Replaced element  比如：img  他的默认width 不会撑满 整个containing block
+//  Nonreplaced element
+//
+//  auto  剩下的空间填满
+//  only three may be set to auto : the width of the element’s
+//  content and the left and right margins.
+
+//  when these formatting properties have been overconstrained —
+//  then margin-right is always forced to be auto .
+
+//  Finally, what happens when all three properties are set to auto ? The answer is sim-
+//  ple: both margins are set to zero, and the width is made as wide as possible.
+//
+//  if either margin-top or margin-bottom is set to auto for a block element
+//  in the normal flow, it automatically evaluates to 0 .
+
+  //Since setting the top and bottom margins to auto will give them zero height, the only
+//
+//  //垂直居中 不能使用垂直方向的margin auto
+//  Since setting the top and bottom margins to auto will give them zero height, the only
+//  way to vertically center the element is to set them both to 25%
+  //inline  不可以设置width、height ；inline-block可以设置width、height。
+
+  //height:auto;
+  if (containingBlock.style.height == 'auto') {
+      有垂直方向的padding
+      或
+      border
+      父类容器的
+      var height = son1.height(包括margin) + son2.height(包括margin)
+  } else {
+      var height = son1.height(不包括margin) + son2.height(不包括margin)
+      //margin 会溢出
+  }
+  //marginCollapse
+  if (box1.marginBottom>0 && box2.marginTop>0) {
+      var verticalGap = max(box1.marginBottom, box2.marginTop);//或者称为 外边距 重叠
+  } else {//有为负数的margin
+      var verticalGap = box1.marginBottom + box2.marginTop;//或者称为 外边距 重叠
+  }
+//
+  //  Most text isn’t contained by
+  //  an inline element.
+//
+//  The border edge of inline elements is controlled by the font-size , not the line-
+//  height . In other words, if a span element has a font-size of 12px and a line-height of
+//  36px , its content area is 12px high, and the border will surround that content area.
+//
+//  What’s unusual
+//  about the process is that these two things actually influence the height of the line box
+//  because they are part of the inline box of an inline replaced element (unlike inline
+//  nonreplaced elements).
+//
+//  #rollcall li {display: inline; border-right: 1px solid; padding: 0 0.33em;}
+//  #rollcall li:first-child {border-left: 1px solid;} //水平表单
+//
+//  In other words, causing a paragraph to generate an
+//  inline-level box does not turn that paragraph into an inline element.
+
+//  width and height
+//  One important note about these two properties: they don’t apply to inline
+//  nonreplaced elements.
+
+//  because the background will extend into the padding but not
+//  the margin.
+
+//  h1 {margin: 0.25em 0 0.5em;} /* same as '0.25em 0 0.5em 0' */
+
+//
+//  This happens because margins on inline nonreplaced elements don’t
+//  change the line height of an element.
+//
+//  If no color
+//  has been declared for the border, it will be the same color as the text of the element.
+
+////  p.new2 {border-style: solid dashed none dashed;}
+//  h1 {border-style: solid solid solid none;}
+//  /* the method above is the same as the one below */
+//  h1 {border-style: solid; border-left-style: none;}
+
+//
+//  First, no matter how thick you make your borders on inline elements, the line height
+//  of the element won’t change. Let’s set top and bottom borders on boldfaced text:
+//
+//
+
+//
+//  If you do float a nonreplaced element, you must declare a width for that element.
+//      Otherwise, according to the CSS specification, the element’s width will tend toward
+//  zero.
+ //
+ //  A floated element’s containing block is the nearest block-level
+ //  ancestor element.
+//
+//  Furthermore, a floated element generates a block box, regardless of the kind of ele-
+//  ment it is
+//
+//css 2.1  a floated element will
+//  expand to contain any floated descendants.
+
+// inline box 和 block box和  float 发生重叠时 显示的规则
+//  An inline box that overlaps with a float has its borders, background, and con-
+//  tent all rendered “on top” of the float.
+//  • A block box that overlaps with a float has its borders and background rendered
+//  “behind” the float, whereas its content is rendered “on top” of the float.
+
+//  clear 底层浏览器 修改了  margin-top 来实现
+//  because 25 pixels of clearance were added above the 15-pixel top mar-
+//  gin to push the h3 ’s top border edge just past the bottom edge of the float.
+
+//     绝对定位的 containing block
+//  For non-root elements that have a position value of absolute , the containing
+//  block is set to the nearest ancestor (of any kind) that has a position value other
+//  than static .
+
+ </script>
+ <style>
+
+  </style>
+</head>
+       <body>
+       <div style="height: 6em; border:1px solid gray; ">
+        <p style="height: 50%; border:1px solid gray;">Half as tall</p>
+       </div>
+       ^^^^^^^
+       <div style="height: auto;border:1px solid gray;">
+        <p style="height: 50%; border:1px solid gray;">NOT half as tall; height reset to auto</p>
+       </div>
+
+</body>
+</html>

@@ -105,19 +105,19 @@
         console.log(private.getPoints());
 
         // closures and looping
-        for (var i=1; i<=5; i++) {
-            setTimeout( function delay(){
-                console.log( i );
-            }, i*100);
-        }
+//        for (var i=1; i<=5; i++) {
+//            setTimeout( function delay(){
+//                console.log( i );
+//            }, i*100);
+//        }
         //打印都是5 是多个引用  但是这个地方 i 是引用了  最后i的改变影响到了所有闭包中的i的值
-        for (var i=1; i<=5; i++) {
-            (function(j){
-                setTimeout( function delay(){
-                    console.log( j );
-                }, j*100);
-            })( i );
-        }
+//        for (var i=1; i<=5; i++) {
+//            (function(j){
+//                setTimeout( function delay(){
+//                    console.log( j );
+//                }, j*100);
+//            })( i );
+//        }
         //修复版本 j 肯定还是个引用 包了层  临时变量  解引用
         //each iteration creates a new scope for each iteration
 
@@ -153,6 +153,195 @@
         var arrMatches = regExAt.exec(strToMatch);
         console.log(arrMatches);
 
+        var strToMatch = 'Blue is your favorite color ?';
+        var regExAt = /Blue/
+        console.log(strToMatch.replace(regExAt, "Red"));
+
+        var sColor = 'sun,moon,stars';
+        var reComma = /\,/;
+        console.log(sColor.split(reComma));
+
+        var strToMatch = 'wooden bat, smelly Cat,a fat cat';
+        var re = /[bcf]at/gi;
+        var arrMatches = strToMatch.match(re);
+        console.log(arrMatches);
+
+        //array
+        var colors = ['red', 'green', 'blue'];
+        colors.length = 10;
+        //Unassigned values are not iterated in a
+//        forEach() loop.
+        colors.forEach(function(color) {
+            console.log(color);
+        });
+        //concat == array_merge
+        //join == implode
+        //reverse == array_reverse
+        //indexOf  以及 lastIndexOf == array_search
+
+        //map es6 新特新
+        var founders = new Map();
+        founders.set("facebook","mark");
+        founders.set("baidu","luobin");
+        console.log(founders.size);
+        console.log(founders.get("baidu"));
+
+        for (var [key, value] of founders) {
+            console.log(key + " founded by " + value);
+        }
+
+        //set es6
+        //值有序以及不能重复
+        var mySet = new Set();
+        mySet.add(1);
+        mySet.add("Howdy");
+        mySet.add("foo");
+        mySet.has(1); // true
+        mySet.delete("foo");
+        mySet.size; // 2
+        for (let item of mySet) console.log(item);
+
+        //Array 重点
+        //We discussed briefly that JavaScript arrays are not really arrays in a traditional sense. In
+//        JavaScript, arrays are objects that have the following characteristics:
+//            The  length property
+//        The functions that inherit from  Array.prototype (we will discuss this in the next
+//        chapter)
+//        Special handling for keys that are numeric keys
+//        When we write an array index as numbers, they get converted to strings— arr[0]
+//        internally becomes  arr["0"] .
+        var a = [];
+        a[5] = 5;
+        for (var i=0; i<a.length; i++) {
+            console.log(a[i]);
+        }
+        // Iterates over numeric indexes from 0 to 5
+        // [undefined,undefined,undefined,undefined,undefined,5]
+        for (var x in a) {
+            console.log(x);
+        }
+        // Shows only the explicitly set index of "5", and ignores 0-4
+
+
+        //object obj['string'+variable]; 这种情况使用中括号 访问属性
+//        When an object does not have a requested property,
+//        JavaScript goes to its prototype to look for it.
+//        .getPrototypeOf()
+
+        //A function that returns nothing and creates nothing
+        function Player() {}
+        //Add a function to the prototype property of the function
+        Player.prototype.usesBat = function() {
+            return true;
+        }
+        //We call player() as a function and prove that nothing happens
+        var crazyBob = Player();
+        if(crazyBob === undefined){
+            console.log("CrazyBob is not defined");
+        }
+        //Now we call player() as a constructor along with 'new'
+        //1. The instance is created
+        //2. method usesBat() is derived from the prototype of the function
+        var swingJay = new Player();
+        if(swingJay && swingJay.usesBat && swingJay.usesBat()){
+            console.log("SwingJay exists and can use bat");
+        }
+
+        function Player2() {
+            this.isAvailable = function() {
+                return "Instance method says - he is hired";
+            };
+        }
+        Player2.prototype.isAvailable = function() {
+            return "Prototype method says - he is Not hired";
+        };
+        var crazyBob = new Player2();
+        console.log(crazyBob.isAvailable());
+
+        //关键点 On the other hand, only one copy of
+//        public methods（prototype methods） is created and shared between all instances.
+
+        //instanceof
+        //Child.prototype = new Person();
+        //vs Object.create(Pserson.prototype)  without calling the parent constructor.
+
+        function Person() {}
+        Person.prototype.cry = function() {
+            console.log("Crying");
+        }
+        function Child() {}
+        Child.prototype = new Person();
+        var aChild = new Child();
+        console.log(aChild instanceof Child); //true
+        console.log(aChild instanceof Person); //true
+        console.log(aChild instanceof Object); //true
+
+
+        //todo
+
+
+        //setter getter es5的语法
+        var person = {
+            firstname: "Albert",
+            lastname: "Einstein",
+            get fullname() {
+                return this.firstname +" "+this.lastname;
+            },
+            set fullname(_name){
+                var words = _name.toString().split(' ');
+                this.firstname = words[0];
+                this.lastname = words[1];
+            }
+        };
+        person.fullname = "Issac Newton";
+        console.log(person.firstname); //"Issac"
+        console.log(person.lastname); //"Newton"
+        console.log(person.fullname); //"Issac Newton"
+
+        //模块
+//        CommonJS and AMD module patterns.
+        //es6  import { getSiteContent } from "json_processor.js";
+
+
+        function fn() {
+            return [1,2,3];
+        }
+        var [a,b,c]=fn();
+        console.log(a,b,c); //1 2 3
+
+        function SuperLogger(level, clazz, msg){
+            console.log(`${level} : Exception happened in class: ${clazz} - Exception: {$msg}`);
+        }
+        //TODO 不是很理解   symbol
+        var a = [1,2];
+        var i = a[Symbol.iterator]();
+        console.log(i.next()); // { value: 1, done: false }
+        console.log(i.next()); // { value: 2, done: false }
+        console.log(i.next()); // { value: undefined, done: true }
+
+
+        //
+        //Arrow function 这个特征 真的不该有
+        var multiply = (a,b) => a*b;
+        console.log(multiply(1,2)); //2
+
+        1：是外面的大框 2：里面的框
+        //Netscape decided that the first event triggered should be Element1’s  onClick . This event
+//        ordering is known as event capturing.
+//            Microsoft decided that the first event triggered should be Element2’s  onClick . This event
+//        ordering is known as event bubbling.
+
+//        //w3c If the last
+//        argument is true in  addEventListener() , the event handler is set for the capturing phase,
+//        if it is false, the event handler is set for the bubbling phase.
+//        ?stopPropagation() 阻止向上继续出发事件
+//        preventDefault()  阻止浏览器默认行为
+
+
+//        //the event object
+//        event.preventDefault();
+//        // Prevent event from bubbling up DOM tree, also stops any delegation
+//        event.stopPropagation();
     </script>
     <style>
 

@@ -1,0 +1,50 @@
+框  对齐
+box 居中  必须有宽度 因为宽度默认填充满父容器
+inline-block 间隙问题
+
+之类元素充满父类   background-color不会被继承  子元素占了父元素多大空间
+
+
+    width、对齐、子容器占有父容器多大空间、主动宽度、和被动宽度（padding margining设置）
+
+    间接 直接 Dimensions
+
+    relative 和 sattic relative z-index auto 一般会显示在上层
+
+    非继承的css属性 需要特别记忆
+
+
+    利用span 小区域内  absolute 定位 设置背景图 使用很频繁。
+
+
+    background-position:-2px -480px;
+
+    vertical-align: middle;与vertical-align: baseline;区别？
+
+    white-space:pre
+    word-spacing:0px;
+
+    不带单位 的line-height
+    border-image 属性
+
+    <span class="rec rec-tools"></span> 多个背景icon 可以这种方式做成服用组件
+
+    .t-ell {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    text-overflow: ellipsis;
+        transform: translate(208px);//translate平移之后不会将标准流中的元素挤开。其他取值可以一一进行尝试。
+
+    direction: ltr;
+
+    text-transform: uppercase;//大写
+
+    em和rem  rem时保持不变的 相对于根元素 进行计算  em时根据最近的font-size进行计算
+
+    @media (min-width: 1248px)
+
+    box-sizing: border-box;
+

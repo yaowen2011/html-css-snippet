@@ -1,0 +1,10 @@
+https://segmentfault.com/a/1190000005340315
+
+http://www.cnblogs.com/fengzheng126/archive/2012/05/18/2507632.html
+<font-size>/<line-height>
+body{font：100%/120%;}
+line-height: 百分比表示法，使用相同的font-size为基础，加上继承性，导致不同大小的字体会使用同样的line-height
+
+固定值： 也不会跟随相应的font-size作调整
+默认值 normal: 会根据对应的font-size作出调整
+纯数字：可以根据对于文字作出调整

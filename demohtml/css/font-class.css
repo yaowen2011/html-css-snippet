@@ -1,0 +1,44 @@
+/*思想来源
+https://www.sitepoint.com/woorank/
+*/
+
+.fa {
+
+}
+
+/*字体颜色*/
+.f-c-grey-300 {
+    color:#a2a2a2;
+}
+
+
+/*字体大小*/
+.f-small {
+    font-size:0.875rem;
+}
+
+
+/*字体粗细*/
+.f-light {
+    font-weight:300;
+    /*normal=400 bold=700*/
+}
+
+/*字体对齐*/
+.f-left {
+    text-align:left;
+}
+
+.f-right {
+    text-align:right;
+}
+
+.f-center {
+    text-align:center;
+}
+
+/*line-height设置*/
+.f-lh-copy {
+    line-height: 1.6;
+}
+

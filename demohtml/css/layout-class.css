@@ -1,0 +1,214 @@
+/*思想来源
+https://www.sitepoint.com/woorank/
+*/
+/*display 部分*/
+.l-d-ib {
+    display:inline-block;
+}
+.l-d-f {
+    display:flex;
+}
+
+.l-d-n {
+    display:none;
+}
+
+.l-ai-str {
+    align-items:stretch;
+}
+
+.l-fw-w {
+    flex-wrap:wrap;
+}
+
+.l-jc-sb {
+    justify-content:space-between;
+}
+
+/*position 部分*/
+.l-d-rel {
+    position: relative;
+}
+.l-d-abs {
+    position: absolute;
+}
+.l-d-fix {
+    position: fixed;
+}
+
+/*padding margin*/
+.l-pv0 {
+    padding-top:0;
+    padding-bottom:0;
+}
+.l-pv1 {
+    padding-top:4px;
+    padding-bottom:4px;
+}
+.l-pv2 {
+    padding-top:8px;
+    padding-bottom:8px;
+}
+.l-pv3 {
+    padding-top:16px;
+    padding-bottom:16px;
+}
+.l-pv4 {
+    padding-top:32px;
+    padding-bottom:32px;
+}
+.l-ph0 {
+    padding-left:0;
+    padding-right:0;
+}
+.l-ph1 {
+    padding-left:4px;
+    padding-right:4px;
+}
+.l-ph2 {
+    padding-left:8px;
+    padding-right:8px;
+}
+.l-ph3 {
+    padding-left:16px;
+    padding-right:16px;
+}
+.l-ph4 {
+    padding-left:32px;
+    padding-right:32px;
+}
+
+.l-mt0 {
+    margin-top:0;
+}
+.l-mt1 {
+    margin-top:4px;
+}
+.l-mt2 {
+    margin-top:8px;
+}
+.l-mt3 {
+    margin-top:16px;
+}
+.l-mt4 {
+    margin-top:32px;
+}
+.l-mr0 {
+    margin-right:0;
+}
+.l-mr1 {
+    margin-right:4px;
+}
+.l-mr2 {
+    margin-right:8px;
+}
+.l-mr3 {
+    margin-right:16px;
+}
+.l-mr4 {
+    margin-right:32px;
+}
+
+.l-mb0 {
+    margin-bottom:0;
+}
+.l-mb1 {
+    margin-bottom:4px;
+}
+.l-mb2 {
+    margin-bottom:8px;
+}
+.l-mb3 {
+    margin-bottom:16px;
+}
+.l-mb4 {
+    margin-bottom:32px;
+}
+
+.l-ml0 {
+    margin-left:0;
+}
+.l-ml1 {
+    margin-left:4px;
+}
+.l-ml2 {
+    margin-left:8px;
+}
+.l-ml3 {
+    margin-left:16px;
+}
+.l-ml4 {
+    margin-left:32px;
+}
+
+.l-pt0 {
+    padding-top:0;
+}
+.l-pt1 {
+    padding-top:4px;
+}
+.l-pt2 {
+    padding-top:8px;
+}
+.l-pt3 {
+    paddint-top:16px;
+}
+.l-pt4 {
+    padding-top:32px;
+}
+
+.l-pr0 {
+    padding-top:0;
+}
+.l-pr1 {
+    padding-top:4px;
+}
+.l-pr2 {
+    padding-top:8px;
+}
+.l-pr3 {
+    paddint-top:16px;
+}
+.l-pr4 {
+    padding-top:32px;
+}
+
+
+
+
+
+/*width height 部分*/
+.l-w-100 {
+    width:100%;
+}
+
+
+.l-h0 {
+    height:0;
+}
+.l-h1 {
+    height:4px;
+}
+.l-h2 {
+    height:8px;
+}
+.l-h3 {
+    height:16px;
+}
+.l-h4 {
+    height:32px;
+}
+.l-h5 {
+    height:64px;
+}
+
+
+/*float 部分*/
+.l-f-l {
+    float:left;
+}
+.l-l-fr {
+    float:right;
+}
+
+

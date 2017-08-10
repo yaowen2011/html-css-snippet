@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <style>
+        @media screen and (min-width:900px) and (max-width:1080px) {
+            .wrapper{
+                width:900px;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:899px) {
+            .wrapper{
+                width:768px;
+            }
+        }
+
+        @media screen and (min-width:480px) and (max-width:767px) {
+            .wrapper {
+                width: 480px;
+            }
+        }
+        * {
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color:#f5f5d5;
+        }
+        .wrapper {
+            height:500px;
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .column0 {
+            width:20%;
+            background-color: lightgreen;
+        }
+
+        .column1 {
+            width:20%;
+            background-color: lightblue;
+        }
+        .column2 {
+            width:20%;
+            background-color: lightcoral;
+        }
+        .column3 {
+            width:20%;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="column0">
+            <pre>
+                @media screen and (min-width:768px) and (max-width:899px) {
+                    .wrapper{
+                        width:768px;
+                    }
+                }
+            </pre>
+        </div>
+        <div class="column1">
+            学习网址：
+            https://www.sitepoint.com/developer-center/
+        </div>
+        <div class="column2"></div>
+        <div class="column3"></div>
+    </div>
+</body>
+</html>

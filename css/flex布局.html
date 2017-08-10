@@ -1,0 +1,130 @@
+<!--http://blog.csdn.net/linda_417/article/details/51507176-->
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    <style>
+        .main{
+            width:80%;
+            margin:0 auto;
+            height:500px;
+            display:flex;
+            padding:20px;
+        }
+        .left{
+            flex:1;
+            border:1px solid lightgreen;
+        }
+        .middle{
+            flex:2;
+            border:1px solid gray;
+        }
+        .right{
+            flex:1;
+            border:1px solid lightgreen;
+        }
+
+        .flex-box { //flex 容器的属性
+            //方向属性 默认水平方向从左到右
+            //flex-direction:row | row-reverse | column | column-reverse;
+            //碰到边界是否换行，默认值nowrap 不换行
+            //flex-wrap：nowrap| wrap | wrap-reverse;
+
+            //flex-direction和 flex-wrap的简写形式
+            //flex-flow：《flex-direction》 ||《ｆｌｅｘ－ｗｒａｐ》
+
+            // 定义在主轴上对齐方式
+            // 水平靠左|水平靠右| 水平居中 | 项目中间隔相等| 中间的间距会是两边的两倍
+            //justify-content：flex-start | flex-end | center | space-between| space-around;
+
+            // 定义交叉轴上如何对齐
+            // 垂直顶端|垂直底部|垂直居中|基准线|垂直方向撑满
+            //align-items:flex-star|flex-end|center|baseline|stretch;
+
+
+            //align-content you多行的时候其作用 多行看成一个块
+            //align-content:flex-start | flex-end| center | stretch | space-between | space-around;
+            //大块垂直居上|大块垂直居下|大块垂直居中|垂直水平铺满|垂直行间隔相等|中间的间隔是两边的两倍
+        }
+
+        .flex-item {//flex 内item的属性
+            //排序属性 数值越小 排序越前
+            //order
+
+            //flex-grow 是否放大 默认0  存在剩余空间也不会放大
+            //flex-grow 都以为1  均分剩余空间
+            //item1的flex-grow为2  其他item的flex-grow 为1的话  item1占据的剩余空间会是其他单个项目的两倍
+            //计算方式 应该是 所有的flex-grow加在一起 ，让后剩余空间除以这个值
+
+            //flex-shrink 默认值为1 ，即如果空间不足，该item会缩小
+            //如果设为0 的话 就不会缩小
+
+            //flex-basis  类似width ，表示项目占据的主轴空间
+
+            //flex 属性是 flex-grow flex-shrink flex-basis的缩写
+            //默认值为 0 1 auto
+            //快捷设置  auto (1 1 auto)  none(0 0 auto)
+
+            //align-self 垂直方向的对齐 默认auto 继承flex-box(父容器的align-items)；
+            //如果没有父元素，auto=stretch
+
+        }
+
+    </style>
+    <script>
+        //http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+//        http://www.ruanyifeng.com/blog/2015/07/flex-examples.html
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <pre>
+                .left{
+                    flex:1;
+                    border:1px solid gray;
+                }
+            </pre>
+        </div>
+        <div class="right">
+            <pre>
+               .right{
+                    flex:1;
+                    border:1px solid gray;
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="main">
+        <div class="left">
+            <pre>
+                .left{
+                    flex:1;
+                    border:1px solid gray;
+                }
+            </pre>
+        </div>
+        <div class="middle">
+            <pre>
+                .middle{
+                    flex:2;
+                    border:1px solid gray;
+                }
+            </pre>
+        </div>
+
+        <div class="right">
+            <pre>
+               .right{
+                    flex:1;
+                    border:1px solid gray;
+                }
+            </pre>
+        </div>
+    </div>
+
+<p>老外完全使用 弹性布局的页面</p>
+</body>
+
+</html>
