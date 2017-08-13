@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table border="5" width="100%">
+		<tr><td>学号</td><td>姓名</td><td>魅力值</td></tr>
+		<tr><td>1</td><td>秋香</td><td>沉鱼落雁</td></tr>
+		<tr><td>2</td><td>秋香</td><td>沉鱼落雁</td></tr>
+		<tr><td>3</td><td>秋香</td><td>沉鱼落雁</td></tr>
+	</table>
+
+	<table border="5" width="100%">
+		<tr><td>名称</td><td>代码</td><td> 成交量（万股）</td><td>总成交额（万元）</td></tr>
+		<tr><td>神州泰岳</td><td>sz300002</td><td>  14.71</td><td>351</td></tr>
+		<tr><td>神州泰岳</td><td>sz300002</td><td>  14.71</td><td>351</td></tr>
+		<tr><td>神州泰岳</td><td>sz300002</td><td>  14.71</td><td>351</td></tr>
+		<tr><td>神州泰岳</td><td>sz300002</td><td>  14.71</td><td>351</td></tr>
+		
+	</table>
+
+	<table border="2" width="500" cellspacing="0" cellpadding="20" align="center">
+		<caption>学号编排</caption>
+		<thead>
+			<tr align="center">
+				<td>学号</td>
+				<td>姓名</td>
+				<td>魅力值</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr align="center">
+				<td>1</td>
+				<td>秋香</td>
+				<td>沉鱼落雁</td>
+			</tr>
+			<tr align="center">
+				<td>1</td>
+				<td>秋香</td>
+				<td>沉鱼落雁</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- 
+2017年 摩托罗拉 销售记录表
+		业务员     销售额     部门总计
+		霉超疯      100       600
+		锅尽        200       600
+		黄蓉		    300	   		600
+		评语：      恩！干的不错！周末吃火锅！ -->
+
+	<table width="500" border="1" align="center" cellspacing="0">
+		<caption>2017年 摩托罗拉 销售记录表</caption>
+		<thead>
+			<tr>
+				<td>业务员</td>
+				<td>销售额</td>
+				<td>部门总计</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>霉超疯</td>
+				<td>100</td>
+				<td rowspan="3">600</td>
+			</tr>
+			<tr>
+				<td>霉超疯</td>
+				<td>100</td>
+				<!-- <td>600</td> -->
+			</tr>
+			<tr>
+				<td>霉超疯</td>
+				<td>100</td>
+				<!-- <td>600</td> -->
+			</tr>
+			<tr>
+				<td>评语：</td>
+				<td colspan="2">恩！干的不错！周末吃火锅！</td>
+				<!-- <td>600</td> -->
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

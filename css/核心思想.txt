@@ -9,7 +9,7 @@ inline-block 间隙问题
 
     间接 直接 Dimensions
 
-    relative 和 sattic relative z-index auto 一般会显示在上层
+    relative 和 static relative z-index auto 一般会显示在上层
 
     非继承的css属性 需要特别记忆
 

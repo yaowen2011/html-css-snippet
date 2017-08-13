@@ -37,6 +37,54 @@ https://www.sitepoint.com/woorank/
 }
 
 /*padding margin*/
+.l-mv0 {
+   margin-top:0;
+   margin-bottom:0;
+}
+.l-mv1 {
+   margin-top:4px;
+   margin-bottom:4px;
+}
+.l-mv2 {
+   margin-top:8px;
+   margin-bottom:8px;
+}
+.l-mv3 {
+   margin-top:16px;
+   margin-bottom:16px;
+}
+.l-mv4 {
+    margin-top:32px;
+    margin-bottom:32px;
+}
+
+.l-mh-auto {
+    margin-left:auto;
+    margin-right:auto;
+}
+.l-mh0 {
+    margin-left:0;
+    margin-right:0;
+}
+.l-mh1 {
+    margin-left:4px;
+    margin-right:4px;
+}
+.l-mh2 {
+    margin-left:8px;
+    margin-right:8px;
+}
+.l-mh3 {
+    margin-left:16px;
+    margin-right:16px;
+}
+.l-mh4 {
+    margin-left:32px;
+    margin-right:32px;
+}
+
+
+
 .l-pv0 {
     padding-top:0;
     padding-bottom:0;
@@ -151,7 +199,7 @@ https://www.sitepoint.com/woorank/
     padding-top:8px;
 }
 .l-pt3 {
-    paddint-top:16px;
+    padding-top:16px;
 }
 .l-pt4 {
     padding-top:32px;
@@ -167,10 +215,54 @@ https://www.sitepoint.com/woorank/
     padding-top:8px;
 }
 .l-pr3 {
-    paddint-top:16px;
+    padding-top:16px;
 }
 .l-pr4 {
     padding-top:32px;
+}
+
+.l-pb0 {
+    padding-bottom:0;
+}
+.l-pb1 {
+    padding-bottom:4px;
+}
+.l-pb2 {
+    padding-bottom:8px;
+}
+.l-pb3 {
+    padding-bottom:16px;
+}
+.l-pb4 {
+    padding-bottom:32px;
+}
+
+.l-pl0 {
+    padding-left:0;
+}
+.l-pl1 {
+    padding-left:4px;
+}
+.l-pl2 {
+    padding-left:8px;
+}
+.l-pl3 {
+    padding-left:16px;
+}
+.l-pl4 {
+    padding-left:32px;
+}
+.l-pl5 {
+    padding-left:64px;
+}
+.l-pl6 {
+    padding-left:128px;
+}
+.l-pl7 {
+    padding-left:256px;
+}
+.l-p18 {
+    padding-left:512px;
 }
 
 
@@ -181,6 +273,38 @@ https://www.sitepoint.com/woorank/
 .l-w-100 {
     width:100%;
 }
+
+.l-w0 {
+   width:0;
+}
+.l-w1 {
+   width:4px;
+}
+.l-w2 {
+   width:8px;
+}
+.l-w3 {
+   width:16px;
+}
+.l-w4 {
+   width:32px;
+}
+.l-w5 {
+    width:64px;
+}
+.l-w6 {
+    width:128px;
+}
+.l-w7 {
+    width:256px;
+}
+.l-w8 {
+    width:512px;
+}
+.l-w9 {
+    width:1024px;
+}
+
 
 
 .l-h0 {
@@ -207,8 +331,13 @@ https://www.sitepoint.com/woorank/
 .l-f-l {
     float:left;
 }
-.l-l-fr {
+.l-f-r {
     float:right;
 }
 
+.after-clear:after {
+    content:"";
+    display:block;
+    clear:both;
+}
 

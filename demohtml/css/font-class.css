@@ -11,10 +11,22 @@ https://www.sitepoint.com/woorank/
     color:#a2a2a2;
 }
 
+.f-c-white {
+	color:#fff;
+}
+
 
 /*字体大小*/
 .f-small {
     font-size:0.875rem;
+}
+
+.f-middle {
+	font-size:1.2rem;
+}
+
+.f-large {
+	font-size:1.6rem;
 }
 
 

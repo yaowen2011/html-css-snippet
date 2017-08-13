@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿制博学谷页面</title>
+	<link rel="stylesheet" href="../css/font-class.css">
+	<link rel="stylesheet" href="../css/layout-class.css">
+	<link rel="stylesheet" href="../css/bg-color-class.css">
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+		
+		ul, li {
+			list-style:none;
+		}
+
+		.main-container {
+			
+		}
+
+		.header {
+			color:#fff;
+			height:50px;
+			background-color: #000;
+		}
+
+		.header-container {
+			width:1200px;
+			margin:0 auto;
+		}
+		
+		.header-container ul,.header-container li, .header-container img, .header-container div {
+			display: inline-block;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+	疑问点：
+	css中 frmae.style.MozBoxSizing = "border-box"
+	css bem命名法
+	    将不同的css属性封装成不同的 class 可行性?
+	min-height：100vh; //vh？
+	border-radius:20px;
+	-->
+	<div class="main-container">
+		<div class="header">
+			<div class="header-container" style="">
+				<img class="" src="./images/logo.png" alt="黑马程序员">
+				<ul class="">
+					<li class=""><a href="" class="">首页</a></li>
+					<li class=""><a href="" class="">我的学习</a></li>
+					<li class=""><a href="" class="">我的班级</a></li>
+				</ul>
+				<div class="">
+					<img src="./images/avatar.png" alt="" class="">
+					<span>某某某</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

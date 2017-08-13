@@ -6,5 +6,5 @@ body{font：100%/120%;}
 line-height: 百分比表示法，使用相同的font-size为基础，加上继承性，导致不同大小的字体会使用同样的line-height
 
 固定值： 也不会跟随相应的font-size作调整
-默认值 normal: 会根据对应的font-size作出调整
+默认值 normal: 会根据对应的font-size作出调整，一般浏览器默认是 对应font-size的1.2倍
 纯数字：可以根据对于文字作出调整
