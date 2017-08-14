@@ -33,5 +33,9 @@ var a = {
 a.m1.m1_1();//undefined
 
 //this 陷阱3
+    //避免数组处理方法中this
+    //避免回调中的this
+
+
 
 

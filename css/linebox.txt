@@ -8,3 +8,21 @@ line-height: 百分比表示法，使用相同的font-size为基础，加上继�
 固定值： 也不会跟随相应的font-size作调整
 默认值 normal: 会根据对应的font-size作出调整，一般浏览器默认是 对应font-size的1.2倍
 纯数字：可以根据对于文字作出调整
+
+//from  《the css definitive guide》 page 134
+line-height:  行内元素  默认有个contentArea=font-size大小 相同大小的字体会形成一块contentArea
+		默认情况下，contentArea大小=linebox的大小
+
+		当line-height>font-size  (line-height-font-size)/2 = contentArea于linebox的上边距 以及下边距
+
+		line-height<font-size的情况，行与行就会存在交叉重叠；
+
+		line-height:实际上上设定的是 最小的行高距离； 
+			实际计算会根据行内最高 和最低的元素的bottom + contentArea于linebox之间的间距计算出来
+
+			To determine the leading for a given element, simply subtract the computed value of
+font-size from the computed value of line-height .
+
+		注意这句话中的 the computed value of《line-height根据它后面的单位，有好几种计算方式》,
+		计算出了这个最终的line-height，才可以开始计算 computed-line-height - font-size 行距(heading)
+

@@ -22,3 +22,8 @@ unix 公式中的单位
  有了这种单元组件，就有了无限扩展的可能
 
  像素 icon  文字 文字段  icon+文字
+
+  an inline element’s box with a point that is 0.5ex above the baseline of the parent
+element 其中的ex单位
+
+where 1ex is defined relative to the font-size for the parent element.
