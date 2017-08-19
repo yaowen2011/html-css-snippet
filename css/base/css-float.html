@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			white-space: pre;
+		}
+	</style>
+</head>
+<body>
+	<!-- seo
+		1、花钱
+		2、广发外链
+		3、语义化标签
+		4、多个a标签  搜索引擎可能 会以为网站在作弊
+	 -->
+	<div class="box-1">
+		css摆放盒子的方式：
+			普通流(标准流 normal flow)；
+			浮动；
+			定位；
+
+		盒子并排效果：
+			method1: display:inline-block;
+				缺点：有空隙
+					结构混乱；
+			method2: float;  (直接绑定到需要浮动的标签)
+				缺点： 需要清除;
+				特点：
+					1、脱离标准文档流；
+						不再占有 原来在文档中的位置;
+					2、浮动找浮动（盒子必须是连续的）（关键点）
+						注意上面的顶到了  box-1 的下边缘，而不是body的上边缘；
+					3、多个浮动元素，以顶部对齐；
+
+					4、float会改变元素的display (显示模式)
+					   变成inline-block元素， 而且是没有空格的显示效果。
+					5、文字会环绕浮动效果
+						文字不会去抢，图片浮动后剩余的位置，而是会环绕 。
+
+			    其他：
+			    	1、margins around floated elements do not collapse.
+			    	2、If you do float a nonreplaced element, you must declare a width for that element. Otherwise,  the element’s width will tend toward
+						zero.
+
+
+				溢出的内容不影响其他盒子，z-index也比一般的小
+
+
+
+	</div>
+	<div class="box-1">
+		清除float的方法:
+			1、设置父容器高度.
+				缺点：高度写死了，应当有内容自适应;
+			2、clear： left|right|both|none
+				每次清除浮动要增加一个标签，
+				2.1 内隔墙法
+					父元素内，最后一行加一个 block元素
+				2.2 外隔墙法
+					父元素同级，放在父元素下面
+				缺点：
+					导致无意义标签太多,html文件也比较臃肿;
+			3、overflow：hidden;
+				给父元素添加overflow ：hidden
+				缺点：
+					会导致父元素内，position 会把溢出的部分隐藏掉
+			4、伪元素after
+				本质上：模拟内隔墙法
+				伪元素默认是行内元素;
+				.clearfix:after {
+					content: ".";
+					clear:both;
+					display:block;
+					height:0;
+					visibility:hidden; /*隐藏盒子 */
+				}
+				.clearfix{*zoom:1;} /*IE6 IE7 专用*/
+			5、使用 before 和 after 双重清除
+				.clearfix:before, .clearfix:after {
+					content: "";
+					display: table;
+				}
+
+				.clearfix:after {
+					clear:both;
+				}
+				.clearfix {
+					*zoom: 1;/*小米再用 */
+				}
+
+	</div>
+</body>
+</html>

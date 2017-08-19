@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="">
+	<style>
+		body {
+			white-space: pre-line;
+		}
+
+		p {
+			border:1px solid gray;
+		}
+
+		.sub-t {
+			font-weight: bold;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		<h4>css引入方式</h4>
+		1、行内式:style=""
+		2、内嵌式:一定程度上，实现结构样式分离
+		3、外链式
+	</p>
+	<p>
+		<a href="#block" id="block">block元素</a>
+		<a href="#inline" id="inline">inline元素</a>
+		<a href="#inline-block" id="">inline-block元素</a>
+		<a href="#display" id="">三种模式转换</a>
+	</p>
+
+	<p id="block">
+		<span class="sub-t">block（块）元素</span>
+		比如：div、p 、h1
+		属性特点：
+		0、独占一整行
+		1、宽度默认填充满containing block（父容器）
+		2、不设高，高度由内容决定
+		3、可以设置 width 、height 、上下 左右的内外边距
+		4、可以容纳任何其他标签
+	</p>
+
+	<p id="inline">
+		<span  class="sub-t">inline(行内)</span>
+		比如：
+		span、a、strong
+		属性特点：
+			1、不能设置 width、height属性
+			2、一行可以放多个
+			3、行内不能放块级别元素
+			4、width 、height 内容决定
+			5、可以设置水平方向的padding 、margin
+		特例：
+			1、a 可以放img span div 等标签
+				注意：a链接内不能再放a链接，违背设计原理
+			2、p h1-h6只能放文字块，不能放其他的块级元素
+				如：p标签内不能放div标签
+	</p>
+
+	<p id="inline-block">
+		<span  class="sub-t">inline-block(行内块元素)</span>
+		比如：img 、input 、td
+		简单理解：放在行内的块
+			1、可以设置 width 、height 
+			2、一行可以放置多个
+			3、同行相邻 会产生缝隙
+	</p>
+
+	<p id="display">
+		div {
+			display:inline;
+		}
+
+		块级元素 转成行内元素 width height 失效
+
+		span {
+			display:block;
+		}
+		行内转成块级元素
+		span {
+			display:inline-block;
+		}
+	</p>
+</body>
+</html>

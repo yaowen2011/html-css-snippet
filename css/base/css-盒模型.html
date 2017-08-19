@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+		body {
+			/*white-space:pre-line;*/
+			white-space: pre;
+			/*border: 0; 清除input默认样式*/
+		}
+
+		.box-1 {
+			/*width: 300px;*/
+			height: 300px;
+			border-width: 3px;
+			border-color: blue;
+			border-style: solid;
+		}
+
+		input {
+			border: 0;		/*清除默认边框*/
+			border-top-width: 2px;
+			border-top-color: red;
+			border-top-style: solid;
+
+			border-bottom: 2px solid green; /*最后设置颜色*/
+
+			border-width: 10px 20px 30px 50px;
+			/*设置3个 上 右 下  左找不到 到对面找 就是右边*/
+			border-width: 20px 10px 60px;
+			/*设置两个参数 也是上 右  剩余 到对面找*/
+			border-width: 20px 10px; 
+			/* 设置一个 就是 设置全部*/
+			border-width:50px;
+
+		}
+		
+		/*细线表格细节*/
+		/* table>tr*5>td[name="td的属性"]{我是内容}*5 */
+		/* table>tr*5>td[name="td的属性"]{td的填充内容}*5 */
+
+		table {
+			margin: 0 auto;
+			width: 500px;
+			height: 300px;
+			border: 1px solid black;
+			border-collapse: collapse;
+
+			text-align: center;
+		}
+		/*边框合并*/
+		table td {
+			border: 1px solid black;
+		}
+
+		.box-3 {
+			
+		}
+
+		.box-4 {
+			width: 300px;
+			height: 300px;
+			border: 1px solid green;
+
+			/*css3 圆角
+				四个角
+				达到宽度一般  就变成一个圆了
+			*/
+			border-radius: 7px; 
+
+			/*左上 右上  右下 左下 
+				画4个圆
+				思路：可以制作 一般圆角的 盒子 
+
+				找对面 
+				左下 找 右上
+			*/
+			border-radius: 20px 50px 30px 10px;
+
+			/* 如果是个正方形, 希望设置成圆  一般给  50%=一半长度*/
+			/* 如果是个矩形，如果希望设置成圆  一半给  50%=一般长度*/
+		}
+
+		.box-5 {
+			width: 300px;
+			height: 300px;
+			border: 3px solid green;
+			border-radius: 50%;
+		}
+
+		.box-6 {
+			width: 600px;
+			height: 300px;
+			border: 3px solid red;
+			border-radius: 10px 50px;
+		}
+
+		.box-7 {
+			padding: 50px 20px 30px 20px;
+			border: 1px solid green;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		盒子模型
+			横向 - 纵向 各7个属性
+			margin-left + border-left + padding-left + width + padding-right + border-right + margin-right
+		所有的标签都是一个矩形框 (element box)
+
+		border 属性：
+			border-width: 3px; //默认是白色
+			border-color: blue;//默认没有样式  也是显示不出来
+			border-style: solid;//实线 solid|dashed|dotted点线|double双实线
+	</div>
+
+	<div class="box-2">
+		用户名：<input type="text">
+		用户名：<input type="text">
+		用户名：<input type="text">
+
+	</div>
+	
+	<div class="box-3">
+		table 知识点补充 ，实现了这个细线表格，基本上就可以用table来布局了
+		每次发现后面td的内容长度不一致，会导致上一行已经 绘制好的重新绘制
+		table 布局的 性能缺陷
+		<table>
+			<tr>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+				<td name="td的属性">我是内容</td>
+			</tr>
+		</table>
+		
+		table 的属性值 不要直接设置border属性，用css选择更加精确
+
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td name="td的属性">我是内容1</td>
+				<td name="td的属性">我是内容2</td>
+				<td name="td的属性">我是内容3--这个地方会导致重新绘制</td>
+				<td name="td的属性">我是内容4</td>
+				<td name="td的属性">我是内容5</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容1</td>
+				<td name="td的属性">我是内容2</td>
+				<td name="td的属性">我是内容3</td>
+				<td name="td的属性">我是内容4</td>
+				<td name="td的属性">我是内容5</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容1</td>
+				<td name="td的属性">我是内容2</td>
+				<td name="td的属性">我是内容3</td>
+				<td name="td的属性">我是内容4</td>
+				<td name="td的属性">我是内容5</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容1</td>
+				<td name="td的属性">我是内容2</td>
+				<td name="td的属性">我是内容3</td>
+				<td name="td的属性">我是内容4</td>
+				<td name="td的属性">我是内容5</td>
+			</tr>
+			<tr>
+				<td name="td的属性">我是内容1</td>
+				<td name="td的属性">我是内容2</td>
+				<td name="td的属性">我是内容3</td>
+				<td name="td的属性">我是内容4</td>
+				<td name="td的属性">我是内容5</td>
+			</tr>
+		</table>			
+	</div>
+	
+	<div class="box-4">
+		圆角边框
+	</div>
+
+	<div class="box-5">
+		通过圆角设置 变成圆形
+	</div>
+	
+	<div class="box-6">
+		左上 右上 右下  左下
+	</div>
+
+	<div class="box-7">
+		内边距
+		对浏览器的盒子模型，对应的不同	不同颜色要非常熟悉
+		padding-left: 10px;
+		padding-right: 20px;
+		padding
+	</div>
+
+	<div class="box-8">
+		外边距-margin
+		margin-right: 一般会把剩余的空间占满
+
+		margin 填充  clear:both 也是 增加下面元素的margin-top
+		外边距可以实现盒子居中, 非常常用
+
+		margin:0 auto; 实现水平居中 必须满足两个条件:
+		1、必须是块元素
+		2、必须设置width
+
+		图片两种居中方式：
+			1、text-align: center;
+			2、display：block; margin: 0  auto;
+
+
+		补充：
+		 	给行内元素，设置垂直外边距，会无效。 
+		 	水平方向的margin,有作用
+
+		 	不要给行内元素设置垂直内边距;
+		
+
+		垂直外边距
+			:相邻元素 垂直外边距 塌陷 collapse
+
+		嵌套外边距合并现象
+			这个是bug级:现象;
+			不设置border属性的话，
+		    子box的 margin-top 会被  迁移到父容器上
+
+		    解决方案：
+		    	1、设置border;
+		    	2、设置 padding-top;
+		    	3、父元素：添加overflow 触发独立作用域
+		    		触发bfc 块级格式化上下文
+		    	4、浮动、定位 
+
+
+
+	</div>
+
+
+	<div class="box-9">
+		 盒子在页面中，空间计算
+
+		 当子容器没有设置宽度，会充满父类容器，设置
+		 子容器的padding不会影响到  子容器占有的宽度（还是填充满父容器）
+	</div>
+</body>
+</html>

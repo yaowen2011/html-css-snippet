@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.text-top {
+			vertical-align:text-top;
+		}
+
+		.top {
+			vertical-align:top;
+		}
+		.text-decoration {
+			text-decoration:underline overline ;
+		}
+
+		.white-space {
+			white-space: pre;/*normal  pre-wrap pre-line*/
+		}
+	</style>
+</head>
+<body>
+	<p>Here: a <img src="./images/test.png" alt="tall image"> tall image, and then
+	<span class="top">some text</span> 这种情况是按照图片的最高进行对其.</p>
+	<p>Here: a <img src="./images/test.png" class="text-top" alt="tall"> image that's been
+	vertically aligned, and then a <img src="short.gif" class="textup" alt="short" />
+	忽略掉图片撑起的高度 找文本的最高端对其.</p>
+
+	<div style="font-size: 14px; line-height: 18px;">
+		I felt that, if nothing else, I deserved a
+		<span style="vertical-align: 10%;">raise</span> for my efforts.
+	</div>
+	<p class="text-decoration">
+		As you can see, any vertically aligned element can affect the height of the line.
+	</p>
+
+	<p class="white-space">
+		我是代码里空格
+		阿士大夫   
+		阿士大夫
+		大幅度
+	</p>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS font基本属性</title>
+
+	<style>
+	html {
+		font-size:18px;
+	}
+	body {
+		white-space:pre-line;
+	}
+
+	.font-size1 {
+		font-size:18px;
+		color:hotpink;
+	}
+
+	.font-size2 {
+		font-size:3em;
+		color:black;
+	}
+
+	.font-size3 {
+		font-size:2rem;
+		color:black;
+	}
+	.font-weight1 {
+		font-weight:400;/*默认值400 normal*/
+	}
+
+	.font-weight2 {
+		font-weight:lighter;
+/*		font-weight:normal;
+		font-weight:bold;
+		font-weight:bolder;*/
+	}
+
+	.font-weight3 {
+		font-weight:bolder;
+	}
+
+	.font-weight4 {
+		font-weight:bold;
+	}
+
+	.font-family1 {
+		font-family: "宋体"
+	}
+
+	.font-style {
+		/*font-style: normal;*/
+		font-style: italic;
+	}
+
+	.font1 {
+		/*font: font-style font-weight font-size/line-height font-family;*/
+		/*前面两个可以省略
+			默认：normal normal  
+			后面font-size 和font-family必须写
+		*/
+		font:italic bold 16px/1.2 "微软雅黑","宋体";
+	}
+	</style>
+</head>
+
+<body>
+	<!--属性是否继承性非常重要 
+			
+	-->
+	<p class="font-size1">
+		.font-size1 {
+			font-size:18px;
+			color:hotpink;
+		}
+		单位px:
+	</p>
+
+	<p class="font-size2">
+		.font-size2 {
+			font-size:3em;
+			color:black;
+		}
+		单位em:是当前字体的font-size的3倍
+	</p>
+
+	<p class="font-size3">
+		.font-size3 {
+		font-size:2rem;
+		color:black;
+	}
+	   单位rem：是相对于跟标签html的font-size的倍数
+	</p>	
+
+	<p class="font-weight1">
+		.font-weight1 {
+			font-weight:400;/*默认值400 normal*/
+		}
+	</p>	
+
+	<p class="font-weight2">
+		.font-weight2 {
+			font-weight:lighter;
+	/*		font-weight:normal;
+			font-weight:bold;
+			font-weight:bolder;*/
+		}
+	</p>
+
+	<p class="font-weight3">
+		.font-weight3 {
+			font-weight:bolder;
+		}
+	</p>	
+
+	<p class="font-weight4">
+		.font-weight4 {
+			font-weight:bold;
+		}
+	</p>	
+
+	<p class="font-family1">
+		.font-family1 {
+			font-family: "宋体";/* SimSun */
+			font-family: "SimSun";
+			font-family: "\58BD\BBD3";/*unicode*/
+			font-family: "宋体", "微软雅黑" /*备选 使用逗号隔开*/
+		}
+		font-family的三种表示方法
+	</p>
+	<p>
+		0、一般设置 font-size >= 14px;
+		1、font-size尽量设置成 偶数字体大小(ie兼容性等问题)；
+		2、
+	</p>
+	<p class="font-style1"> 
+		
+		设置字体样式
+	</p>
+	<p class="font1">
+		font1 {
+			/*font: font-style font-weight font-size/line-height font-family;*/
+			/*前面两个可以省略
+				默认：normal normal  
+				后面font-size 和font-family必须写
+			*/
+			font:italic bold 16px/1.2 "微软雅黑","宋体";
+		}
+		font的几个属性：连写顺序,不同属性值使用空格分开
+	</p>
+</body>
+</html>

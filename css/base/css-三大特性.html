@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			white-space: pre-line;
+			font-size:18px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		css 三大特性
+			1、继承性
+				继承父类容器的属性，
+				注意：类似 height、 bg-color 等属性是不继承的
+				扩展：百度搜搜 有多少关键属性是不被继承的
+
+				可以继承的属性：
+					text- font-  line- color 等可以继承；
+				其他的：
+					color:green !important   important不能继承 color:green 可以继承 
+				    一般不会被继承；
+			2、层叠性  
+				相同选择器 多次设置不同属性，后面的覆盖前面的属性(交集部分的属性)
+			3、优先级   
+				多套选择器，用在同一个对象，起作用的逻辑，通过优先级规则判定 
+
+				0,0,0,0
+				,id,class,p::firstline
+
+				id > class > 标签 伪类
+
+				div {
+					color: green!important; //对应的是第一位 权重最高
+				}
+
+			4、其他
+				继承的权重为 0 ；
+				行内优先 大于所有选择器 ，小于 !important
+				权重相同，就近原则
+				ul li 0,0,0,2
+				li    0,0,0,1
+
+				important 》 行内》 id 》class 伪元素 伪类 =》tag 》通配符 > 继承
+
+
+				0,1,0,1
+				0,1,0,1 相同权重  运用 “就近原则”
+
+				/////////////////////////////
+				要修改 a  的颜色 不能使用继承
+
+
+	</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background-color</title>
+
+	<style>
+		body {
+			font-size:18px;
+		}
+		p {
+			white-space:pre;
+			background-color: #eee;
+			background-image: url(./images/test.png);
+			/*background-position: 50% 50%;*/
+			background-position: 300px -50px;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	
+	<p>
+		搞清楚background 和 foreground区别
+		[文本 | 边框] 一般属于 foreground
+	</p>
+	<p>
+		background-color is not inherited.
+	</p>
+	<p>
+		Its default value is transparent
+	</p>
+	<p>
+		p {background-image: url(bigyinyang.gif);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;}
+		This causes the origin image to be placed such that its center is aligned with the cen-
+		ter of its element. In other words, the percentage values apply to both the element
+		and the origin image.
+	</p>
+
+	<p>
+		background-position:0% 0%; == left top
+		background-position:100% 100%; == right bottom
+
+		0------------>100%
+		|
+		|
+		|
+		▽------------100% 100%
+		100%
+	</p>	
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin:0;
+			padding: 0;
+		}
+
+		body {
+			white-space:pre-line;
+		}
+
+		p {
+			color:red;
+			border:1px solid #eee;
+		}
+
+		.class-selector1 {
+			font-size:18px;
+			font-weight: bold;
+			color:lightgreen;
+		} 
+
+		.class-selector2 {
+			font-size:15px;
+			font-weight:bolder;
+			color:lightblue;
+		}
+
+		/*这种思想很重要  使用不同的类的组合 实现样式
+			TODO 命名规范手册.doc
+		*/
+		.font20 {
+			font-size:20px;
+		}
+
+		.font30 {
+			font-size:30px;
+		}
+
+		.class-google {
+			white-space: normal;
+			font-size:100px;
+			font-family: "微软雅黑", "宋体";
+			font-weight:bolder;
+			word-spacing: normal;
+		}
+		.color-blue {
+			color:blue;
+		}
+
+		.color-red {
+			color:red;
+		}
+
+		.color-green {
+			color:green;
+		}
+
+		.color-orange {
+			color:orange;
+		}
+
+		/*写类名  起有语义的名字*/
+
+		#id-selector {
+			color:lightblue;
+
+		}
+	
+		a:link {
+			/*状态：没访问过的(静态)*/
+			color:green;
+		}
+
+		a:visited{
+			/*状态：访问过的(静态)
+			visited 有不兼容 
+			background-color设置给visited 
+			首先必须先设置a的background-color
+			*/
+			color : yellow;
+			font-size:3em;/*没有效果*/
+		}
+
+		a:hover {
+			/*状态:鼠标悬停(事件触发)
+			其他标签 可以有这个状态
+			*/
+			color:blue;
+			font-size:2em;
+		}
+
+		a:active {
+			/*状态：鼠标点击(事件触发)*/
+			color:lightgreen;
+		}
+
+		/*通过第几id来选*/
+		li:first-child {
+			color:red;
+		}
+
+		li:last-child {
+			color:blue;
+		}
+
+		/*还有连个特别成的参数
+			even 偶数
+			odd  奇数
+			2n
+			2n-1	
+			-2n+1 	//-2n必须在前面
+		*/
+		li:nth-child(3) {
+			color:lightgray;
+		}
+
+		li:nth-last-child(2) {
+			color:orange;
+		}
+		
+		/*css3 范畴, 修饰目标锚点的样式*/
+		/*:target {
+			color:black;
+		};*/
+
+		.sub-t {
+			font-weight:bold;
+			font-size:22px;
+		}
+
+		/*#sto-selector::first-letter {
+			font-size:40px;
+		}*/
+
+		.test::first-line {
+			/*white-space:normal;*/
+			color:blue;
+		}
+
+		.test::selection {
+			white-space:normal;
+			background-color: #red;
+		}	
+	</style>
+</head>
+<body>
+	<p>
+		CSS选择器
+		<a href="#tag-selector">标签选择器</a>
+		<a href="#class-selector">class选择器</a>
+		<a href="#id-selector">ID选择器</a>
+		<a href="#*-selector">通配符选择器</a>
+		<a href="#伪类-selector">伪类选择器</a>
+		<a href="#结构伪类-selector">结构伪类选择器CSS3</a>
+		<a href="#目标伪类-selector">目标伪类选择器 </a>
+		<a href="#multi-selector">复合选择器</a>
+		<a href="#attr-selector">属性选择器(css3)</a>
+		<a href="#sto-selector">伪元素选择器</a>
+	</p>
+	<p id="tag-selector">
+		p {
+			color:red;
+			属性名：属性值;
+			属性名：属性值;
+		}
+		标签选择器
+	</p>
+	
+	<p class="class-selector1" id="class-selector">
+		class="class-name"
+		类(class)选择器
+	</p>
+
+	<p class="class-selector2">
+		class="class-name"
+		类(class)选择器
+		TODO 查看命名规范手册.doc
+	</p>
+
+	<p  class="class-google">
+		<span class="color-blue">G</span>
+		<span class="color-red">o</span>
+		<span class="color-orange">o</span>
+		<span class="color-blue">g</span>
+		<span class="color-green">l</span>
+		<span class="color-red">e</span>
+	</p>
+
+	<p class="font30" id="id-selector">
+		ID选择器
+	</p>
+
+	<p id="*-selector">
+		通配符选择器，可以选中页面中所有的标签。
+		一般用于全局统一样式,样式初始化 
+
+		* {
+			margin:0;
+			padding: 0;
+			broder:0;
+		}
+	</p>
+	<p id="伪类-selector">
+
+		a:link {
+			/*状态：没访问过的(静态)*/
+			color:green;
+		}
+
+		a:visited{
+			/*状态：访问过的(静态)*/
+			color : yellow;
+			font-size:3em;/*没有效果*/
+		}
+
+		a:hover {
+			/*状态:鼠标悬停(事件触发)
+			其他标签 可以有这个状态
+			*/
+			color:blue;
+			font-size:2em;
+		}
+
+		a:active {
+			/*状态：鼠标点击(事件触发)*/
+			color:lightgreen;
+		}
+
+		伪类选择器
+		a标签的味蕾选择器
+		尽量按照顺序编写
+		记忆：lv 哈哈
+		<a href="">百度</a>
+		<a href="">阿里巴巴</a>
+	</p>
+
+	<p id="结构伪类-selector" class="li-selector">
+		结构伪类-selector
+		li:nth-child(3) {
+			color:lightgray;
+		}
+		可能bug：好像不能在子孙选择器中使用这种方式
+		<ul>
+			<li>第一个孩子</li>
+			<li>第二个孩子</li>
+			<li>第三个孩子</li>
+			<li>第四个孩子</li>
+			<li>第五个孩子</li>
+			<li>第六个孩子</li>
+		</ul>
+	</p>
+	<p id="目标伪类-selector">
+		目标伪类-selector
+
+	</p>
+
+	<p id="multi-selector">
+		<span class="sub-t">复合选择器</span>
+			1.交集选择器(两个同时满足)
+				h3.class  span#sub-id  .class1.class2 
+				.class1#idname
+				注意：
+				    有标签选择器，标签必须放在前面（污染变量名）
+			2、并集选择器
+				h3, 
+				div, 
+				span {....}
+
+			3、后代选择器 (descendants selector)
+			    ul li 
+
+			4、子元素选择器
+				ul>li ul>li>span>a
+
+			
+	</p>
+
+	<p id="attr-selector">
+		<span class="sub-t">属性选择器(css3)</span>
+			1、E[attr] :存在attr属性即可选取；
+			2、E[attr="radio"] : 属性值为radio的即可选取；
+			3、E[attr*='ve']: 只要找到ve 字符就匹配；
+			4、E[attr^='radio']: radio 开始就能匹配到；
+			5、E[attr$='radio']: 以radio结尾的 就能找到；
+		    6、 attr~="radio" type~="hot"
+		    	使用空格分割的多属性 type="hot hot2"
+		    	必须与分割出来的属性完全相等，
+		    	注意：完全相等
+		    7、li[price|='very'] 
+		        类似于very very- 就可以别选中
+		        可以选中 very very-content1 very-content2
+		        这个very 还必须是写在最左边的属性
+		        完全的css国际命名规范 才有作用 
+
+	</p>
+	<p id="sto-selector" class="test">
+		aasjfklkasjf
+		<span class="sub-t">伪元素选择器(css3)</span>
+	
+	</p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		/*background -color
+					image
+					repeat
+					attachment
+					position
+					size 
+					*/
+		/*background-size: 100% 100% 撑满父容器
+		  background-size: cover;//覆盖整个父容器 按照原来比例缩放
+		  background-size: contain;//必须保证原来比例 以及 完整显示出来 默认会居中
+
+		  多背景 css3  一定要设置no-repeat,移动端适配
+		    小的图片(必须)放在上面 ，后面的大图会层叠到后面
+			background-image:url("small.jpg"), url("middle.jpg");
+		*/			
+			
+		body {
+			background: url("../images/king.jpg") no-repeat center top;
+		}
+
+		.bg-color {
+			height:400px;
+			background:rgba(0, 0, 0, 0.4);/*透明度颜色设置*/
+		}
+		div {
+			/*width: 1000px;
+			height: 100px;
+			background-color: pink;*/
+			/*background-image: url("../images/test.png"); /*尽量带引号*/*/
+			/*background-image: none;*/
+			/*background-repeat: repeat; x/y方向上都扩展
+			background-repeat: no-repeat;*/
+			/*background-repeat: repeat-x;*/
+			/*background-repeat:no-repeat;*/
+			/*background-repeat: repeat-y;*/
+			/*背景位置
+				left right top bottom  这种以 推到哪个角落来理解
+				也可以设置数值，以容器左上角为顶点
+			*/
+			/*background-position: left center;
+				两个都是center可以省略 一个写成
+				background-position:center;
+			*/
+			/*background-position: 10px 10px;*/
+
+			/*background-attachment: scroll;默认值：scroll*/
+
+			/*只有scroll的时候才可以设置 position这个时候 其实是relative的 fixed的时候设置就无效了*/
+
+			/*连写
+			background: color img repeat attachment position 
+			*/
+			
+			/* background-size 不放在连写中 (CSS3属性)*/
+
+		}
+	</style>
+</head>
+<body>
+	<div class="bg-color">
+		
+	</div>
+</body>
+</html>

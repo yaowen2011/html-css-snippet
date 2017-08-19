@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text word letter </title>
+	<style>
+		body {
+			white-space : pre-line;
+		}
+		p {
+			border:1px solid #eee;
+			margin:10px 10px;
+			padding:10px ;
+		}
+
+		#text-align {
+			text-align:center; /*right|left*/
+		}
+
+		#text-indent {
+			white-space:normal;
+			text-indent:3em;
+		}
+
+		#word-spacing {
+			word-spacing: 16px;
+		}
+
+		#letter-spacing {
+			letter-spacing: 16px;
+		}
+
+		#text-shadow {
+			/*水平偏移 垂直偏移 模糊度 颜色值
+				注意：这个属性可以设置多组
+
+				模糊度 这个属性有点奇怪单位是px 越大越模糊
+			*/
+			text-shadow: 0px 0px 0 rgba(255, 0, 0, 0.5), 6px 8px 2px rgba(255, 0, 0, 0.5);
+		}
+		
+	</style>
+</head>
+<body>
+	<p>
+		<a href="#color-selector">color</a>
+		<a href="#line-height-selector">line-height</a>
+		<a href="#text-align">text-align</a>
+		<a href="#text-indent">text-indent</a>
+		<a href="#word-spacing">word-spacing</a>
+		<a href="#letter-spacing">letter-spacing</a>
+		<a href="#text-shadow">text-shadow(css3)</a>
+	</p>
+	<p id="color-selector">
+		color属性的三种表示方法；
+		color:#ffffff;//不区分大小写
+		color:#fff;//缩写方式
+		color:red;
+		color:rgb(128, 128, 128);
+		color:rgb(10%, 10%, 10%);
+		color:rgba(128, 128, 128, 0.3);//css3 alpha值默认为1   0：完全透明
+		color:#ff0000;//red
+		color:#00ff00;//green
+		color:#0000ff;//blue
+	</p>
+
+	<p id="line-height-selector">
+
+		顶线 中线 基线  底线 
+		w3c : baseline到baseline的距离 就是line-height
+		fireworks操作的时候一般：
+		line-height:
+		    找两行的文字底部
+		page 134
+		一般单行的的垂直居中效果，设置height和line-height相等;
+
+		line-height:有多种单位表示方法；
+			px:固定值；
+			em:相对容器的font-size进行设置；
+			120%：同上
+			1.6：不加单位相对于自己的font-size属性进行计算line-height	
+		不管哪种计算方式：最终都转换到 px单位，进行渲染。
+
+		font-size < line-height的情况，会出现行overlaping的情况。
+	</p>
+
+	<p id="text-align">
+		文本的对其方式
+
+	</p>
+
+	<p id="text-indent">
+		首行缩进文本	
+	</p>
+
+	<p id="word-spacing">
+		词间距
+		注意：对中文 整段 没有 效果 有空格形成词的间隙就有效果
+	</p>
+
+	 <p id="letter-spacing">
+	 	字符间距
+	 </p>
+
+	 <p id="text-shadow">
+	 	文字阴影(css3) 文字阴影(css3)  文字阴影(css3)
+	 </p>
+</body>
+</html>
