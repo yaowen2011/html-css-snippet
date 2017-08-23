@@ -32,6 +32,12 @@ arr.forEach(
 );
 console.log(sumOfSquares);
 
+// arr.forEach(
+// 	function (item) {
+//       console.log(that.v+' '+item);
+//     }
+// );
+
 var arr = [1,2,4,5,6,3];
 console.log("JS中array常用的api============");
 console.log("join方法==========");
@@ -81,9 +87,9 @@ arr.filter(function(x) {
 	return x<3;
 });
 
-arr.filter(function(i) {
-	return  i%3 = 0;
-});
+// arr.filter(function(i) {
+// 	return  i%3 = 0;
+// });
 
 //every some  返回some
 arr.every(function() {

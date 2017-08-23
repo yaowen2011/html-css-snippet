@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css中定位的一些特点</title>
+	<style>
+		html, body {
+			white-space: pre;
+		}
+
+				.father {
+			width: 400px;
+			height: 400px;
+			background-color: #666;
+			font-size: 40px;
+			color: red;
+			/*text-indent: 2em;*/
+			cursor: pointer;
+			position: relative;
+
+			/*overflow: hidden;	*/
+		}
+
+		.son {
+			
+			background-color: red;
+			position: absolute;
+			
+			
+			top: 10%; bottom: 20%; left: 50%; right: 10%;
+/*min-width: 10em; min-height: 20em;*/
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		
+		relative | static ：
+			containing block: the content edge of the nearest block-level, table cell, or inline-block ancestor box.
+		absolute ：
+			containing block:  the nearest ancestor (of any kind)， position不为static的
+				如果包含快是 block-level：
+					the containing block is set to that element’s padding edge
+				如果是inline
+					the containing block is set to the content edge of the ancestor.
+
+		elements can be positioned outside of their containing block.
+		效果和 float 元素设置负的 margin值
+
+		定位情况下的包含块， 一般会用术语"positioning context " 来表示
+
+		top，right ，bottom left
+			作用于定位除了static的元素
+
+		定位的时候这些属性margins, borders, padding, and content—is moved in the
+		process of positioning it  全部都会被同步 偏移
+
+		min-width
+		min-height
+		max-width
+		max-height
+
+		定位元素 宽高不设置：
+		    left：50%； right: 20%; 则浮动元素宽度为 包含块的 30%；
+		    如果 再 设置 min-width: 15em; 则  定位 元素的最小宽度不会小于15em.
+
+		    p.aside {float: left; width: 40em; max-width: 40%;} 
+		    使用相对单位的时候，可以结合使用 min-max属性，
+		    目的  let you mix units with relative safety.
+
+		    clip 决定渲染 多大的面积，相对于原来的width height
+
+
+		    设置子元素的定位为absolute，一般配合设置包含块 relative来实现
+		    It is common for an author to pick
+			an element that will serve as the containing block for the absolutely positioned ele-
+			ment and give it a position of relative with no offsets
+			
+			决定定位元素的子元素的 包含块：
+			An important point to highlight is that when an element is absolutely positioned, it
+also establishes a containing block for its descendant elements
+	</div>
+
+	<div class="box-2">
+		
+		<div class="father">
+		<!-- 容器文字 -->
+		<div class="son">
+			
+			子容器文字
+		</div>
+	</div>
+	</div>
+
+	<div class="box-3">
+		<p>
+		When we consider the effect of positioning, it quickly becomes clear that authors
+		can do a great deal of damage to layout, just as they can do very interesting
+		things.<span style="position: absolute; top: auto; left: 0;">[4]</span>
+		This is usually the case with useful technologies: the sword always has
+		at least two edges, both of them sharp.
+		</p>
+	</div>
+
+	<div class="box-4">
+		top left right 除了bottom 设置成auto，的现象,就好像原本已static 所在的位置
+	</div>
+	<div class="box-4">
+		left + margin-left + border-left-width +
+		padding-left + width + padding-right + border-right-width + margin-right + right =
+		the width of the containing block.
+
+	</div>
+
+	<div class="div-5">
+		折磨人的auto
+	</div>
+	<div class="div-6">
+		z-index
+		z-index : 100000
+			居于最顶层 
+	</div>	
+	<div class="div-7">
+		
+		static : 不能使用top left 等属性
+		relative：
+			可以使用top left等属性
+			没有脱离文档流 
+		    相对定位以自身原有的位置
+		    不会改变元素的显示模式
+		absolute:
+			脱离标准文档流
+			找到  非relative 的块	
+			改变元素显示模式 inline-block;
+		fixed:
+			脱离标准文档流
+			可以使用边偏移
+			参考的是  visible-view   永远参考浏览器可视区域 (滚动条没有效果 )
+				注意： 如果body加了margin-top top还是会去找body的top
+			改变元素的显示模式 inline-bock;
+
+
+	</div>
+
+	<div class="div-8">
+		absolute fixed 如何水平 垂直居中
+
+		left:50%; margin-left:-1/2width; 
+		
+
+		子绝 父相
+			父相：
+			子绝：必须变成绝对定位
+	</div>
+</body>
+</html>

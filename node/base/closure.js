@@ -16,14 +16,14 @@
 //感觉很像是 面向对象的私有变量，通过方法可以控制
 
 //这种变量除了普通值类型  函数  对象等都是可以通过闭包，保护起来的；
-
+//通过lexical scope  作用域链，来理解。
 //from master javascript
         // closures and looping
-       for (var i=1; i<=5; i++) {
-            setTimeout( function delay(){
-               console.log( i );
-            }, i*100);
-       }
+       // for (var i=1; i<=5; i++) {
+       //      setTimeout( function delay(){
+       //         console.log( i );
+       //      }, i*100);
+       // }
 
        //以上等价于
        // for (var i=1; i<=5; i++) {
@@ -41,3 +41,42 @@
        //         }, j*100);
        //     })( i );
        // }
+
+
+// Return an array of functions that return the values 0-9
+function constfuncs() {
+      var funcs = [];
+      for(var i = 0; i < 10; i++)
+            funcs[i] = function() { return i; };
+      return funcs;
+}
+var funcs = constfuncs();
+console.log(funcs[5]()); // What does this return?
+
+// Nested functions do not make private copies
+// of the scope or make static snapshots of the variable bindings.
+
+//this是关键字,不是变量  闭包也不能直接访问
+
+
+// Remember the fundamental rule of lexical scoping: JavaScript functions are executed
+// using the scope chain that was in effect when they were defined. 
+
+
+// Closures are easy to understand if you simply accept the lexical scoping rule: functions
+// are executed using the scope chain that was in effect when they were defined. 
+
+// page.182
+// But if the function defines a nested
+// function and returns it or stores it into a property somewhere, then there will be an
+// external reference to the nested function. It won’t be garbage collected, and the variable
+// binding object it refers to won’t be garbage collected either.
+
+var uniqueInteger = (function() { // Define and invoke
+      var counter = 0; // Private state of function below
+      return function() { return counter++; };
+}());
+
+uniqueInteger();
+uniqueInteger();
+console.log(uniqueInteger());

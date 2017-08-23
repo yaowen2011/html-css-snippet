@@ -144,7 +144,7 @@
 
 		.test::selection {
 			white-space:normal;
-			background-color: #red;
+			background-color: red;
 		}	
 	</style>
 </head>
@@ -161,6 +161,7 @@
 		<a href="#multi-selector">复合选择器</a>
 		<a href="#attr-selector">属性选择器(css3)</a>
 		<a href="#sto-selector">伪元素选择器</a>
+		<a href="#hover-selector"> 动态选择器 </a>
 	</p>
 	<p id="tag-selector">
 		p {
@@ -302,6 +303,22 @@
 		aasjfklkasjf
 		<span class="sub-t">伪元素选择器(css3)</span>
 	
+	</p>
+	<p id="hover-selector">
+		.banner:hover .btn {
+			//hover的时候选中
+			//浏览器 会动态捕获这样的选择器
+		}
+	</p>
+
+	<p id="brother-selector">
+		兄弟选择器
+		.banner ul li+li {
+			必须有个哥哥选择器
+
+			第一个li 不会被美化
+		}
+
 	</p>
 </body>
 </html>

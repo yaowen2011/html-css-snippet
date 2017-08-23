@@ -1,5 +1,17 @@
 //参考页面 http://javascript.ruanyifeng.com/oop/this.html
 
+//《JavaScript  definitive guide》 page.169
+// 第8章节函数 需要反复研读
+//Unlike variables, the  this keyword does not have a scope, and nested functions do not
+// inherit the  this value of the containing.
+
+// this 不是一个变量或者属性， this也没有作用域的概念, 所以 nested function 如果想要使用
+// this的话，他的外围函数可以吧this赋值个一个变量 然后内部的嵌套的函数可以使用 
+
+// Constructor
+// invocations differ from regular function and method invocations in their handling of
+// arguments, invocation context, and return value.
+
 //this 陷阱1
 var obj = {
     foo : function() {
