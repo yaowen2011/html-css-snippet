@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>word控制</title>
+	<style>
+		.box-1 {
+			/*主要处理英文单词 */
+			word-break: normal; /* 右侧英语单词不会拆开，为了单词完整性*/
+			word-break: break-all;/* 允许单词 词内 拆开 换行*/
+			word-break: keep-all; /* 只能在 半角空格或 连字符处换行  is-chris 连字符会换行*/
+
+			/*white-space 可以处理中文*/
+			white-space: normal;/* 默认 */
+			white-space: nowrap;/* 不换行 */
+			
+			/*文字溢出*/
+			/*	
+				单行省略号：
+					必须设置3个属性
+				white-space: nowrap;
+				overflow: hidden; clip属性必须配合 overflow 属性
+				text-overflow: clip | ellipsis; 
+
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		
+	</div>
+</body>
+</html>

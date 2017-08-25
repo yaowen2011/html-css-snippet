@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-2d变形</title>
+	<style>
+		div {
+			white-space: pre;
+			transition: all 2s;/* 和直接设置 margin-left区别???*/
+		}
+
+		.box-1:hover {
+			/*设置位移*/
+			transform: translate(100px);
+			/* x y 方向位移*/
+			transform: translate(100px, 400px);
+
+			/*translateX();*/
+			/*translateY();*/
+
+			transform: translateX(100px) translateY(200px);
+			/*50% 参考自己的高宽*/
+			transform: translateX(50%) translateY(50%);
+			
+			/*绝对定位 
+			使用translate在子元素 在父元素居中 垂直水平居中*/
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		位移 
+	</div>
+	
+
+	<div class="box-2">
+		缩放
+		transform: scale(1.5); //1.5倍
+					scale(x, y)
+		scale >1  代表放大
+		scale 0-1 表示缩小
+		scale 只传一个值 代表 水平垂直 都放大
+
+
+		默认：相对于 中心点缩放
+		transition: all 2s;        //设置补间
+		transform-origin: top left;//设置 形变 起始原点 放大 旋转都是这个位置
+
+		f12: 右键点击：hover  查看hover状态 
+	</div>
+
+	<div class="box-3">
+		旋转  
+		transform: rotate(30deg);//角度
+		transform: rotate(-30deg);//角度
+	</div>
+
+	<div class="box-4">
+		  倾斜 
+
+		  transform: skew(30deg); 
+		  //默认水平倾斜
+		  //默认左边倾斜
+		  //负值  右侧倾斜
+			
+			transform: skew(30deg， 30deg);
+			//垂直倾斜
+			支持矩阵 skewY();
+			//特性： 文字会 跟随倾斜
+	</div>
+	<div class="box-5">
+		支持矩阵
+	</div>
+</body>
+</html>

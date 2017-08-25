@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical-align</title>
+	<style>
+		img {
+			/*vertical-align: middle;*/
+			vertical-align: top;
+		}
+		/* 
+			vertical-align 一般用于img  textarea
+
+			本质上 图片 在找行内元素的几根线
+
+			top text-top的区别
+		*/
+
+		span {
+			line-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		<span>默认图片 文字 baseline 对齐</span>
+
+		baseline: 图片底部 与父容器 下面有空隙
+		<img src="../images/test.png" alt="">
+		<label>输入姓名：<input type="text"></label>
+
+		<!-- <span>测试text-top 对齐 top对齐 </span> -->
+	</div>
+
+	<div class="box-2">
+		图片 display：block  也可以取消底部的  
+		（本质上 行内 都会去找行lineheight 默认的baseline）
+
+	</div>
+</body>
+</html>

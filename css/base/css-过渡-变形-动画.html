@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡 变形 动画</title>
+</head>
+<body>
+	<div class="box-1">
+		过渡: transition
+		
+		transition: all 5s;
+		transition: width 2s, height 2s;
+		<!-- transition: height 0.2s; -->
+		transition-property:
+		transition-duration: 过渡的时长
+		transition-timing-function: ease 运动曲线
+		transition-delay:1s; 
+
+		transition:  过渡属性 花费时间 运动曲线 何时开始;
+			过渡属性：all | height | color |background-color
+			
+			运动曲线：linear ease逐渐慢 ease-in加速 ease-out减速 ease-in-out
+
+		hover 变小  抖动 原理 hover 上 变小 变小不再hover 变成自己原来的尺寸
+			 hover 离开
+		
+		这种动画的特性： 一般都会 一来一回
+
+		transition ：的核心功能  计算补间动画帧数   给他两个状态 给他一段时间 就给你算出来补间
+	</div>
+
+	<div class="box-2">
+		没有数值的属性：不能过渡； 如： display等
+	</div>
+
+	<div class="box-3">
+		.father:hover .son{}
+		.father:hover+.father {}
+		注意这种加号选择器的局限性 不能选前面的同级元素
+	</div>
+</body>
+</html>

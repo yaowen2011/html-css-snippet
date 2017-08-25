@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-3D</title>
+</head>
+<body>
+	<div class="box-1">
+		rotateX(360deg);
+		绕x轴 旋转
+	</div>
+		rotateY(360deg);
+		绕Y轴 旋转
+	<div class="box-2">
+		rotateZ() = rotate() 默认旋转 围着z轴
+	</div>
+
+	<div class="box-2">
+		透视效果
+		perspective
+		用来设置3d 效果
+		perspective: 500px;  //camera距离 一般设置在父元素上 
+
+		//perspective(200px)
+		
+		translate3d(100px, 100px, 100px);
+
+		translateZ(300px);//如果值设置很大  图景跑到 摄像机后面了
+
+		translateZ方向的位移  也可以实现缩放的效果  
+		     z方向位移 也可以实现缩放
+
+		     负值就是 往前走 变小
+
+		     backspace-visibility:hidden; //转到90度的时候  门把是不是也可以这样控制
+	</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css动画 animation</title>
+
+	<style>
+		.box-2 {
+			/* 必须指定*/
+			animation-name: move;
+			/* 必须指定*/
+			animation-duration: 4s;
+			
+			/* 动画结束以后 是否 保持
+			forwards: 动画完了，保持动画后的状态;
+			backwards： 动画完了，回到之前的状态（默认值）;
+			*/
+			animation-fill-mode: forwards;
+
+			/*动画播放次数 
+				infinite:无限次;
+			*/
+			animation-iteration-count: 2;
+	
+			/*
+				alternate: 交替执行动画;	
+				alternate-reverse: 从to-from 的方式运动;
+			*/
+			animation-direction: alternate;
+
+			/*
+				动画 运动速度计算
+			*/
+			animation-timing-function: linear;
+
+			animation-delay: 10s; /*被后面的设置覆盖掉*/
+			/* 简写格式 */
+			animation: move 4s infinite alternate linear;
+			
+		}
+
+		.box-3 {
+			line-height: 40px;
+			font: 20px "simsun";/*覆盖掉了前面的设置 */
+		}
+
+		@keyframes moveBox {
+			0% {
+				transform: translate(0);
+			}
+
+			25% {
+				transform: translateX(800px);
+			}
+
+			50% {
+				transform: translate(800px, 600px);
+			}
+
+			75% {
+				transform: translate(0, 600px);
+			}
+
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+
+
+		@keyframes moveCar {
+			0% {
+				transform: translate(0);
+			}
+
+			45% {
+				transform: translateX(800px);
+			}
+
+			50% {
+				transform: translateX(800px) rotateY(180deg);
+			}
+
+			95% {
+				transform: translate(0) rotateY(180deg);
+			}
+
+			99% {
+				transform: translate(0) rotateY(180deg);
+			}
+
+			/*100% {
+				transform: translate(0) rotateY(180deg);
+			}*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box-1">
+		animation: 
+		/*定义一组序列帧动画*/
+		@keyframes move {
+			from {
+				transform: translateX(0);
+			}
+			to {
+				transform: translateX(800px);
+			}
+		}
+
+
+	</div>
+
+</body>
+</html>

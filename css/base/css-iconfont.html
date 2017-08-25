@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iconfont本质上矢量字体</title>
+</head>
+<body>
+	<div class="box-1">
+		移动端开发：非常常用
+
+		step 1 ui:保存为svn格式
+		step 2 上传:可以直接搜索  iconfont 
+		step 3 下载:
+		step 4 字体文件包引入到html页面中
+		
+		方法一:
+		生成的网站
+			https://commoon.io
+			import=>svg文件=>Generate Font=>download=>找到fonts文件夹=>
+			拷贝到images同级别
+			=》@font-face (有个新的font-family)
+
+			@font-face  {
+			font-family: "icomoon";
+			}
+
+			=》设置span  {
+
+				font-family: "icomoon";
+			}
+
+			=> 打开demo.html 选中“空白方框” 复制 粘贴  
+
+			
+
+	</div>
+
+	<div class="box-2">
+		
+		方法二： 伪元素
+			.box-2:before {
+				content: '\e92f';
+			}
+	</div>
+	
+	<div class="box-3">
+		
+		iconfont: 核心优点：
+			可以控制： font-size;
+					   color;
+	</div>
+	<div class="box-4">
+		www.iconfont.cn
+	</div>
+
+	<div class="box-5">
+		追加字体库 ，加入 替换
+		selection.json   上传 然后再 下载
+	</div>	
+</body>
+</html>
