@@ -35,19 +35,24 @@
 
             // 定义在主轴上对齐方式
             // 水平靠左|水平靠右| 水平居中 | 项目中间隔相等| 中间的间距会是两边的两倍
+            // flex-direction: column; 这个时候主轴是 垂直方向；
             //justify-content：flex-start | flex-end | center | space-between| space-around;
 
-            // 定义交叉轴上如何对齐
+            // 定义交叉轴(侧轴)上 整行 如何对齐
             // 垂直顶端|垂直底部|垂直居中|基准线|垂直方向撑满
-            //align-items:flex-star|flex-end|center|baseline|stretch;
+            //align-items:flex-start|flex-end|center|baseline|stretch;
+            // 默认顶部对齐
 
-
-            //align-content you多行的时候其作用 多行看成一个块
+            //align-content 
+            //只有一行无效
+            //you多行的时候其作用 多行看成一个块
             //align-content:flex-start | flex-end| center | stretch | space-between | space-around;
             //大块垂直居上|大块垂直居下|大块垂直居中|垂直水平铺满|垂直行间隔相等|中间的间隔是两边的两倍
         }
 
         .flex-item {//flex 内item的属性
+
+            //flex属性 和 父元素一样
             //排序属性 数值越小 排序越前
             //order
 
@@ -67,7 +72,12 @@
 
             //align-self 垂直方向的对齐 默认auto 继承flex-box(父容器的align-items)；
             //如果没有父元素，auto=stretch
+            
 
+            //align-self  和 父容器的 align-items 
+            //优先级 高于父容器的 align-items
+
+            //核心  flex-direction 会改变主轴
         }
 
     </style>
