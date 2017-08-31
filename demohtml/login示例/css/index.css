@@ -1,0 +1,136 @@
+#header {
+    height: 150px;
+    line-height: 150px;
+    position:relative;
+}
+
+#header h1 {
+    font-size: 24px;
+    font-weight: 400;
+    position: absolute;
+    bottom: -56px;
+}
+
+#main {
+    height: 600px;
+    background-color: #009ce3;
+
+}
+
+#main .w1 {
+    height: 100%;
+    background: url("../images/bg.png") 0 center no-repeat;
+    position: relative;
+}
+
+#main .login {
+    width: 400px;
+    height: 420px;
+    background-color: #ecf9ff;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+#main .login h3 {
+    height: 60px;
+    color: #333333;
+}
+
+#main .login input[type="text"], #main .login input[type="button"] {
+    width: 340px;
+    height: 46px;
+
+}
+
+#main .login input[type="text"] {
+    border: 1px solid #cdcdcd;
+    margin-bottom: 40px;
+    margin-left: -45px;
+    padding-left: 56px;
+}
+input::-webkit-input-placeholder {
+    font-size:16px;
+    color: #c1c1c1;
+}
+input::-moz-placeholder {
+    font-size:16px;
+    color: #c1c1c1;
+}
+#main .login input[type="button"] {
+    background-color: #00a0e9;
+    border: none;
+    border-bottom: 1px solid #0074a9;
+    color: #fff;
+    font-size: 20px;
+    word-spacing: 2.5em;
+}
+#main .login li {
+    /*positon: relative;*/
+}
+#main .login li span {
+    position: relative;
+    top: 1px;
+    z-index: 10;
+    /*transform: translate(0, -50%);*/
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    background-color: #e2e2e4;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    /*margin-right: -44px;*/
+}
+
+#main .login input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    /*-webkit-appearance: none;*/
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
+    margin-right: 9px;
+    vertical-align: bottom;
+    /*margin-bottom: 39px;*/
+    /*height: 52px;*/
+}
+
+#main .login li {
+    margin-bottom: 39px;
+    height: 46px;
+}
+
+#main .login li:nth-child(3), #main .login li:nth-child(4){
+    margin-bottom: 14px;
+}
+
+#main .login a,#main .login label {
+    font-size: 14px;
+    color: #797979;
+}
+
+/*footer*/
+#footer {
+    height: 150px;
+}
+
+#footer .w1 {
+    padding-top: 24px;
+    font-size: 12px;
+    color: #474747;
+}
+
+#footer .w1 a {
+    color: #474747;
+}
+
+#footer .w1 ul li {
+    float: left;
+}
+#footer .w1 .spacer {
+    margin: 0 6px;
+}
