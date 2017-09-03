@@ -51,3 +51,15 @@ function parseUrl(url) {
 
 console.log(parseUrl(url));
 
+//javascript cookbook  page19
+var str = "水果列表: 樱桃, 橙, 苹果, 香蕉.";
+var start = str.indexOf(":");
+var end = str.indexOf(".", start+1);
+var fruitList = str.substring(start+1, end).split(/\s*,\s*/);
+console.log(fruitList);
+
+//进制转换
+var decNum = 88;
+console.log(decNum.toString(8));
+console.log(decNum.toString(16));
+console.log(decNum.toString(2));

@@ -1,3 +1,4 @@
+//javascript中没有数组类型。通过javascript中的Array对象来支持数组.
 var arr = [1,2,3];
 delete arr[1];
 
@@ -99,3 +100,34 @@ arr.every(function() {
 //reduce  reduceRight
 
 //indexOf lastIndexOf  和string的api逻辑一致
+
+
+//扁平化 二位数组  concat() apply()
+var fruitArr = [];
+fruitArr[0] = ["水果1", "水果2"];
+fruitArr[1] = ["水果3", "水果4"];
+fruitArr[2] = ["水果5", "水果6"];
+fruitArr[3] = ["水果7", "水果8"];
+fruitArr[4] = ["水果9", "水果10"];
+
+//利用 apply的这种 可以传递数组参数的特性
+//普通情况可以写成furitArr[0].concat(fruitArr[1], fruitArr[2], fruitArr[3], fruitArr[4],);
+var newarr = [].concat.apply([], fruitArr);
+console.log(newarr);
+
+//splice  参数1：删除起始的index 参数2： 删除的个数 参数3: 替换被删除的元素
+
+//slice  浅拷贝 如果数组元素是对象类型， 两个数组指向的是同一个对象
+
+//类数组对象 使用 数组对象的方法
+
+//var cells = document.querySelectorAll("td+td");
+//[].foreach.call(cells, function(val, idx, arr){});
+
+//foreach map区别
+//foreach 修改原数组  handle函数没有返回值
+//map 生成新数组  handle函数有返回值
+
+//Object.keys()
+
+//如何深拷贝???

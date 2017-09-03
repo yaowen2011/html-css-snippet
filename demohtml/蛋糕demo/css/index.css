@@ -1,0 +1,160 @@
+#header {
+    height: 160px;
+    background: url("../images/bg-top0.png") 0 0 repeat-x;
+    position: relative;
+}
+
+#header .top-bg {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 25px;
+    background: url("../images/bg-top1.png") 0 0 repeat-x;
+}
+
+#header .w1 {
+    height: 160px;
+}
+#header .logo {
+    width: 221px;
+    height: 100%;
+    background: url("../images/logo.png") left center no-repeat;
+    margin-left: 54px;
+}
+#header .culture {
+    width: 636px;
+    height: 100%;
+    background: url("../images/culture.png") left center no-repeat;
+}
+
+#header .tel {
+    box-sizing: border-box;
+    width: 231px;
+    height: 111px;
+    background-color: #351004;
+    border: 4px solid #fe9a38;
+    border-radius: 12px;
+    margin-top: 14px;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 22px;
+    line-height: 1.4;
+}
+
+/* --------------------nav-------------- */
+#nav {
+    height: 40px;
+    line-height: 40px;
+    background-color: #351004;
+}
+#nav ul.menu {
+    margin-left: 60px;
+}
+#nav .menu>li {
+    /*margin: 0 30px;*/
+    padding: 0 30px;
+    font-size: 14px;
+}
+#nav .menu>li:hover {
+    background-color: #fe9a38;
+}
+
+#nav .menu>li:hover .submenu {
+    /*background-color: #fe9a38;*/
+    display: block;
+}
+
+#nav .menu li a {
+    color: #fff;
+}
+#nav .menu li {
+    position: relative;
+}
+#nav ul.submenu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+
+    background-color: #fe9a38;
+}
+#nav ul.submenu li {
+    padding: 0 30px;
+}
+
+#nav ul.submenu li:hover {
+    background-color: #341004;
+}
+
+/*-------------------banner--------------------*/
+#banner {
+    height: 450px;
+    background: url("../images/banner-bg.png") center center no-repeat;
+}
+
+
+/*-------------------main----------------------*/
+#main {
+    height: 1000px;
+    background: url("../images/main-bg.png") 0 0 repeat;
+}
+
+#main .shopshow .content {
+    height: 391px;
+    background-color: #644638;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #644638;
+    box-sizing: border-box;
+    padding: 18px 0 18px 17px;
+}
+
+#main .shopshow .content img {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 3px;
+}
+
+/*µ¯³ö²ã¹ã¸æ*/
+#popup {
+    position: fixed;
+    top: 262px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 563px;
+    height: 332px;
+    background: url("../images/popup.png") center center no-repeat;
+}
+
+#popup span {
+    position: absolute;
+    top: 51px;
+    right: 14px;
+    width: 27px;
+    height: 27px;
+    background: url("../images/btn-close01.png") center center no-repeat;
+    cursor: pointer;
+}
+#popup .msg, #popup .ask {
+    position: absolute;
+    bottom: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#popup .msg {
+    border: none;
+    width: 104px;
+    height: 33px;
+    background: url("../images/button-bg01.png") 0 0 no-repeat;
+    right: 180px;
+    color: #351004;
+}
+
+#popup .ask {
+    border: none;
+    width: 104px;
+    height: 33px;
+    background: url("../images/button-bg02.png") 0 0 no-repeat;
+    right: 60px;
+    color: #fff;
+}

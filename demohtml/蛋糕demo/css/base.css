@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.d-f {
+    display: flex;
+}
+
+.clearfix:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/* 主体版心 */
+.w1 {
+    width: 1235px;
+    margin: 0 auto;
+}
+
+.w2 {
+    width: 1083px;
+    margin: 0 auto;
+}
+
+/*通用色*/
+/*.col-blue {*/
+    /*color: #009ce3;*/
+/*}*/
+
+/* input */
+
+input {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.on {
+    display: block;
+}
+
+.off {
+    display: none;
+}
+
+.w138 {
+    width: 138px;
+}
+
+.w285 {
+    width: 285px;
+}
+
+.w605 {
+    width: 605px;
+}
+.h115 {
+    height: 115px;
+}
+
+.h341 {
+    height: 341px;
+}
+
+
+
+
+
