@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear-m-r {
+    /*margin: 0 10px;*/
+    margin-right: 0 !important;
+
+}
+
+.d-f {
+    display: flex;
+}
+
+.clearfix:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/* 版心宽度 */
+.w1 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.w1>h4 {
+    text-align: center;
+    font-size: 28px;
+    line-height: 68px;
+    color: #333;
+    font-weight: normal;
+}
+.w1>p {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+
+
+/* 通用色 */
+.col-brown {
+    color: #6e2127;
+}
+
+html,body {
+    font-family: "微软雅黑", "宋体";
+}
+
