@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery事件一些api</title>
+    <style>
+        div {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        div h3 {
+            border-bottom: 2px solid #666;
+            cursor: pointer;
+        }
+
+        .col-red {
+            color: red;
+        }
+
+        .box-1  li, .box-2  li{
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("div h3").bind("click", function(){
+                if ($(this).next().is(":visible")) {
+                    $(this).next().hide();
+                } else {
+                    $(this).next().show();
+                }
+            }).bind("mouseover", function() {
+                $(this).next().addClass("col-red");
+            }).bind("mouseout", function() {
+                $(this).next().removeClass("col-red");
+            });
+
+            //bind | delegate | on 等方法区别
+            //bind： 实现事件到元素的静态绑定，ul下的li都要绑定事件的话，效率会比较低
+            //delegate 利用了，浏览器中事件冒泡机制，点击到li上的行为，会向上冒泡，
+            $('.box-1 ul li').bind('click', function(event) {
+                var $this = $(this);
+                console.log($this.text());
+                console.log(event);
+                $this.after('<li>第7个li被触发点击</li>');//默认是没有事件绑定的
+            });
+
+            $('.box-2 ul').on('click', 'li', function(event) {
+                var $this = $(this);
+                console.log($this.text());
+                $this.after('<li>第7个li被触发点击</li>');//新增加的也会有事件绑定的
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h3>jquey是什么</h3>
+        <p>The code is hosted and developed in the jQuery GitHub repository. If you've spotted some areas of code that could be improved, please feel free to discuss it on the Developing jQuery Core Forum. If you'd like to participate in developing jQuery, peruse our contributor site for more information.</p>
+    </div>
+    <div class="box-1">
+        <ul>
+            <li>第1个li被触发点击</li>
+            <li>第2个li被触发点击</li>
+            <li>第3个li被触发点击</li>
+            <li>第4个li被触发点击</li>
+            <li>第5个li被触发点击</li>
+            <li>第6个li被触发点击</li>
+        </ul>
+    </div>
+
+    <div class="box-2">
+        <ul>
+            <li>第1个li被触发点击</li>
+            <li>第2个li被触发点击</li>
+            <li>第3个li被触发点击</li>
+            <li>第4个li被触发点击</li>
+            <li>第5个li被触发点击</li>
+            <li>第6个li被触发点击</li>
+        </ul>
+    </div>
+</body>
+</html>

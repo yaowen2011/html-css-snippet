@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jqeury几大块api熟悉</title>
+    <style>
+        .col-red {
+            color: red;
+        }
+    </style>
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            //创建节点
+            var $ul = $("<ul></ul>");
+            //创建文本节点
+            var $li_1 = $("<li>香蕉</li>");
+            var $li_2 = $("<li>雪梨</li>");
+
+            $("body").append($ul);
+            $("ul").append($li_1);
+            $("ul").append($li_2);
+            //创建属性节点
+            var $li_3 = $("<li class=\"col-red\">红苹果</li>");
+            $("ul").append($li_3);
+
+            //appendTo 和 append反向
+            var $li_4 = $("<li>appendTo苹果</li>");
+            $li_4.appendTo($("ul"));
+
+            var $ul = $("ul");//缓存查询结果
+
+            //prepend
+            var $li_5 = $("<li>prepend最前面</li>")
+            $ul.prepend($li_5);
+
+            //prependTo 同理
+
+            //after insertAfter 处理同级
+            var $li_6 = $("<li>after insertAfter</li>");
+            $("ul li:eq(0)").after($li_6);//第一个li的后面插入$li_6
+
+            var $li_7 = $("<li>before insertBefore</li>");
+            $("ul li:eq(0)").before($li_7);
+
+            //detach remove empty
+            var $li_detach = $("ul li:eq(0)").detach();//保留绑定的事件
+            var $li_remove = $("ul li:eq(1)").remove();
+
+            var $li_empty = $("ul li:eq(2)").empty();//清空节点内容
+
+            //复制节点 clone
+            $("ul li:last-child").on("click", function() {
+//                $(this).clone().appendTo($ul);
+                $(this).clone(true).appendTo($ul);//参数true  同时也复制绑定的事件
+
+            });
+
+
+            //替换节点 replaceWith replaceAll
+            $ul.before("<strong>最喜欢的水果是：</strong>");
+            $("strong").replaceWith("<p>最喜欢的水果是：</p>");
+
+            //包裹 wrap 意思 =wrapBy
+            $("p").wrap("<div></div>");
+
+            //属性操作
+            $("div").attr("title", "title悬浮文字");
+
+            $("div").removeAttr("title");
+
+            //语法糖  对获取元素的第一个元素进行
+            $("div").prop("title");
+            $("div").removeProp("title");
+
+            //语法糖
+            //addClass removeClass removeClass(class1 class2) hasClass()=$("p").is(".another")
+
+            //html 文本 值的set get
+            //html text val
+
+            //遍历节点
+            //children 只是遍历子元素而不包含其他后代元素
+
+            //prev
+            //next 同级元素
+            //siblings 所有同级
+
+            //parent   parents("ul")不会收手 closet("ul")找到一个收手
+
+            //css
+            // .css("height")
+            // .height()  页面中实际高度
+            //offset 相对于视窗 offset.left offset.top
+            //position position.left position.top
+            //scrollTop scrollLeft
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

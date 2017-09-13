@@ -104,7 +104,13 @@
     border: 1px solid #d0d0d0;
     background-color: #fff;
     margin-right: 19px;
+    padding: 8px;
+}
 
+#scene li img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 /* 我们的产品 */
 #product {
@@ -127,12 +133,59 @@
     background-color: #6e2127;
     color: #fff;
 }
+#product ul li.selector {
+    color: #fff;
+    background-color: #6e2127;
+}
 
 #product ul.w1 {
     padding-top: 28px;
 }
 
-/*footer*/
+#product .w2 {
+    padding-top: 124px;
+    position: relative;
+}
+#product .w2 .box-l, #product .w2 .box-r{
+    width: 50%;
+
+}
+
+#product .w2 h4 {
+    font-size: 50px;
+    font-weight: normal;
+    color: #333;
+}
+
+#product .w2 p {
+    line-height: 1.6;
+    font-size: 18px;
+    color: #999999;
+    padding-top: 20px;
+}
+#product .box-r {
+    margin-top: -30px;
+}
+#product .w2 .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 48px;
+    height: 104px;
+    cursor: pointer;
+}
+
+#product .w2 .arrow-l {
+    left: -186px;
+    background: url("../images/arrow-l.png") 0 0 no-repeat;
+}
+
+#product .w2 .arrow-r {
+    right: -186px;
+    background: url("../images/arrow-r.png") 0 0 no-repeat;
+}
+
+    /*footer*/
 #footer {
     box-sizing: border-box;
     padding-top: 30px;

@@ -41,14 +41,16 @@ console.log(sumOfSquares);
 
 var arr = [1,2,4,5,6,3];
 console.log("JS中array常用的api============");
-console.log("join方法==========");
-console.log(arr.join('---'));
+console.log(arr.join('---'), 'join()方法使用');
+
 
 console.log(arr.reverse().join());//join 默认逗号
+console.log(arr, 'reverse()会改变原数组');//reverse() 会改变原数组值
 
 //sort
 console.log("==================");
 console.log(arr.sort().join());
+console.log(arr, 'sort()会改变原数组');
 
 arr.sort(function(a,b){
 	return a-b;
