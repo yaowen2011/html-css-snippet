@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    //+ - * / %
+    // + 运算符的 多态
+    //+ 1：两个操作数，如果有一个字符串
+    //+ 2：都不是字符串，装成Number ，然后计算
+    //+ 3：只有一个+ 操作符号，装成Number
+    var num1 = 2;
+    var num2 = 4;
+    console.log(num1 + num2);
+
+    var num3 = undefined;
+    console.log(num1 + num3);
+
+    //-
+
+    var num1 = 123;
+    var num2 = undefined;
+    console.log(num1 - num2);
+
+    //*
+    var num1 = 3;
+    var num2 = 4;
+    console.log(num1 * num2);
+
+    // /
+    var num1 = 10;
+    var num2 = 3;
+    console.log(num1 / num2);
+
+    // %
+    var num1 = 10;
+    var num2 = 3;
+    console.log(num1 % num2);
+
+    var num3 = undefined;
+    console.log(num1 % num3);
+
+    var num4 = null;
+    console.log(Number(null));
+    console.log(parseInt(null))
+    console.log(num1 % num4);
+
+
+
+    //num++ 如果参与了其他运算，  后加1
+    //num = num + 1
+
+    var num = 2;
+    console.log(num++ + 4); //6
+    console.log(num);       //3
+    //++num 先加1
+
+    var num = 2;
+    console.log(++num + 4); //7
+
+    var num = 2;
+    // 2  3  4  3
+    console.log(num++ + ++num + --num);
+    console.log(num, '============');
+
+    var num = 2;
+    console.log(num++ + 1);
+
+    //逻辑运算符
+    // && || !
+    // && 两个操作数  都是true
+    // ||
+
+    //关系运算符
+    //> < = <= >= == === !==
+    //==  先转换数据类型,再比较值
+    //===全等 ：先比较变量类型 再比较变量值 多用全等  来判断
+    //!== 值或者类型不相等，返回true
+    var str1 = "2";
+    var str2 = "10";
+    console.log(str1 > str2, "'2'>'10' 字符串比较左边第一位");//true  一位一位进行比较
+
+    //赋值运算符
+    // = -= += /= *= %=
+
+    //优先级
+    // ()
+    // ++ -- !
+    // >=
+    // ===
+    // 先&& 后 ||
+
+
+    step1: 确定变量值
+    step2：确定计算的优先级
+</script>

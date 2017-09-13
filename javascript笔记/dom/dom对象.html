@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+//    The Element class also defines a  getElementsByTagName() method. It works in the same
+//    way as the Document version, but it only selects elements that are descendants of the
+//    element on which it is invoked. So to find all  <span> elements inside the first  <p> element
+//    of a document, you could write:
+//            var firstpara = document.getElementsByTagName("p")[0];
+//    var firstParaSpans = firstpara.getElementsByTagName("span");
+
+
+    //Document对象 Element对象的区别
+
+
+
+    var content = Array.prototype.map.call(document.getElementsByTagName("p"),
+    function(e) { return e.innerHTML; });
+
+    //Document method  querySelectorAll() .
+    //querySelector()不存在的话  返回null
+</script>
+</body>
+</html>

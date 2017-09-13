@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    基础数据类型：
+    Number String Boolean  Undefined Null Symbol
+
+    引用数据类型：
+    Object
+</body>
+</html>
+<script>
+//    Number.MAX_VALUE;
+//    Number.MIN_VALUE;
+//    Infinity;
+//    -Infinity;
+//    NaN;   //不是一个数字
+
+//    isNaN();
+    console.log(typeof NaN);//number
+
+    //boolean
+//    console.log(true == 1);
+
+    //String
+    var str1 = "字符串";
+    var str3 = '字符串一般使用单引号';
+    var str2 = new String("修改吧");
+
+
+    console.log(typeof null);
+    console.log(typeof(null));
+
+//    console.log(Object instanceof null); //报错
+
+    //字面量 变量
+
+    var arr = ["字面量", str2, function(){console.log(333)}, {prop:1}];
+
+    //变量声明时没有数据类型  赋值的时候确定类型
+
+    //转成字符串 1、toString 2、String 3、+ 有一个字符串类型，就会强制相邻的到字符串,然后拼接
+
+    //console.log 蓝色 int  黑色 string
+    //方法1：
+    console.log(false.toString());
+    console.log((1).toString());
+
+    //方法2：
+    console.log(String(12345));
+
+    //方法3：
+    console.log(1 + 'str');
+
+
+    //转成Number
+    //方法1：Number
+    console.log(Number('12abc'), '执行Number(\'12abc\')');//NaN
+    //方法2：parseInt()
+    console.log(parseInt('12abc'));
+    console.log(parseInt(true));//NaN
+    console.log(parseInt(null));//NaN
+    console.log(parseInt(undefined));//NaN
+
+    //方法3：parseFloat()
+    //方法4： + -  null=>0  undefined=>NaN
+    var str = '12abc';
+    console.log(+str, '执行+str');// NaN 不能转字符串
+
+    //parseInt parseFloat 只能转换类似这样的字符串'12abc' 其他的boolean undefined都不能转换
+
+    //转成boolean
+    //方法1： Boolean()
+        //string '':false  其他:true
+        //Number 0 NaN  false 其他true
+        //Null Undefined false
+    console.log(Boolean(0));//true
+    console.log(Boolean('0'));
+    console.log();
+    //方法2：!!
+
+    var num = 1;
+    num = num + 1;//等号右边的 num 其实隐含着一个  get 的操作 从内存中 将变量 num 取出
+
+    //类型转换的意义？
+    //找论证 循环的论文?
+
+    var arr = [];
+    for (var i=1; i<=100; ++i) {
+        var flag = true;
+        for (var j=2; j<i; ++j) {
+            if (i % j == 0) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) arr.push(i);
+    }
+    console.log(arr);
+
+    console.log(0.1 + 0.3);//0.3000009不同浏览器 不同结果  底层二进制
+    console.log(0.3 + 0.4);
+    console.log(1 - 0.1);
+</script>

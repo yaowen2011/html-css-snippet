@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    //理解作用域 理解优先级 就可以准确地  一步步拆解开   形成可以的 figure
+
+
+    // 执行的优先级 一元运算符
+    //    ++num --num
+
+    //作用域
+    //num++ + num 第二个num会重新去取 同一个作用域内
+
+    //执行的顺序
+    var num = 1;
+    num = num + 1;// num
+
+    function A() {}
+    var a = new A();
+    console.log(a instanceof A); // true
+    console.log(a.prototype);
+
+    function B() {}
+    A.prototype = B.prototype;
+    console.log(a instanceof A);
+    console.log(a instanceof B);
+
+
+</script>
+</body>
+</html>

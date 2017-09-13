@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function f(x,y){
+        console.log(x+y);
+    }
+
+    f.call(null,1,1) // 2
+    f.apply(null,[1,1]) // 2
+    f.apply(null, [1,1,1]);
+
+    console.log(Math.max(1, 2, 3, 4));
+
+    console.log(Math.max.apply(null, [1, 2, 3, 4, 5, 6]));//apply会把 数组映射成实参
+
+    //没有实现bind方法的
+    if ( !('bind' in Function.prototype) ) {
+        Function.prototype.bind = function() {
+            var fn = this;
+            var context = arguments[0];
+            var args = Array.prototype.slice.call(arguments, 1);
+
+            return function() {
+                return fn.apply(context, args);
+            }
+        }
+    }
+
+    var push = Function.prototype.call.bind(Array.prototype.push);
+    var pop = Function.prototype.call.bind(Array.prototype.pop);
+
+    function() {
+        Function.prototype.call.apply(Array.prototype.pop, args);
+    }
+    Array.prototype.pop.call([1,2,3]);
+
+
+//    Function.prototype.apply(context, args);
+    Array.prototype.pop.call(obj, args);
+    obj.pop();
+
+    //That is, in the expression  new o.m() ,  o is not used as the invocation context.
+    // 这种情况下 this还是指向m 不是o
+
+</script>
+</body>
+</html>

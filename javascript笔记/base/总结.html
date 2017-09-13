@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //核心思想： var set get 对变量（简单类型、数组 、对象）的读、写
+    //          对象的增、删、改、查
+    //      列表一类的： 数组、伪数组、字符串都可以看成表 记忆api
+    //var 在自己的作用域stack上 开辟内存
+    //各种语法糖： 核心
+    //申请内存空间 执行表达式  判断后 set、get变量语句  就是这样 其他基本上就是语法糖
+//    var foo;
+//
+//    if (bool) {
+//        set(foo);
+//        get();
+//    } else {
+//        set();
+//        get();
+//    }
+
+    //预解析 与  作用域链
+    //      函数只有调用的时候才开始 预解析 开始作用域查找
+
+    //Math Date Array String
+    //  内置api大坑!!!!!!
+    //  Array.prototype.sort() 底层会将元素转成ascii，所以一般传回调函数
+    //  String.prototype.replace('a', 'o') 每次只会替换一个
+
+    //Math ceil/floor/PI/random/round
+    //Date valueOf/getFullYear/getMonth/getDate等
+    //Array length
+    //      indexOf lastIndexOf
+    //      join sort reverse concat slice splice pop push shift unshift
+    //      filter map forEach some every
+    //String length charAt substring slice substr
+    //      字符串不可变，永远是返回新建的字符串
+    //      concat | +
+    //      indexOf lastIndexOf
+    //      split()
+    //      replace()
+
+
+
+    //api 有没有写入（修改）原来的对象很重要，影响到能不能执行链式编程；
+    //  sort reverse  splice  等会写入原数组
+
+    //工具方法 函数也是对象
+    new Date();//
+    //new的底层逻辑很重要：
+    //1、先新建一个空对象
+    //2、将this 指向这个空对象
+    //3、将属性写入到对象
+
+    Date.now();//
+    var Date = function() {
+        //一堆属性
+        //this.getHours = function() {};
+        //this.getMinutes = function() {};
+        //this.getSeconds = function() {};
+
+    }
+    //这种形式挂靠的属性|方法，不会被this继承到
+    Date.now = function() {
+        //return ''
+    }
+
+
+    //js中所有的都是可以看成对象，除了几个基础类型
+    //基本类型装箱
+
+    //算法相关
+    //冒泡中 执行的次数  相邻变量的交换 每执行完一次冒泡，肯定将最大，或者最小的元素，排到末尾;
+    //最大值  最小值 一类的问题: 一般可以将第一个元素赋值，循环从1开始
+    //数组翻转： 对称位置交换  for循环中 通过++i，修改数组指针  顺序执行 ++i; arr[i]//修改指针，再执行
+
+    //for循环理解加深，执行顺序 ，可以伸展开理解成顺序执行
+
+    //断点的位置：
+    //一般控制在 if等上  这些是cpu 执行逻辑的关键点，
+    //断点刚进入，没有执行;
+</script>
+</body>
+</html>

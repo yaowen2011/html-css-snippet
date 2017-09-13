@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    //先预解析，再执行，执行的时候才考虑到  作用域链
+    //1、预解析  var num  var fn = function(){}  提前把这些在内存中创建出来
+        //先知道需要多少杯子，
+//            全局的变量提升
+//            函数没有执行，的时候 不存在变量提升
+//            函数执行时，1、先预解析，存在变量提升,提升到局部作用域的顶部 2、然后给中赋值
+    //2、执行代码
+
+
+    //先提升变量，再提升函数
+
+//    var demo = 2;
+//    function demo() {
+//        console.log('我是demo函数');
+//    }
+//
+//    demo();//不是函数
+
+    //预解析
+//    var demo;
+//    function demo() {
+//        console.log('我是demo函数');
+//    }
+    //然后
+//    demo = 2; //堆上的函数 没有引用 会被回收
+    //然后
+//    demo();//报错
+
+
+    //看js代码 一定要想成预解析是什么样子
+
+
+
+    //var func = function(){}
+
+    //局部作用域，预解析  局部声明的变量 没执行时  函数没有执行,
+
+
+//    function fun(num) {
+//        num = 2;
+//    }
+//
+//    function fun(num) {
+//        var num;    //形参会在内部申请内存 接收
+//        num = 2;
+//    }
+
+//    function fun(num) {
+//        var num = 1;
+//        console.log(num);
+//    }
+//    fun(2);  //打印1
+
+//    var num = 1;
+//    function num() {
+//        num = 2;
+//    }
+//
+//    num(); //not a function
+//    console.log(num);
+
+//
+//    var num;
+//    function num() {
+//        num = 2;
+//    }
+//
+//    num = 1;
+//
+//    num();
+//    console.log(num);
+
+//    外面的函数体  (赋值不会提升)
+//    里面的函数体
+//    1
+
+    //思路 var   函数申明  统统都过滤掉 成声明 提升到最上面 函数只有执行的时候才让他加入  考虑范畴
+    function doSomething() {
+        for(var i = 0; 4 > i; i++) {
+            var k = 100;
+            aMrg += ',' + (k + i);
+        }
+    }
+    var k = 1, aMrg = k;
+    doSomething(); //1,100,101,102,1031
+    aMrg += k;
+    console.log(aMrg);
+
+
+    //计算下面程序运行结果
+    var msg = 'hello';
+    function great(name, attr) {
+        name = 'david';
+        var greating = msg + name + '!';
+        var msg = '您好';
+        for (var i = 0; i < 10; i++) {
+            var next = msg + '您的 id 是' + i*2 + i;
+        }
+        console.log(arguments[0]);  //Tom 这个地方打印的竟然是 david  自己函数内部写的后执行
+        console.log(arguments[1]);  //undefined
+        console.log(greating);      //undefineddavid!
+        console.log(next);          //您好您的 id 是189
+    }
+    great('Tom');
+
+
+
+    function Foo() {
+        var i = 0;
+        return function () {
+            console.log(i++);
+        }
+    }
+    var f1 = Foo(),
+        f2 = Foo();
+    f1();//0
+    f1();//1
+    f2();//0
+//    console.log(i);//报错 i is not defined
+    f1 = function() {
+        console.log(i++);
+    }
+
+
+    var a = 5, b = 3;
+    function test() {
+        alert(b++);
+        var a = 4;
+        alert(--a);
+        alert(this.a);
+    }
+    var temp = (new test());//this.a 为undefined 可见构造函数中 申明对象属性时，一定要this.a=4 不然取this.a就是
+                            //undefined
+</script>
+</body>
+</html>

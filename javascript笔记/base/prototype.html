@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var MyArray = function(){};
+
+    MyArray.prototype = new Array();
+    MyArray.prototype.constructor = MyArray;
+
+    //1、拥有构造对象的能力
+    //2、构造的对象 没有prototype属性 只有 __proto__属性
+//            指向构造函数的的prototype属性
+    console.log(MyArray.prototype.constructor);
+
+    var a = new MyArray();
+    console.log(a.__proto__);
+    console.log(a instanceof MyArray);
+    console.log(a instanceof Array);
+    console.log(a instanceof Function);//false
+    console.log(a instanceof Object);
+
+
+    var s = 'hello';
+    console.log(s instanceof String); // false
+
+    var s = new String('字符串');
+    console.log(s instanceof String); // true
+
+    //防止调用时 没有写 new 调用构造函数
+    function Constr(arg1, arg2) {
+        if (this instanceof Constr) {
+            this.arg1 = arg1;
+            this.arg2 = arg2;
+        } else {
+            return new Constr(arg1, arg2);
+        }
+    }
+
+    //基于实例对象 创建新的对象
+//    var A = {
+//        print: function() {
+//            console.log('hello');
+//        }
+//    }
+
+//    var B = Object.create(A);
+//    console.log(B.print === A.print);//true
+//    console.log(B.prototype);//undefined
+//    console.log(B.constructor.toString());
+
+    //如何生成一个 Object.create()方法
+//    if ( typeof Object.create !== 'function') {
+//        Object.create = function(obj) {
+//            function F() {};
+//            F.prototype = obj;
+//            return new F();
+//        }
+//    }
+
+    //对象默认是没有对象实例的  有原型对象 __proto__
+    function A() {};
+    function B() {};
+    function C() {};
+    C.prototype = new B();
+    B.prototype = new A();
+    A.prototype = new Array();
+
+    var c = new C();
+    var b = new B();
+    var a = new A();
+    console.log(c.__proto__);
+    console.log(c.prototype);
+
+
+    console.log(b.__proto__);
+
+    console.log(a.__proto__);
+
+    var a = new Array();
+    console.log(a.__proto__);
+
+    //构造一个简单的对象
+
+
+
+    var x = 10;
+
+    (function foo() {
+        var y = 20;
+        (function bar() {
+            var z = 30;
+            // "x"和"y"是自由变量
+            // 会在作用域链的下一个对象中找到（函数”bar”的互动对象之后）
+            console.log(x + y + z);
+        })();
+    })();
+
+
+
+
+
+</script>
+</body>
+</html>

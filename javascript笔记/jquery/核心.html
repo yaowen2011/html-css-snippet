@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log($("#id").length);
+            //jquery对象是一个类似数组的对象，可以通过[index]
+            var $id = $("#id");     //jquery 对象
+            var id = $id[0];        //方法一：Dom对象
+            var id = $id.get(0);    //方法二：
+
+            //Dom 转jquery对象
+            var id = document.getElementById('id');
+            var $id = $(id);        //dom转成jquery
+        });
+    </script>
+</head>
+<body>
+    <div id="id">
+        $("#id").length;
+    </div>
+</body>
+</html>

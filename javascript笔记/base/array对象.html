@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //判断是否是数组
+        // arr instanceof Array
+        // Array.isArray() es5
+
+
+        //toString  ,分割  join(',')
+        // valueOf 返回数组本身
+
+        var arr = [1,2l,3,4,5];
+        arr.join('-');
+
+        //数组的头尾 增、删  会写入原来的数组 arr发生改变
+        arr.push(2, 3, 4); //返回数组的 length
+        arr.pop();   //返回删除的值
+        arr.shift();    //左边弹出 返回被删除的元素
+        arr.unshift(1,2); //写入 返回数组length
+
+        //翻转 排序===========
+        var arr = [1,2,3,4,5,6, 10];
+        arr.reverse();//返回数组 会写入原数组
+
+        arr.sort(); // 这个方法有大坑！！！！
+                    // 先转换成字符串  再一位位比
+                    // 基本上一定要用回调来排序
+
+        //数组拼接 和 截取
+        arr.concat(['a', 'b', 'c']); //返回新数组 不好改哪个数组
+
+        arr.slice(1, 3); //返回新数组，原来数组不变化 参数都是索引值
+                        //index>=1 && index < 3 包含头，不包含尾
+
+        arr.splice(0,3);//0:索引，3代表删除个数 原数组发生变化
+
+        //indexOf(search, startIndex)//startIndex起始的索引位置
+        // lastIndexOf 从后往前找
+
+
+        //arr.filter(element, index, array) 返回新数组
+
+        //arr.map() //将数组中的元素 通过映射加工
+                    //不改变原数组
+
+        //arr.forEach();//callback 一般不怎么写 return
+
+        //arr.some  //返回布尔值 存在一个通过比较运算符的  返回true
+        //arr.every  //所有的都是true 才返回true
+
+
+        //清空数组
+        //var arr = [1,2,3,4];
+        //方法一：arr = [];
+        //方法二：arr.length = 0;
+        //方法三：arr.splice(0, arr.length)
+
+    </script>
+</body>
+</html>

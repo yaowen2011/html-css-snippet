@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //隐式全局变量
+    function fn() {
+        count = 1;//作用域中找不到  count这个申明  向更上层作用域寻找，也没有 ，底层会创建变量count
+        console.log(count);
+    }
+    fn();
+    console.log(count); //
+</script>
+</body>
+</html>

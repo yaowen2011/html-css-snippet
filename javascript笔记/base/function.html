@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    //函数声明
+    //1 、声明函数
+    function funcName(参数) {
+
+    }
+
+    //2、函数表达式
+    var funcName = function(参数,参数) {
+
+    }
+
+    //如何 【调用】
+    funcName();//执行里边代码
+
+
+    //返回值
+        //return 后代码不执行
+        //没有return ，返回undefined
+        //return ; 返回 undefined
+
+    //匿名函数
+    //  1、函数表达式
+    //  2、自调用函数 (function(n){console.log(n)})(7);  ()分组操作符，解析成表达式 防止全局变量污染
+    //  3、回调函数
+
+    //函数作为参数
+    //函数作为返回值  两种情况： 一种返回函数体； 一种返回函数调用；
+//            这里一般指的是返回函数体
+
+    //JavaScript functions can be invoked in four ways:
+
+    //1 as functions;
+    //2 as methods;  和前者不同 the invocation context  o.m(1, 2); m中的this 指向o
+    //3 as constructors
+    //4 indirectly through their call()  apply() methods
+    // 一般情况下  this是运行时的caller，函数调用自己的call()  可以控制this指向
+//
+//    o["m"](x,y); // Another way to write o.m(x,y).
+//    a[0](z) // Also a method invocation (assuming a[0] is a function).
+
+    //严格模式下 cannot assign values to  arguments
+    //严格模式下 不能读写 the Arguments object defines  callee and  caller
+
+    //The most important features of functions are that they can be defined and invoked.
+
+    //作用域链 page 180
+//    the internal state of a JavaScript function object must in-
+//            clude not only the code of the function but also a reference to the current scope chain
+//
+    //    If you use  var to declare the variable, the property
+    //    that is created is nonconfigurable
+
+    //When a function is defined, it stores the scope chain then in effect.
+    //定义在函数内部的函数，在外部函数每次被调用的时候，都会重新被声明,声明的时候决定作用域，所以innerFunction
+    // 会有不同的作用域链
+    var uniqueInteger = function () {
+        var i = 0;
+        return function(){ return i++;};
+    }();
+
+    console.log(uniqueInteger());//0
+    console.log(uniqueInteger());
+
+    //内部函数 光定义还不行，一定要返回 或者 赋值给外部变量，才能保留住引用，才可以不被回收
+
+    function counter() {
+        var n = 0;
+        return {
+            count: function() { return n++; },
+            reset: function() { n = 0; }
+        };
+    }
+    var c1 = counter(), c2 = counter(); // Create two counters
+    console.log(c1.count()); // 函数每次调用 都会形成新的ao[active object] 打印0
+    console.log(c2.count()); // 还是打印0
+    //but count和reset share the same scope chain
+
+
+    //使用 Function 构造函数创建的函数特点:
+    //动态complied
+    //如果是在循环中 new Function()
+    // A last, very important point about the  Function() constructor is that the functions
+//    it creates do not use lexical scoping; instead, they are always compiled as if they
+//        were top-level functions, as the following code demonstrates:
+    //page 190
+    //The  Function() constructor is best thought of as a globally-scoped version of  eval()
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //对象
+    //创建方式： 1、字面量  2、自定义对象构造函数
+
+    //1、内置对象
+    //2、自定义对象
+    //3、使用Object构造函数
+
+
+
+    //
+var dog = {
+    name : '普京',
+    eat : function() {
+        console.log('eating....');
+    },
+    run : function() {
+        console.log('奔跑中......');
+    }
+
+}
+
+    console.log(dog.name); //去取
+    dog.run();
+
+
+    console.log(dog.color); //undefined
+
+    dog.color = 'black'; //不会提升
+
+    console.log(dog.color);
+
+    //对象属性的增、 删(delete) 、改、 查
+
+    //自定义对象构造函数
+    function Person(name, age, eat) {
+        this.name = name;
+        this.age = age;
+        this.eat = eat;
+    }
+
+    var p = new Person('普京', 54, function() {
+        console.log('eat something....');
+    });
+
+    var p1 = new Person('xx', 2, function(){
+
+    });
+
+    //new 和 this
+    //new :
+    //  1、内存中创建出一个新的空对象
+    //  2、让 this指向新创建的对象
+
+    //this
+    //  1、在构造函数中，指向新new 出来的对象
+    //
+
+
+    //使用object 构造函数  生成对象
+    var o = new Object(); //创建空对象
+
+    //方法一： 字面量
+    var obj1 = {
+        name : '名字',
+        age : 18,
+        method : function() {
+            console.log('执行方法');
+        }
+    }
+
+    //方法二:  对象构造函数
+    function ObjConstructor(name, age, method) {
+        this.name = name;
+        this.age = age;
+        this.method = method;
+    }
+
+
+
+    var obj2 = new ObjConstructor('张三', 18, function(){
+        console.log('执行我');
+    });
+    //上面这种  在底层的执行   new  先新建了一个空对象 然后 将this执行这个空对象，然后开始赋值
+
+    //方法三: Object的构造方法
+    var obj3 = new Object();
+    obj3.name = '李四';
+    obj3.age = 24;
+    obj3.method = function(){
+        console.log('我的 方法');
+    }
+    //遍历对象属性
+    //.和中括号区别
+//            obj.name
+//            obj[name]   //把name当成表达式 先计算出值
+//            obj['name']
+
+//    for (var key in obj) {
+//        console.log(obj[key]);
+//    }
+
+    var obj = {
+        name : 'zs',
+        age : 18,
+        run : function() {
+            console.log('so 快');
+        },
+        run2 : function() {
+            console.log('....');
+        }
+    }
+
+//    for (var key in obj) {//这个是一定按属性的顺序打印的吗？  书写顺序
+//       if (typeof obj[key] === 'function') {
+//           obj[key]();
+//       } else {
+//           console.log(key + ' => ' + obj[key]);
+//       }
+//    }
+    console.log('---------------');
+    var key;
+    for (key in obj) {//这个是一定按属性的顺序打印的吗？  书写顺序
+        if (typeof obj[key] === 'function') {
+            obj[key]();
+        } else {
+//            console.log(key + ' => ' + obj[key]);
+        }
+    }
+
+    //第四种
+//    Object.create() , that creates a new object, using its
+//    first argument as the prototype of that object.
+
+    //page 118  Every JavaScript object has a second JavaScript object
+    // new Date() uses  Date.prototype as its prototype=>Object.prototype. 形成原型链
+    // new Array() uses  Array.prototype as its prototype=>Object.prototype, 形成原型链
+
+    //that inherited property is now hidden
+//    by the newly created own property with the same name.
+
+
+//    var unitcircle = { r:1 }; // An object to inherit from
+//    var c = inherit(unitcircle); // c inherits the property r
+//    c.x = 1; c.y = 1; // c defines two properties of its own
+//    c.r = 2; // c overrides its inherited property
+//    unitcircle.r; // => 1: the prototype object is not affected
+
+
+//    o has an inherited property  p that is read-only: it is not possible to hide an inherited
+//    read-only property with an own property of the same name.
+//    But if  o is not extensible, then no new properties can be defined on it.
+
+    //只能删除自己的属性，不能删除继承的属性
+    //delete 也是有返回的  成功返回 true
+//    The  delete operator only deletes own properties, not inherited ones.
+//    delete does not remove properties that have a configurable attribute of false
+
+
+    //判断有没有某个属性
+    //  in                  可以判断继承属性
+    // hasOwnProperty()     继承的属性返回false
+    // propertyIsEnumerable() 自己的并且可以enumerable
+
+//    if ('method' in obj) {
+//
+//    }
+
+//    for(p in o) {
+//        if (!o.hasOwnProperty(p)) continue; // 只遍历自己的属性
+//    }
+
+//    The first is  Object.keys() , which returns an array of the names of the
+//    enumerable own properties of an object.
+
+
+    var serialnum = {
+        // This data property holds the next serial number.
+        // The $ in the property name hints that it is a private property.
+        _n: 0,
+        // Return the current value and increment it
+        get next() { return this._n++; },
+        // Set a new value of n, but only if it is larger than current
+        set next(n) {
+            if (n >= this._n) this._n = n;
+            else throw "serial number can only be set to a larger value";
+        }
+    };
+
+    serialnum.next = 4;
+    console.log(serialnum.next);
+    console.log(serialnum.next);
+
+    //属性的特性
+//    In addition to a name and value, properties have attributes that specify whether they
+//    can be written, enumerated, and configured
+
+//    The four attributes of a data property are value, writable,
+//            enumerable, and configurable
+
+//    Object.getOwnPropertyDescriptor() :
+//    // Returns {value: 1, writable:true, enumerable:true, configurable:true}
+//    Object.getOwnPropertyDescriptor({x:1}, "x");
+
+//    Object.defineProperty(o, "x", { value : 1,
+//        writable: true,
+//        enumerable: false,
+//        configurable: true});
+
+    // Object.defineProperties()
+
+//    在说原型对象的时候 ，一般是指普通的对象， 不是一个属性
+//    Also, it is important to understand that when
+//    prototype appears in code font, it refers to an ordinary object property, not to the
+//    prototype attribute.
+
+
+//    Object.create() have a constructor property that refers to the Object() constructor.
+//            Thus,  constructor.prototype refers to the correct prototype for object literals, but does
+//    not usually do so for objects created with Object.create()
+
+//    classof(null) // => "Null"
+//    classof(1) // => "Number"
+//    classof("") // => "String"
+//    classof(false) // => "Boolean"
+//    classof({}) // => "Object"  any objects you create with it will have a class attribute of “Object”
+//
+//    Object.seal() works like  Object.preventExtensions() , but in addition to making the
+//    object nonextensible, it also makes all of the own properties of that object nonconfig-
+//    urable.
+
+    //It is important to understand that  Object.seal() and  Object.freeze() affect only the
+//    object they are passed: they have no effect on the prototype of that object
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //字符串是不可变的
+    var str = 'abc';
+    str = str + 'bcd';// 这个时候内存 3个字符串
+
+    var len = str.length;//底层实现  包装成String对象
+    //3个基本数据包装对象  String Number Boolean
+
+
+    //charAt 返回指定位置处的字符
+    str.charAt(0);
+    str.charAt(5);//找不到 返回空字符串
+    str.charCodeAt(0);//0位置的字符的ascII吗
+    str[0];      //字符串 感觉是个伪数组 IE8以上才支持
+
+    //字符串 常用操作方法
+    str.indexOf();
+    str.lastIndexOf();
+    //去除空白
+    //  空格也会占 length
+    str.trim();//length  会变化 会生成新的字符串
+    str.trim().length
+    console.log(str);//还是原来的字符串  字符串不可变
+
+    //大小写
+    //toUpperCase
+    //toLowerCase
+
+    str.trim().toLowerCase();//生成了好几次字符串
+
+    //字符串 拼接 截取
+    str.concat();
+    str.slice();
+    str.substring();
+
+    str.substr();
+
+
+    //字符串 切割
+    var str = 'a,b,c';//str.split('a') //返回 ['', ',b,c']
+    str.split('|');
+
+    //字符串替换  大坑！！！！！！
+    var str = 'abac'
+    str.replace('a', 'o');//大坑！！！！！！ 只替换第一个
+                            //用的时候一般 用正则
+</script>
+</body>
+</html>

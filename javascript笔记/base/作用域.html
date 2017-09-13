@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//    'use strict'
+    //作用域 : 变量起作用的范围
+    //全局作用域
+//        script标签  或者 外部js
+    //局部作用域
+    //全局变量
+//        定义在全局,全局变量在代码任何地方都可以访问到；
+    //局部变量
+//        定义在局部
+    var num1 = '白开水'; //拿了个杯子  放 饮料1
+    function fn() { //带哥
+        num1 = '红茶'; //先看有没有num1, 没有往上找
+        function fnSon() { //小弟
+            num1 = '绿茶';
+        }
+        fnSon();
+    }
+    //胶带
+
+    //开始播放
+    fn();
+
+    console.log(num1);//杯子取过来看看 放的是小弟爱喝的饮料
+    //至始至终  只开辟了一块内存
+
+
+    num = 1;//找不到 ，底层会创建  严格模式 不支持这种写法
+    console.log(num);
+
+    //var num = 1; 隐式全局变量 隐式全局 全局函数才有这个现象
+    function fn() {
+        num = 1; //这行代码  底层会在全局 开辟新的内存 创建num
+        console.log(num); //1
+    }
+    console.log(num); //1
+
+
+    function fun(){
+        var num = 1;
+        function fnSon(){
+            num = 2;
+        }
+        fnSon();
+        console.log(num);//2
+    }
+
+    fn(); //
+
+    console.log(num); // is not defined 报错未定义
+</script>
+</body>
+</html>
