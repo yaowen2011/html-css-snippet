@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var F = function () {
+            this.foo = 'bar';
+        };
+
+//        var f = new F();
+//        //空对象 this指向空对象  prototype赋值给 __proto__
+//        // 等同于
+////        step 1:
+//        var f = Object.setProtoTypeOf({}, F.prototype);
+////        step 2:
+//        F.call(f);
+//
+//
+//        var obj = new Object();
+//
+//        obj.__proto__ === Object.prototype
+//        // true
+//        obj.__proto__ === obj.constructor.prototype
+
+        //prototype中的constructor指向构造函数 构造函数的prototype指向prototype
+        var A = function() {
+            console.log("我是a");
+        };
+
+        var P = function () {};
+        P.prototype = A;
+        var p = new P();
+
+        var C = function () {};
+        C.prototype = p;
+//        C.prototype.constructor = C;
+        var c = new C();
+
+        console.log(c.constructor.prototype === p); // false
+        console.log(c.constructor.prototype === C); //false
+        console.log(c.constructor);
+        console.log(c.constructor.prototype);
+    </script>
+</body>
+</html>

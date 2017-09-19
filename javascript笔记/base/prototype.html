@@ -6,103 +6,161 @@
 </head>
 <body>
 <script>
-    var MyArray = function(){};
-
-    MyArray.prototype = new Array();
-    MyArray.prototype.constructor = MyArray;
-
-    //1、拥有构造对象的能力
-    //2、构造的对象 没有prototype属性 只有 __proto__属性
-//            指向构造函数的的prototype属性
-    console.log(MyArray.prototype.constructor);
-
-    var a = new MyArray();
-    console.log(a.__proto__);
-    console.log(a instanceof MyArray);
-    console.log(a instanceof Array);
-    console.log(a instanceof Function);//false
-    console.log(a instanceof Object);
-
-
-    var s = 'hello';
-    console.log(s instanceof String); // false
-
-    var s = new String('字符串');
-    console.log(s instanceof String); // true
-
-    //防止调用时 没有写 new 调用构造函数
-    function Constr(arg1, arg2) {
-        if (this instanceof Constr) {
-            this.arg1 = arg1;
-            this.arg2 = arg2;
-        } else {
-            return new Constr(arg1, arg2);
-        }
-    }
-
-    //基于实例对象 创建新的对象
-//    var A = {
-//        print: function() {
-//            console.log('hello');
+//    var MyArray = function(){};
+//
+//    MyArray.prototype = new Array();
+//    MyArray.prototype.constructor = MyArray;
+//
+//    //1、拥有构造对象的能力
+//    //2、构造的对象 没有prototype属性 只有 __proto__属性
+////            指向构造函数的的prototype属性
+//    console.log(MyArray.prototype.constructor);
+//
+//    var a = new MyArray();
+//    console.log(a.__proto__);
+//    console.log(a instanceof MyArray);
+//    console.log(a instanceof Array);
+//    console.log(a instanceof Function);//false
+//    console.log(a instanceof Object);
+//
+//
+//    var s = 'hello';
+//    console.log(s instanceof String); // false
+//
+//    var s = new String('字符串');
+//    console.log(s instanceof String); // true
+//
+//    //防止调用时 没有写 new 调用构造函数
+//    function Constr(arg1, arg2) {
+//        if (this instanceof Constr) {
+//            this.arg1 = arg1;
+//            this.arg2 = arg2;
+//        } else {
+//            return new Constr(arg1, arg2);
 //        }
 //    }
-
-//    var B = Object.create(A);
-//    console.log(B.print === A.print);//true
-//    console.log(B.prototype);//undefined
-//    console.log(B.constructor.toString());
-
-    //如何生成一个 Object.create()方法
-//    if ( typeof Object.create !== 'function') {
-//        Object.create = function(obj) {
-//            function F() {};
-//            F.prototype = obj;
-//            return new F();
-//        }
+//
+//    //基于实例对象 创建新的对象
+////    var A = {
+////        print: function() {
+////            console.log('hello');
+////        }
+////    }
+//
+////    var B = Object.create(A);
+////    console.log(B.print === A.print);//true
+////    console.log(B.prototype);//undefined
+////    console.log(B.constructor.toString());
+//
+//    //如何生成一个 Object.create()方法
+////    if ( typeof Object.create !== 'function') {
+////        Object.create = function(obj) {
+////            function F() {};
+////            F.prototype = obj;
+////            return new F();
+////        }
+////    }
+//
+//    //对象默认是没有对象实例的  有原型对象 __proto__
+//    function A() {};
+//    function B() {};
+//    function C() {};
+//    C.prototype = new B();
+//    B.prototype = new A();
+//    A.prototype = new Array();
+//
+//    var c = new C();
+//    var b = new B();
+//    var a = new A();
+//    console.log(c.__proto__);
+//    console.log(c.prototype);
+//
+//
+//    console.log(b.__proto__);
+//
+//    console.log(a.__proto__);
+//
+//    var a = new Array();
+//    console.log(a.__proto__);
+//
+//    //构造一个简单的对象
+//
+//
+//
+//    var x = 10;
+//
+//    (function foo() {
+//        var y = 20;
+//        (function bar() {
+//            var z = 30;
+//            // "x"和"y"是自由变量
+//            // 会在作用域链的下一个对象中找到（函数”bar”的互动对象之后）
+//            console.log(x + y + z);
+//        })();
+//    })();
+//
+//
+//
+//    function P() {}
+//
+//    console.log((P.prototype.constructor === P)); //true
+//    //
+//    var p = new P();
+//
+//    console.log(p.hasOwnProperty('constructor'));//false
+//    //这里解释了一个问题：
+//    //为什么 prototype.move = function() {
+//    // this.指向的是当前对象
+//    // }
+//    //p这个实例对象是没有prototype属性的  有__proto__
+//    console.log(p.constructor === P.prototype.constructor);  //返回true
+//    console.log(p.__proto__.constructor === P.prototype.constructor); //返回true
+//    console.log(P.prototype);//是object有两个属性；constructor指向P __proto__指向Object
+//
+//    P.prototype.name = "第一个属性";
+//    P.prototype.method = function () {//这些声明也会提升
+//        console.log(12344);
 //    }
+//    //constructor 有好多属性 有 prototype 和 __proto__
+//    //__proto__ 指向 Function(){}
+//    //prototype 本身也是个对象
+//
+//    //只要是对象，就有 constructor和 __proto__两个属性
+//    //或者说 是对象必有 __proto__属性, constructor是prototype中指向的
+//
+//    var MyArray = function () {};
+//
+//    MyArray.prototype = new Array();
+////    MyArray.prototype.constructor = MyArray;
+//
+//    var arr = new Array();
+//    console.log(arr.__proto__);
 
-    //对象默认是没有对象实例的  有原型对象 __proto__
-    function A() {};
-    function B() {};
-    function C() {};
-    C.prototype = new B();
-    B.prototype = new A();
-    A.prototype = new Array();
+    //构造函数有个prototype属性 指向 prototype对象
+    //prototype属性|对象有个 constructor指向 构造函数
 
-    var c = new C();
-    var b = new B();
+
+    function A() {}
+    A.prototype.name = '我是A';
     var a = new A();
-    console.log(c.__proto__);
-    console.log(c.prototype);
+    a instanceof A // true
 
-
-    console.log(b.__proto__);
-
-    console.log(a.__proto__);
-
-    var a = new Array();
-    console.log(a.__proto__);
-
-    //构造一个简单的对象
-
-
-
-    var x = 10;
-
-    (function foo() {
-        var y = 20;
-        (function bar() {
-            var z = 30;
-            // "x"和"y"是自由变量
-            // 会在作用域链的下一个对象中找到（函数”bar”的互动对象之后）
-            console.log(x + y + z);
-        })();
-    })();
-
-
-
-
-
+    function B() {}
+    var b = new B();
+    B.prototype.name = '我是B';
+    B.prototype.method = function () {
+        console.log('B方法执行');
+    }
+    A.prototype = B.prototype; //这个赋值有毒  prototype 存了 B.protype里的值
+    A.prototype.move = function() {
+        console.log('a的方法执行');
+    }
+    console.log(a instanceof A); // false
+    console.log(a.name);// '我是A'
+//    console.log(a.method()); //报错
+    console.log(b.method());
+    console.log(b.move());
+    console.log(a.move());
 </script>
 </body>
 </html>

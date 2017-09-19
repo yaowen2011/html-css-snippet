@@ -6,6 +6,11 @@
 </head>
 <body>
 <script>
+    /**
+     * 使用正则 get参数转换成 obj
+     * @param url
+     * @returns {{}}
+     */
     function getSearch (url) {
         var reg_url = /^[^\?]+\?([\w\W]+)$/,
         reg_params = /([^&=]+)=([\w\W]*?)(&|$|#)/g,
@@ -14,7 +19,7 @@
         if (arr_url && arr_url[1]) {
             var str_params = arr_url[1], result;
             while ((result = reg_params.exec(str_params)) != null) {
-                ret[result[1]] = result[2];
+                ret[result[1]] = result[2]; //匹配到的元素放在数组里，index放找到的首字母位置
             }
         }
         return ret;
@@ -23,6 +28,37 @@
     var str = 'http://www.baidu.com?name=传奇&age=18';
     console.log(getSearch(str));
 
+
+
+    var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+    var text = "Visit my blog at http://www.example.com/~david";
+    var result = text.match(url);
+    if (result != null) {
+        var fullurl = result[0]; // Contains "http://www.example.com/~david"
+        var protocol = result[1]; // Contains "http"
+        var host = result[2]; // Contains "www.example.com"
+        var path = result[3]; // Contains "~david"
+    }
+
+
+    console.log(result);
+
+
+    var pattern = /Java/g;
+    var text = "JavaScript is more fun than Java!";
+    var result;
+
+    result = pattern.exec(text);//内部有个指针 执行一次再向下找一次
+    console.log(result);
+
+    result = pattern.exec(text);//内部有个指针 执行一次再向下找一次
+    console.log(result);
+
+    //    while((result = pattern.exec(text)) != null) {
+//        alert("Matched '" + result[0] + "'" +
+//                " at position " + result.index +
+//                "; next search begins at " + pattern.lastIndex);
+//    }
 
 </script>
 </body>

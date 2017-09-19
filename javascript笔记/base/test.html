@@ -7,19 +7,19 @@
 <body>
 <script>
     //变量的声明先提升，函数后提升
-    function num() {
-        //var num 这样声明 开辟内存 他才可以在局部内存作用域找到
-        console.log(num); //外层函数体
-        num = function() { //这种赋值 在与解析阶段 不会提升 ；这个地方内存函数只是作为一个值赋值给num，还没有执行
-                                //也就涉及不到什么与解析之类的
-            console.log(num);
-            num = 1;
-        }
-        num();
-    }
-
-    num();
-    var num = 1;
+//    function num() {
+//        //var num 这样声明 开辟内存 他才可以在局部内存作用域找到
+//        console.log(num); //外层函数体
+//        num = function() { //这种赋值 在与解析阶段 不会提升 ；这个地方内存函数只是作为一个值赋值给num，还没有执行
+//                                //也就涉及不到什么与解析之类的
+//            console.log(num);
+//            num = 1;
+//        }
+//        num();
+//    }
+//
+//    num();
+//    var num = 1;
 
     //赋值
     //一条条语句执行下来
@@ -27,6 +27,9 @@
 
     //大脑好像  也是 理解 set get
 
+    var arr = [1, 2, 3];
+    arr.splice(0, 0, 33);
+    console.log(arr);
 </script>
 </body>
 </html>
