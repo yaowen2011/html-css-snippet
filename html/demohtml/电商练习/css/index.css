@@ -1,0 +1,185 @@
+/*首页样式*/
+#banner {
+    height: 480px;
+    /*background-color: #ccc;*/
+}
+#banner.w .banner-c{
+    margin: 0 10px;
+}
+#banner .banner-l {
+    width: 190px;
+    height: 100%;
+    box-sizing: border-box;
+    line-height: 2;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-left: 11px;
+    background-color: #6e6568;
+}
+#banner .banner-l a {
+    color: #fff;
+}
+#banner.w .banner-c {
+    width: 790px;
+    height: 100%;
+
+}
+#banner .banner-c-t {
+    height: 340px;
+    position: relative;
+}
+#banner .banner-c-t a {
+    display: block;
+    width: 100%;
+    height: 340px;
+    background-color: deeppink;
+}
+#banner .banner-c-b {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#banner .banner-c-b a{
+    width: 390px;
+    height: 130px;
+    background-color: #ccc;
+}
+
+
+
+
+#banner .banner-c {
+    position: relative;
+}
+/*轮播图样式*/
+#banner .carousel {
+    width: 790px;
+    overflow: hidden;
+    position: relative;
+}
+#banner .banner-c ul {
+    width: 900%;
+    position: absolute;
+    left: 0;
+}
+.carousel:hover .arrow {
+    display: block;
+}
+/*箭头样式*/
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 60px;
+    display: none;
+}
+.arrow .arrow-l, .arrow .arrow-r {
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    text-align: center;
+    font-family: "宋体";
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.arrow .arrow-l {
+    left: 5px;
+}
+.arrow .arrow-l:hover,  .arrow .arrow-r:hover{
+    background-color: rgba(0, 0, 0, .6);
+}
+.arrow .arrow-r {
+    right: 5px;
+}
+
+#banner .banner-c ol {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .3);
+    padding: 4px;
+}
+#banner .banner-c ol li {
+    float: left;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#banner .banner-c ol li.now {
+    background-color: #f10215;
+}
+
+#banner .banner-r {
+    width: 190px;
+    height: 100%;
+}
+
+#banner .banner-r .login {
+    width: 100%;
+    height: 115px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+#banner .banner-r .login .avatar{
+    width: 51px;
+    height: 51px;
+}
+#banner .banner-r .login .welcome {
+    width: 94px;
+    height: 51px;
+}
+.login .member {
+    position: absolute;
+    bottom:5px;
+    left:0;
+}
+.login .member a {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    border: 2px solid #E01222;
+    text-align: center;
+}
+.login .member a:first-child {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.banner-r {
+    background-color: #fff;
+}
+.banner-r .announce {
+    padding: 0 13px;
+    width: 100%;
+    height: 155px;
+    box-sizing: border-box;
+}
+
+.banner-r .announce span{
+    margin-left: 10px;
+    margin-right: 16px;
+}
+
+.banner-r .announce .p-t {
+    line-height: 26px;
+    border-bottom: 1px solid #ccc;
+}

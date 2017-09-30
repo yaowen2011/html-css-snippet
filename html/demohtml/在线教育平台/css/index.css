@@ -1,0 +1,344 @@
+
+/*--------------nav start  --------------*/
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#banner {
+	height: 420px;
+	background-color: #1c036c;
+} 
+
+#banner .container {
+	height: 420px;
+	background-color: red;
+	position: relative;
+}
+/* banner 左侧列表*/
+#banner .banner-l {
+	position: absolute;
+	width: 190px;
+	height: 420px;
+	background-color: rgba(0, 0, 0, 0.3);
+
+	top: 0;
+	left: 0;
+}
+
+#banner .banner-l li {
+	line-height: 45px;
+	padding: 0 20px;
+	color: #fff;
+}
+
+#banner .banner-l li a {
+	color: #fff;
+}
+
+#banner .banner-l li span {
+	float: right;
+}
+
+#banner .banner-r {
+	position: absolute;
+}
+
+#banner .banner-b {
+	position: absolute;
+}
+
+/*banner右侧 我的课程*/
+#banner .banner-r {
+	position: absolute;
+	top: 50%;
+	margin-top: -150px;
+	right: 0;
+	width: 228px;
+	height: 300px;
+	background-color: #fff;
+} 
+
+#banner .banner-r ul {
+	width: 192px;
+	margin: 0 auto;
+}
+
+#banner .banner-r ul li {
+	height: 55px;
+	padding-top: 10px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+#banner .banner-r ul li:last-child {
+	border: none;
+} 
+
+#banner .banner-r h3 {
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #9bceea;
+}
+
+#banner .banner-r .btn-allclass {
+	display: block;
+	width: 198px;
+	height: 38px;
+	margin: 0 auto;
+	line-height: 38px;
+	text-align: center;
+	border: 1px solid #00a4ff;
+}
+
+/* banner 底部点点 */
+#banner .banner-b {
+	position: absolute;
+	bottom: 34px;
+	left: 50%;
+	margin-left: -84px;
+}
+#banner .banner-b li {
+	float: left;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.3);
+	margin: 0 8px;
+}
+
+#banner .banner-b li.selector {
+	width: 19px;
+	height: 12px;
+	border-radius: 12px;
+	background-color: #fff;
+} 
+
+/*--------------banner end  --------------*/
+
+/*--------------nav start   -------------*/
+#nav {
+	margin-top: 8px;
+}
+#nav .container {
+	height: 60px;
+	line-height: 60px;
+	/*background-color: red;*/
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+#nav .container ul li {
+	float: left;
+}
+
+#nav .container ul li a {
+	padding-left: 33px;
+	padding-right: 33px;
+	font-size: 16px;
+}
+
+#nav .container ul li a.selector {
+
+	font-weight: bold;
+	color: #00a4ff;
+}
+
+#nav .container .fr {
+	margin-right: 25px;
+}
+
+
+/*--------------nav end     -------------*/
+
+/*--------------主体部分 start-----------*/
+
+
+
+/*============>通用li-2 人物介绍*/
+.com-li-2 {
+	float: left;
+	width: 228px;
+	height: 320px;
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 31px;
+	margin-right: 15px;
+}
+.com-li-2:nth-child(5) {
+	margin-right: 0;
+}
+.com-li-2:last-child {
+	margin-right: 0;
+}
+.com-li-2 img {
+	width: 228px;
+}
+
+.com-li-2 .desc {
+	position: absolute;
+	/*top: 50%;*/
+	bottom: 0;
+	width: 228px;
+
+	/*height: 320px;*/
+	height: 160px;
+	line-height: 20px;
+	/*padding: 0 26px;*/
+	/*padding-bottom: 20px;*/
+	
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.com-li-2 .desc p {
+	width: 178px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.com-li-2 .desc p:nth-child(3) {
+	margin-top: 8px;
+}
+
+.com-li-2 .p-name {
+	margin-top: 20px;
+}
+
+.com-li-2 .desc {
+	-webkit-transition:height .5s ease-in;
+	-moz-transition:height .5s ease-in;
+	transition:height .5s ease-in;
+	/*top: 50%;*/
+	/*height: 160px;*/
+}
+
+.com-li-2 .desc:hover {
+	/*top: 0;*/
+
+	height: 320px;
+}
+
+.com-li-2 .desc:hover .text-ellipsis {
+	height: 135px;
+}
+
+.com-li-2 .text-ellipsis {
+	height: 55px;
+	/*overflow: hidden;*/
+	/*text-overflow:ellipsis;*/
+	/*overflow:hidden;*/
+	/*width:200px;*/
+	/*white-space:nowrap;*/
+	/*text-overflow:ellipsis;*/
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.com-li-2 .i-count {
+	position: absolute;
+	width: 84px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background: url("../images/count.png") 0 0 no-repeat;
+	top: 10px;
+	right: -6px;
+	color: #fb3f48;
+	padding-left: 6px;
+	font-size: 12px;
+}
+
+/*===========> 通用模块div 结构*/
+.com-div-1 {
+	margin-top: 10px;
+}
+
+.com-div-1 .content-l {
+	width: 228px;
+	height: 392px;
+}
+.com-div-1 .content-r {
+	width: 957px;
+}
+.com-div-1 ul li:last-child {
+	margin-right: 0;
+}
+
+
+/* 精品推荐*/
+#main .recommend {
+	margin-top: 20px;
+}
+#main .recommend ul li:nth-child(5n) {
+	margin-right: 0;
+}
+
+/* 新手入门*/
+#main .newbie {
+	margin-top: 20px;
+}
+
+/* 数据分析师 模块*/
+#main .data-analysis {
+	margin-top: 20px;
+}
+
+/* 机器学习模块*/
+#main .robot-study {
+	margin-top: 20px;
+}
+#main .robot-study ul li:last-child {
+	margin-right: 0;
+}
+
+/* 前端开发工程师*/
+#main .web-frontend {
+	margin-top: 20px;
+}
+#main .web-frontend ul li:last-child {
+	margin-right: 0;
+}
+
+/* 牛人推荐 */
+#main .master {
+	margin-top: 20px;
+}
+
+#main .master .ad-img {
+	float: left;
+	width: 486px;
+}
+/*--------------主体部分 end  -----------*/
+
+
+/*-------------侧边栏模块 start  -----------*/
+#fixed-aside {
+	position: fixed;
+	top: 50%;
+	left: 115px;
+	margin-top: -212px;
+	width: 184px;
+	height: 425px;
+	background-color: #fff;
+}
+
+#fixed-aside li {
+	width: 136px;
+	height: 36px;
+	line-height: 36px;
+	margin: 0 auto;
+	font-size: 14px;
+}
+#fixed-aside li a {
+	color: #000;
+}
+
+#fixed-aside li.selector a {
+	color: #00a4ff;
+}
+/*-------------侧边栏模块 end  -----------*/

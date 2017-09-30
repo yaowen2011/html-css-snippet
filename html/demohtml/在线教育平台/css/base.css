@@ -1,0 +1,170 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+input {
+	/* 
+	button width=border*2 + padding +width 
+	和 
+	text */
+	border: none;
+	/*清除边框发光*/
+	outline: none; 
+}
+
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+html, body {
+	background-color: #f3f5f7;
+	font-family: "微软雅黑";
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+.clear-m-t {
+	margin-top: 0 !important;
+}
+
+/* 清除右侧margin */
+.clear-m-r {
+	margin-right: 0 !important;
+}
+
+/* 清除边框 */
+.clear-b-b {
+	border-bottom: none; 
+}
+
+/*字体颜色*/
+
+.f-c-white {
+	color: #fff;
+}
+
+.f-c-gray100 {
+	color: #a5a5a5;
+}
+
+.f-c-gray200 {
+	color: #494949;
+}
+
+.f-c-gray300 {
+	color: #dadada;
+}
+
+.f-c-gray600 {
+	color: #666;
+}
+
+.f-c-blue100 {
+	color: #00a4ff;
+}
+.f-c-blue200 {
+	color: #7db4d2;
+}
+
+.f-c-orange100 {
+	color: #ff7c2d;
+}
+
+.f-c-red100 {
+	color: #ff2d2d;
+}
+
+.f-c-red200 {
+	color: #ff7c2d;
+}
+
+
+
+/*字体样式*/
+.font12 {
+	font-size: 12px;
+}
+
+.font14 {
+	font-size: 14px;
+}
+
+.font16 {
+	font-size: 16px;
+}
+
+.font18 {
+	font-size: 18px;
+}
+
+.font20 {
+	font-size: 20px;
+}
+
+.font32 {
+	font-size: 32px;
+}
+
+/* 字体粗细*/
+.f-w-n {
+	font-weight: normal;
+}
+
+.f-w-b {
+	font-weight: bold;
+}
+
+/* 显示 隐藏 */
+.on {
+	display: block;
+}
+
+.off {
+	display: none;
+}
+
+/*版心*/
+.w {
+	width: 1202px;
+	margin: 0 auto;
+}
+
+.container {
+	width: 1202px;
+	margin: 0 auto;
+}
+
+/*清除边框*/
+.clear-border {
+	border: none !important;
+}
+
+
+.ml20 {
+	margin-left: 20px;
+}

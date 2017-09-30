@@ -1,0 +1,383 @@
+/*版心*/
+.w {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+#ads {
+    height: 80px;
+    background-color: #a8182a;
+    position: relative;
+    z-index: 10;
+}
+#ads .w {
+    position: relative;
+}
+#ads .iconfont {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/*----------头部快捷导航----------*/
+#shortcut {
+    height: 31px;
+    background-color: #e3e4e5;
+    border-bottom: 1px solid #ddd;
+}
+
+#shortcut .box-l {
+    margin-left: 210px;
+    line-height: 31px;
+    color: #999;
+}
+
+#shortcut .box-r li {
+    float: left;
+    line-height: 31px;
+}
+#shortcut .li-spacer {
+    width: 1px;
+    height: 10px;
+    margin:0 10px;
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+#shortcut .box-r .iconfont {
+    font-size: 12px;
+    color: #ccc;
+    margin-left: 5px;
+}
+
+#shortcut .box-r .mobile {
+    position: relative;
+}
+
+#shortcut .box-r .down-img {
+    position: absolute;
+    top: 31px;
+    left: 50%;
+    transform: translate(-50%);
+
+    padding: 3px;
+    border: 1px solid #cfcfcf;
+}
+
+#shortcut .box-r a {
+    color: #999;
+}
+
+#shortcut .box-r a:hover {
+    color: #f10215;
+}
+
+#shortcut .box-r .down-img:before {
+    content: "";
+    display: block;
+    width: 0;
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translate(-50%);
+}
+
+/*---------搜索模块---------*/
+#search {
+    position: relative;
+    height: 140px;
+}
+
+#search h1 {
+    position: absolute;
+    width: 190px;
+    height: 170px;
+    text-indent: -999em;
+    top: -31px;
+    left: 0;
+}
+#search h1 a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff url("../images/logo.jpg") 0 0 no-repeat;
+
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, .2);
+}
+
+/*搜索框*/
+#search .input {
+    display: flex;
+    width: 560px;
+    margin-left: 320px;
+    padding-top: 26px;
+    position: relative;
+}
+
+#search .input input[type="text"] {
+    /*float: left;*/
+    width: 500px;
+    height: 36px;
+
+    box-sizing: border-box;
+    border: 1px solid #f10215;
+}
+
+#search .input button {
+    /*float: left;*/
+    width: 50px;
+    height: 36px;
+
+    background-color: #f10215;
+}
+
+#search .input button i {
+    color: #fff;
+}
+
+#search .input input[type="file"] {
+    display: none;
+}
+
+#search .input label[for="upload"] {
+    position: absolute;
+    top: 35px;
+    right: 68px;
+
+}
+
+#search .input label .iconfont {
+    font-size: 20px;
+}
+
+/*搜索热词*/
+#search .hotwords {
+    margin-left: 321px;
+}
+#search .hotwords ul {
+    display: flex;
+    line-height: 26px;
+}
+
+#search .hotwords li a {
+
+    margin-right: 10px;
+    color: #999;
+}
+
+#search .hotwords li:first-child a {
+
+    margin-right: 10px;
+    color: #f10215;
+}
+
+/*分类导航*/
+#search .nav {
+
+    position: absolute;
+
+    left: 200px;
+    bottom: 0;
+}
+
+#search .nav ul {
+    display: flex;
+}
+#search .nav ul li {
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+#search .nav ul li.li-spacer {
+    margin-left: 15px;
+    margin-right: -15px;
+    margin-top: 4px;
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+}
+
+/*购物车*/
+#search .shopcart {
+    position: absolute;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+
+    top: 26px;
+    right: 99px;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#search .shopcart em {
+    position: absolute;
+    top: 4px;
+    right: 39px;
+
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    background-color: #f10215;
+    border-radius: 50%;
+    color: #fff;
+}
+
+/*treasure 模块*/
+#search .treasure {
+    width: 190px;
+    height: 40px;
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+}
+
+
+/*-----------footer模块start ------------*/
+footer {
+    background-color: #eaeaea;
+}
+#service {
+    height: 102px;
+    border-bottom: 1px solid #dedede;
+}
+
+#service ul {
+    display: flex;
+    height: 102px;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 42px;
+}
+#service ul li {
+    display: flex;
+}
+
+#service ul li h5 {
+    width: 36px;
+    height: 42px;
+    text-indent: -999em;
+    background: url("../images/ico.png") 0 0 no-repeat;
+}
+#service ul li span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/*购物指南模块*/
+#help {
+    height: 200px;
+}
+#help .w {
+    height: 100%;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#help .w {
+    display: flex;
+}
+
+#help .box-l {
+    display: flex;
+    padding-top: 24px;
+    /*width: 80%;*/
+}
+
+#help .box-l dl {
+    width: 198px;
+}
+
+#help .box-l dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    height: 25px;
+    color: #666;
+}
+
+#help .box-l dl dd {
+    font-size: 12px;
+    line-height: 20px;
+    color: #666;
+}
+
+#help .box-l dl dd a {
+    font-size: 12px;
+    color: #666;
+}
+
+
+#help .box-r {
+    width: 215px;
+    height: 150px;
+    margin-top: 24px;
+    background: url("../images/ico_footer.png") 0 0 no-repeat;
+}
+
+#help .box-r h5 {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    height: 34px;
+}
+
+#help .box-r p {
+    line-height: 20px;
+}
+
+/*关于我们*/
+#about ul {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    line-height: 20px;
+    color: #999;
+}
+
+#about ul li:after {
+    content: "|";
+    /*display: block;*/
+    margin: 0 10px;
+}
+
+#about ul li:last-child:after {
+    content: "";
+    margin: 0;
+}
+
+#about .aboutus {
+    height: 48px;
+    line-height: 48px;
+}
+/*网警*/
+#security {
+    padding-top: 17px;
+    padding-bottom: 24px;
+}
+#security ul {
+    display: flex;
+    justify-content: center;
+}
+#security ul li{
+    width: 100px;
+    height: 30px;
+    background: url("../images/ico_footer2.png") 0 -151px no-repeat;
+    margin: 0 5px;
+}
+/*-----------footer模块end   ------------*/
+
+
+
+

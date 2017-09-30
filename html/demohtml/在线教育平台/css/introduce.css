@@ -1,0 +1,358 @@
+
+
+/*---------课程介绍banner start---------*/
+#banner {
+	height: 240px;
+	/*background-color: red;*/
+	background-image: url("../images/bg-img.png");
+}
+
+#banner .container {
+
+}
+/*banner 左侧*/
+#banner .container .container-l {
+	width: 820px;
+	height: 240px;
+	/*background-color: blue;*/
+	margin-left: 18px;
+}
+
+#banner .container .container-l ul li {
+	float: left;
+}
+
+#banner .container .container-l .nav {
+	/*height: 52px; 如果设置成 53就可以 
+	这是个坑 设置了 clearfix  尽量不要
+	设置高度
+	*/
+	line-height: 52px;
+}
+
+#banner .container .container-l h2 {
+	/*text-align: left;*/
+	width: 202px;
+}
+
+#banner .container .container-l .price {
+	margin-top: 8px;
+}
+#banner .container .container-l .price-1 {
+	color: #ca50f8;
+}
+#banner .container .container-l .price-2 {
+	color: #999999;
+	text-decoration: line-through;
+}
+
+#banner .container .container-l .class-info {
+	margin-top: 38px;
+}
+#banner .container .container-l .class-info ul {
+	margin-left: 68px;
+}
+
+#banner .container .container-l .class-info li{
+	float: left;
+	padding: 0 38px;
+	border-right: 1px solid #999;
+}
+
+#banner .container .container-l .class-info li:first-child {
+	padding-left:0;
+}
+
+#banner .container .container-l .class-info li:last-child {
+	border-right: none;
+}
+
+#banner .container .container-l .class-info a {
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #00a4ff;
+
+}
+
+/*banner右侧*/
+#banner .container .container-r {
+
+}
+
+#banner .container .container-r .vedio {
+	margin-top: 21px;
+	width: 270px;
+	height: 156px;
+	background-color: #000;
+	position: relative;
+}
+
+#banner .container .container-r .vedio .btn-pause {
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	left: 50%;
+	margin-left: -30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: #fff url("../images/triangle-0.png") center center no-repeat;
+	cursor: pointer;
+}
+
+#banner .container .container-r ul {
+	margin-top: 14px;
+	margin-left: 20px;
+	color: #dadada;
+}
+
+#banner .container .container-r ul li {
+	float: left;
+	padding: 0 20px;
+}
+
+#banner .container .container-r ul li.collect {
+	background: url("../images/heart-0.png") left center no-repeat;
+}
+
+#banner .container .container-r ul li.share a {
+	margin-left: 10px;
+}
+/*---------课程介绍banner end  ---------*/
+
+
+/*------------主体内容开始start-----------*/
+#main.container {
+	/*height: 600px;*/
+	/*background-color: red;*/
+}
+
+#main .main-l {
+	width: 956px;
+
+}
+
+#main .main-l .title {
+	margin-top: 30px;
+	font-size: 16px;
+	color: #666;
+	height: 28px;
+}
+
+#main .main-l .title ul li {
+	float: left;
+	padding: 0 18px;
+}
+
+#main .main-l .title ul li.selector {
+	font-weight: bold;
+	color: #00a4ff;
+}
+
+#main .main-l .desc {
+	margin-top: 10px;
+	background-color: #fff;
+	position: relative;
+}
+
+#main .main-l .desc h3 {
+	width: 138px;
+	padding-top: 34px;
+	text-align: center;
+	font-weight: bold;
+}
+#main .main-l .desc p.p-desc {
+	width: 784px;
+	padding-top: 40px;
+	padding-bottom: 33px;
+	line-height: 26px;
+}
+
+#main .main-l .desc .more {
+	position: absolute;
+	bottom: 30px;
+	right: 50px;
+	
+	color: #00a4ff;
+}
+
+#main .main-l .teacher-desc {
+	width: 784px;
+	padding-top: 50px;
+	font-size: 14px;
+}
+
+#main .main-l .teacher-desc .avatar {
+	width: 178px;
+	text-align: center;
+}
+
+#main .main-l .teacher-desc .profile {
+	width: 596px;
+	padding: 0;
+}
+
+#main .main-l .teacher-desc {
+	line-height: 20px;
+}
+
+#main .main-l .teacher-desc .work {
+	margin-top: 16px;
+}
+
+#main .main-l .teacher-desc .dl-list {
+	margin-top: 38px;
+	margin-bottom: 24px;
+}
+#main .main-l .teacher-desc .dl-list dl {
+	height: 32px;
+}
+#main .main-l .teacher-desc .dl-list dt {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	width: 74px;
+}
+#main .main-l .teacher-desc .dl-list dt,
+#main .main-l .teacher-desc .dl-list dd {
+	float: left;
+}
+
+#main .main-l .desc .question {
+	width: 754px;
+	padding-top: 34px;
+	margin-left: 30px;
+}
+
+#main .main-l .desc .question li {
+	border-bottom: 1px solid #cecece;
+}
+#main .main-l .desc .question li:last-child {
+	border: none;
+	padding-bottom: 12px;
+}
+
+#main .main-l .desc .question li span {
+	display: inline-block;
+	height: 52px;
+	line-height: 52px;
+	font-size: 16px;
+	color: black;
+	position: relative;
+}
+#main .main-l .desc .question li span i.i-arrow {
+	position: absolute;
+	width: 11px;
+	height: 8px;
+	top: 20px;
+	left: -15px;
+	background: #fff url("../images/arrow.png") 0 0 no-repeat;
+	cursor: pointer;
+}
+
+#main .main-l .desc .question li span i.i-arrow-1 {
+	position: absolute;
+	width: 11px;
+	height: 8px;
+	top: 20px;
+	left: -15px;
+	background: #fff url("../images/arrow.png") 0 -289px no-repeat;
+	cursor: pointer;
+}
+
+
+#main .main-l .desc .question li p {
+	font-size: 14px;
+	color: #666;
+	padding-bottom: 20px;
+}
+
+
+/*主体内容区右侧*/
+#main .main-r {
+	width: 228px;
+}
+
+#main .main-r .title {
+	margin-top: 30px;
+	font-size: 16px;
+	/*color: #666;*/
+	height: 28px;
+}
+
+#main .main-r .comment {
+	background-color: #fff;
+	margin-top: 10px;
+}
+
+#main .main-r .comment ul li{
+	width: 200px;
+	/*height: 91px;*/
+	/*height: 71px;*/
+
+	margin: 0 auto;
+
+	border-bottom: 1px solid #d7d7d7;
+	padding-top: 20px;
+
+}
+
+#main .main-r .comment ul li p.p-comment {
+	padding-bottom: 14px;
+}
+#main .main-r .comment ul li:last-child {
+	border: none;
+}
+
+#main .main-r .comment .user-comment .avatar {
+	/*margin-top: 20px;*/
+	margin-left: 5px;
+	width: 46px;
+}
+
+#main .main-r .comment .user-comment .name {
+	width: 74px;
+	font-size: 14px;
+	color: #0077cc;
+}
+
+#main .main-r .comment .comment-count {
+	width: 200px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+
+/* 正在学习该课程样式*/
+#main .main-r .study-list {
+	margin-top: 38px;
+}
+
+#main .main-r .study-list .title {
+	padding-left: 20px;
+	color: #00a4ff;
+}
+
+#main .main-r .study-list .list {
+	margin-top: 20px;
+	background-color: #fff;
+}
+#main .main-r .study-list .list ul {
+	padding-top: 20px;
+	padding-left: 18px;
+	padding-right: 18px;
+}
+#main .main-r .study-list .list  li {
+	float: left;
+	width: 48px;
+	text-align: center;
+}
+
+#main .main-r .study-list .list .stu {
+	/*float: left;*/
+	height: 70px;
+	font-size: 12px;
+	color: #0077cc;
+}
+/*------------主体内容开始  end-----------*/

@@ -1,0 +1,131 @@
+#nav {
+    height: 190px;
+    background-color: #fff;
+}
+
+#nav .w .grade {
+    height: 65px;
+    line-height:65px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+#nav .grade h4 {
+    margin-right: 22px;
+}
+
+#nav .grade li {
+    margin-right: 22px;
+}
+
+#nav .grade li.selector a {
+    color: #fff;
+    background-color: #00a4ff;
+    padding: 4px 6px;
+}
+
+#main .box-l {
+    width: 960px;
+}
+
+#main .box-r {
+    width: 230px;
+}
+
+#main .box-l .title {
+    height: 64px;
+    line-height: 64px;
+}
+
+#main .box-l .title ul {
+    padding-left: 20px;
+}
+#main .box-l .title li {
+    margin-right: 40px;
+}
+
+#main .box-l .title li.selector a{
+    color: #00a4ff;
+}
+
+#main .box-l .title .page {
+    padding-right: 20px;
+}
+
+#main .box-l .content li {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#main .box-l>.pager {
+    width: 68%;
+    margin: 0 auto;
+    padding-top:40px;
+}
+#main .box-l>.pager a {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #999;
+    /*color: #fff;*/
+    /*background-color: #fff;*/
+}
+
+#main .box-l>.pager li.selector a {
+    color: #fff;
+    background-color: #00a4ff;
+}
+
+/*右侧区域*/
+#main .box-r .title {
+    height: 64px;
+    line-height: 64px;
+    color: #00a4ff;
+    font-weight: bold;
+    padding-left: 1.4em;
+}
+#main .box-r  ul {
+    /*width: 230px;*/
+    box-sizing: border-box;
+    background-color: #fff;
+    /*padding: 0 22px;*/
+}
+
+#main .box-r  li {
+    box-sizing: border-box;
+    /*width: 228px;*/
+    height: 107px;
+    padding: 16px 22px;
+    /*border-bottom: 1px solid #d7d7d7;*/
+}
+
+#main .box-r  li p.title {
+    font-size: 14px;
+    color: #050505;
+    line-height: 1.4;
+}
+#main .box-r  li p {
+    padding-left: 1.4em;
+}
+
+#main .box-r  li p.desc {
+    font-size: 12px;
+    color: #999;
+    margin-top: -8px;
+    border-bottom: 1px solid #d7d7d7;
+    height: 34px;
+}
+#main .box-r  li p.desc .level {
+    color: #ff7c2d;
+
+}
+#main .box-r  li p.desc span {
+    padding: 0 9px;
+}
+#main .box-r  li p.desc .count {
+    color: #999;
+
+}
+
+#main .box-r li:hover {
+    background: url("../images/bg01.png") 0 0 no-repeat;
+}
+
