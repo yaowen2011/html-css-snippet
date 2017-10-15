@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .nav ul {
+            position: relative;
+
+        }
+
+        .nav ul .bg {
+            width: 80px;
+            height: 28px;
+            position: absolute;
+            left: 0;
+            background-color: red;
+        }
+
+        .nav ul li {
+            padding: 5px 20px;
+            float: left;
+            position: relative;
+            /*background-color: lightgreen;*/
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <span class="bg"></span>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+            <li>导航1</li>
+        </ul>
+    </div>
+
+    <script src="js/animate.js"></script>
+    <script>
+        //鼠标悬浮会移动 背景图
+        var liList = document.querySelectorAll(".nav li");
+        var moveBg = document.querySelector(".bg");
+
+        var currItem = 0;//当前点击的是项
+        for (var i = 0; i < liList.length; ++i) {
+
+            //onmouseover
+            liList[i].onmouseover = function () {
+//                moveBg.style.left = this.offsetLeft + "px";
+                animateSlowDown(moveBg, this.offsetLeft);
+            }
+
+            //onmouseout
+            liList[i].onmouseout = function() {
+                animateSlowDown(moveBg, currItem);
+            }
+
+            //回退到上次点击过的导航项
+            liList[i].onclick = function () {
+                currItem = this.offsetLeft;
+            }
+        }
+    </script>
+</body>
+</html>
