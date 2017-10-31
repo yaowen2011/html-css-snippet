@@ -1,0 +1,49 @@
+body {
+	background-color: #eee;
+	font-family: "Microsoft Yahei";
+}
+/*版心*/
+ .w {
+ 	width: 1200px;
+ 	margin: 0 auto;
+ }
+
+ /*测试区域布局用*/
+.t .bg01 {
+ 	background-color: red;
+ }
+
+.t .bg02 {
+ 	background-color: green;
+ }
+
+.t .bg03 {
+ 	background-color: pink;
+ }
+
+.t .bg04 {
+ 	background-color: #000;
+ }
+
+
+ /*页面底部*/
+ .footer {
+ 	background-color: #000;
+ 	text-align: center;
+ 	color: #fff;
+ 	margin-top: 25px;
+ 	padding-top: 30px;
+ 	padding-bottom: 40px;
+ 	line-height: 1.8;	
+ 	font-size: 13px;
+ }
+ .footer span {
+ 	margin: 0 8px;
+ }
+ .footer a {
+ 	color: #fff;
+ }
+ .footer .copyright {
+ 	color: #575757;
+ }
+

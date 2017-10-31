@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .big {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mask {
+      width: 175px;
+      height: 175px;
+      background: rgba(255, 255, 0, 0.4);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      cursor: move;
+      display: none;
+    }
+
+    .small {
+      position: relative;
+    }
+
+    .box img {
+      vertical-align: top;
+    }
+
+    #bigBox img {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="box">
+  <div id="smallBox" class="small">
+    <img src="images/001.jpg" width="350" alt=""/>
+    <div id="mask" class="mask"></div>
+  </div>
+  <div id="bigBox" class="big">
+    <img src="images/0001.jpg" width="800" alt=""/>
+  </div>
+</div>
+
+<script>
+
+  var box = document.getElementById("box");
+  var smallBox = document.getElementById("smallBox");
+  var mask = document.getElementById("mask");
+  var bigBox = document.getElementById("bigBox");
+  var bigImg = bigBox.children[0];
+  //1. 给smallbox注册鼠标经过事件， 让mask显示， 让bigBox显示
+  //2. 给smallbox注册鼠标离开事件， 让mask隐藏，让bigbox隐藏
+  smallBox.onmouseover = function () {
+    mask.style.display = "block";
+    bigBox.style.display = "block";
+  }
+
+  smallBox.onmouseout = function () {
+    mask.style.display = "none";
+    bigBox.style.display = "none";
+  }
+
+  //3. 给smallbox注册鼠标移动事件
+  //3.1 让mask跟着鼠标移动
+  //3.2 让大图片等比例跟着移动
+  smallBox.onmousemove = function (e) {
+    //鼠标在smallbox中的位置
+    var spaceX = e.pageX - box.offsetLeft;
+    var spaceY = e.pageY - box.offsetTop;
+
+
+    var x = spaceX - mask.offsetWidth / 2;
+    var y = spaceY - mask.offsetHeight / 2;
+
+    //限定x和y的取值范围
+    if (x < 0) {
+      x = 0;
+    }
+    if (y < 0) {
+      y = 0;
+    }
+    if (x > smallBox.offsetWidth - mask.offsetWidth) {
+      x = smallBox.offsetWidth - mask.offsetWidth;
+    }
+    if (y > smallBox.offsetHeight - mask.offsetHeight) {
+      y = smallBox.offsetHeight - mask.offsetHeight
+    }
+
+    //因为我们需要让mask的中心位置跟着鼠标移动，
+    mask.style.left = x + "px";
+    mask.style.top = y + "px";
+
+
+    //设置大图片移动， 移动多少？
+
+    //速度是匀速的。
+    //我10分钟能吃10个小笼包
+    //鹏鹏10分钟能吃100个小笼包
+    //在我吃完第5个的时候，
+    //鹏鹏要吃完多少个 50
+    //  5/10  =  x/100
+    //大图片要移动的距离/大图片的总距离  =  mask移动的距离/小盒子的总距离
+    bigImg.style.left = -x / smallBox.offsetWidth * bigImg.offsetWidth + "px";
+    bigImg.style.top = -y / smallBox.offsetHeight * bigImg.offsetHeight + "px";
+  }
+
+</script>
+
+</body>
+</html>

@@ -25,6 +25,7 @@
             position: absolute;
             left: 0;
             background-color: red;
+            transition: all 1s;
         }
 
         .nav ul li {
@@ -63,13 +64,12 @@
 
             //onmouseover
             liList[i].onmouseover = function () {
-//                moveBg.style.left = this.offsetLeft + "px";
-                animateSlowDown(moveBg, this.offsetLeft);
+                moveBg.style.left = this.offsetLeft + 'px';
             }
 
             //onmouseout
             liList[i].onmouseout = function() {
-                animateSlowDown(moveBg, currItem);
+                moveBg.style.left = currItem + 'px';
             }
 
             //回退到上次点击过的导航项

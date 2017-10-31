@@ -126,7 +126,7 @@
     background: url("../images/popup.png") center center no-repeat;
 }
 
-#popup span {
+#popup span.close {
     position: absolute;
     top: 51px;
     right: 14px;

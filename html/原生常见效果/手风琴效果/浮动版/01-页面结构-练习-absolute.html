@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .accordion {
+            position: relative;
+            width: 1200px;
+            height: 400px;
+            overflow: hidden;
+            margin: 200px;
+            border: 1px solid #000;
+        }
+
+        ul {
+
+        }
+
+        ul > li {
+            position: absolute;
+            height: 400px;
+            width: 100%;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<div class="accordion">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<script src="animate2.js"></script>
+<script>
+    //找对象
+    var liList = document.querySelectorAll("ul > li");
+    for (var i = 0; i < liList.length; ++i) {
+        liList[i].index = i;
+        liList[i].style.backgroundImage = "url(images/" + (i + 1) + ".jpg)";
+
+        liList[i].style.left = 240 * i + 'px';
+
+        liList[i].addEventListener('mouseenter', function () {
+            for (var i = 0; i < liList.length; ++i) {
+                 //获取到当前li的下标,小于当前下标的那些li left:100*i  大于等于的：100*i+700
+                if (i < this.index) {
+                    animate(liList[i], {left: 100 * i})
+                } else if (this.index === i) {
+                    animate(liList[i], {left: 100 * i, width: 800})
+                } else {
+                    animate(liList[i], {left: 800 + 100 * this.index + (i - this.index -1) * 100})
+                }
+            }
+
+        })
+    }
+
+</script>
+
+</body>
+</html>

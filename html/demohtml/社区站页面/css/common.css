@@ -1,0 +1,12 @@
+body {
+    font-size: 14px;
+    font-family: "Microsoft Yahei", Simsun;
+    background-color: rgb(235, 235, 235);
+}
+
+/*版心*/
+.w {
+    width: 1100px;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        #bigBox img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div id="smallBox" class="small">
+        <img src="images/001.jpg" width="350" alt=""/>
+        <div id="mask" class="mask"></div>
+    </div>
+    <div id="bigBox" class="big">
+        <img src="images/0001.jpg" width="800" alt=""/>
+    </div>
+</div>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    "use strict";
+    var box = document.getElementById("box");
+    var smallBox = document.getElementById("smallBox");
+    var mask = document.getElementById("mask");
+    var bigBox = document.getElementById("bigBox");
+    var bigImg = bigBox.children[0];
+
+    var $box = $("#box");
+    var $mask = $("#mask");
+    var $bigBox = $("#bigBox");
+    var $bigImg = $bigBox.children('img').eq(0);
+    $(document).ready(function () {
+        $("#smallBox").on('mouseenter', function () {
+            $(this).children('.mask').css({display: 'block'});
+            $bigBox.css({display: 'block'});
+        })
+
+        $("#smallBox").on("mouseleave", function () {
+            $mask.css({display: 'none'});
+            $bigBox.css({display: 'none'});
+        })
+
+        $("#smallBox").on("mousemove", function (e) {
+            var spaceX = e.pageX - $box.offset().top;//和原生的offset.left 相对可视窗口
+            var spaceY = e.pageY - $box.offset().left;
+
+            //让鼠标位于mask的中心
+            var x = spaceX - $mask.width() / 2;
+            var y = spaceY - $mask.height() / 2;
+
+            //控制在smallBox内移动
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+
+            var tmp;
+            if (x > (tmp = $(this).width() - $mask.width())) {
+                x = tmp;
+            }
+
+            if (y > (tmp = $(this).height() - $mask.height())) {
+                y = tmp;
+            }
+
+            $mask.css({top: y, left: x});
+            var imgX = x / $(this).width() * $bigImg.width();
+            var imgY = y / $(this).height() * $bigImg.height();
+            $bigImg.css({
+                left: -imgX,
+                top: -imgY
+            })
+
+        })
+
+    })
+
+
+</script>
+
+</body>
+</html>

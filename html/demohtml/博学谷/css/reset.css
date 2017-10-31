@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+input,img {
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
