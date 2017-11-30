@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>选择符级Hack_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        * html .test {/* For IE6 and earlier */
+            color: #090;
+        }
+        * + html .test { /* For IE7 */
+            color: #ff0;
+        }
+        .test:lang(zh-cmn-Hans) { /* For IE8+ and not IE */
+            color: #f00;
+        }
+        .test:nth-child(1) { /* For IE9+ and not IE */
+            color: #0ff;
+        }
+    </style>
+</head>
+<body>
+<div class="test">在不同浏览器下看看我的颜色吧</div>
+<div class="tips">
+    根据浏览器解析能力，来进行的css hack
+</div>
+</body>
+</html>

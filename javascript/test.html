@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//    function doSomething() {
+//        for(var i = 0; 4 > i; i++) {
+//            var k = 100;
+//            aMrg +=',' + (k + i);
+//        }
+//    }
+//    var k = 1, aMrg = k;
+//    doSomething();//
+//    aMrg += k;
+//    console.log(aMrg); // 1,100,101,102,1031
+
+//var msg = 'hello';
+//function great(name, attr) {
+//    name = 'david';
+//    var greating = msg + name + '!';
+//    var msg = '您好';
+//    for (var i = 0; i < 10; i++) {
+//        var next = msg + '您的 id 是' + i*2 + i;
+//    }
+//    console.log(arguments[0]);
+//    console.log(arguments[1]);
+//    console.log(greating);
+//    console.log(next);
+//}
+//great('Tom');
+// --Tom  内部已经将arguments[0] 改掉了 david
+// undefined
+// undefineddavid
+// 您好您的 id 是189
+
+
+//function Foo() {
+//    var i = 0;
+//    return function () {
+//        console.log(i++);
+//    }
+//}
+//var f1 = Foo(),
+//f2 = Foo();
+//f1();//0
+//f1();//1
+//f2();//0
+//console.log(i);//not defined
+
+
+var a = 5,b = 3;
+function test() {
+    alert(b++);
+    var a = 4;
+    alert(--a);
+    alert(this.a);
+}
+//test(); //3 3 5
+//new test(); //3 3 undefined
+
+
+</script>
+</body>
+</html>

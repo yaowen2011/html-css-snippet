@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>属性级Hack_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        h1 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .test {
+            color: #000;          /* For latest Firefox, chrome, Safari */
+            color: #090\0;        /* For Opera15- */
+            color: #00f\9;        /* For IE8+ */
+            *color: red;         /* For IE7 */
+            _color: pink;         /* For IE6- */
+        }
+    </style>
+</head>
+<body>
+<div class="test">在不同浏览器下看看我的颜色吧</div>
+</body>
+</html>

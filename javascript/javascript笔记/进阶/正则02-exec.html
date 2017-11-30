@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用正则 get参数转换成 obj
+     * @param url
+     * @returns {{}}
+     */
+    function getSearch (url) {
+        var reg_url = /^[^\?]+\?([\w\W]+)$/,
+        reg_params = /([^&=]+)=([\w\W]*?)(&|$|#)/g,
+        arr_url = reg_url.exec(url),
+        ret = {};
+
+        console.log(arr_url);
+        if (arr_url && arr_url[1]) {
+            var str_params = arr_url[1], result;
+//            console.log(str_params, '=========================');
+            while ((result = reg_params.exec(str_params)) != null) {
+//                console.log(result, '--------------');
+                ret[result[1]] = result[2]; //匹配到的元素放在数组里，index放找到的首字母位置
+            }
+        }
+        return ret;
+    }
+
+    var str = 'http://www.baidu.com?name=传奇&age=18';
+//    console.log(getSearch(str));
+
+    var reg_url = /^[^\?]+\?([\w\W]+)$/;//最关键的是这里的括号 0是整个的匹配
+    var search = reg_url.exec(str);
+
+    var reg_params = /([^&=]+)=([\w\W]*?)(&|$|#)/g;//这里的 ?  是限制 非贪婪模式的
+    var reg_params = /([^&=]+)=([\w\W]*)(&|$|#)/g;//不用?  整个都会匹配到
+//    console.log(reg_url);
+
+    while((match = reg_params.exec(search[1])) != null) {
+        console.log(match);
+    }
+</script>
+</body>
+</html>

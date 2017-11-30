@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var undefined; //此时 undefined 变量的值就是 undefined
+    console.log(undefined == null); // true,undefined 与 null 相等,但不恒等(===)
+    console.log(1 == true); // true,此时会把布尔类型的值转换为数字类型 true=1 false=0
+    console.log(2 == true); // false,尝试将 boolean 转换为 number,0 或 1
+    console.log(0 == false); // true,尝试将 boolean 转换为 number,0 或 1
+    console.log(0 == ''); // true,尝试将 Object 转换成 number 或 string,取决于另外一个对比量的类型
+
+    console.log([] == false); // true
+    console.log([] == ![]); // true
+    console.log(NaN == NaN); // false,特例,唯一一个不等于自己的
+    var foo = "11"+2-"1"; //先拼接字符串,然后隐式转换成数字运算
+    console.log(foo); //111 这个值Number类型
+    console.log(typeof foo); //number
+
+    console.log(Number({}));//NaN
+    console.log(Number(!{}));//0
+</script>
+</body>
+</html>

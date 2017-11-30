@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Foo() {
+        getName = function () {
+            console.log(1);
+        };
+        return this;
+    }
+    Foo.getName = function () {
+        console.log(2);
+    };
+    Foo.prototype.getName = function () {
+        console.log(3);
+    };
+    var getName = function () {
+        console.log(4);
+    };
+
+    function getName() {
+        console.log(5);
+    }
+
+    //请写出以下输出结果：
+    Foo.getName();  //2
+    getName();      //4
+    Foo().getName();    //1
+    getName();          //1
+    new Foo.getName();  //2
+    new Foo().getName();//3
+    new new Foo().getName();//new (new Foo().getName)()
+
+    //var tmp = new Foo();
+    //tmp.getName tmp没有这个方法 去Foo的prototype上去找
+    //new的时候 起码会执行下里面的代码
+</script>
+</body>
+</html>

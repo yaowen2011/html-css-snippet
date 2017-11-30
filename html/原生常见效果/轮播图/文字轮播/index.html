@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            height: 30px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+        .box li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .box li:nth-child(2n) {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>新闻01</li>
+            <li>新闻02</li>
+            <li>新闻03</li>
+            <li>新闻04</li>
+            <li>新闻05</li>
+        </ul>
+    </div>
+    <script>
+        var ul = document.querySelector('.box > ul');
+        var liList = document.querySelectorAll('.box > ul > li');
+        var liHeight = liList[0].offsetHeight;
+
+
+        //还需要垫一个假文字
+        var li = liList[0].cloneNode(true);
+        li.style.backgroundColor = '#FFF';
+        ul.appendChild(li);
+
+        //translate是移动至  不会改变坐标原点
+        //left会改变坐标原点
+        var liIndex = 0;
+        setInterval(function () {
+            ++liIndex;
+            if (liIndex > liList.length) {
+                liIndex = 1;
+                //瞬移
+
+                ul.style.transform = "translateY(0px)";
+                ul.style.transition = "none";
+
+                //打破浏览器  绘制的机制
+                ul.offsetHeight;
+            }
+            ul.style.transition = "transform .8s";
+            ul.style.transform = "translateY(-" + (liIndex * liHeight) + "px)";
+
+        }, 1500);
+    </script>
+</body>
+</html>

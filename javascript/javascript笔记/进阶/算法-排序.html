@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var arr = [10, 40, 2, 20, 19, 61, 11];
+
+    //冒泡排序
+    //将最小的置到末尾了
+    function bubbleSort(arr) {
+        for (var i = 0; i < arr.length - 1; ++i) {
+            //后面的已经置到位了
+            for (var j=0; j <= arr.length - i; ++j) {
+                if (arr[j] < arr[j+1]) {
+                    //从大到小 排序
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        return arr;
+    }
+
+//    var ret = bubbleSort(arr);
+    console.log(bubbleSort(arr));
+
+    //快速排序
+    //最差情况时间复杂度和冒泡排序一样
+    function quickSort(arr) {
+        if (arr.length <= 1) return arr;
+        var pivot = Math.floor(arr.length / 2);
+        var left = [];
+        var right = [];
+        for (var i = 0; i < arr.length; ++i) {
+            if (arr[i] < arr[pivot]) {
+                left.push(arr[i]);
+            } else if (arr[i] > arr[pivot]) {//这个if判断很关键 不然会死循环
+                right.push(arr[i]);
+            }
+        }
+
+        return quickSort(left).concat([arr[pivot]], quickSort(right)); //3部分
+    }
+
+//    console.log(quickSort([12, 10, 23, , 4, 5, 1, 3, 319]));
+
+    function quickSort2(arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        var left = [];
+        var right = [];
+        var pivot = Math.floor(arr.length / 2);
+        for (var i=0; i<arr.length; ++i) {
+            if (arr[i] < arr[pivot]) {
+                left.push(arr[i]);
+            } else  if (arr[i] > arr[pivot]) {
+                right.push(arr[i]);
+            }
+        }
+
+        return quickSort2(left).concat([arr[pivot]], quickSort2(right));
+    }
+    console.log(quickSort2(arr));
+</script>
+</body>
+</html>

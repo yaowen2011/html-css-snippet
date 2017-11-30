@@ -1,0 +1,11 @@
+console.log('a starting ');
+console.log('模块是否载入完' + module.loaded);
+exports.done = false;
+var b = require('./b.js');
+console.log('in a, b.done = %j', b.done);
+exports.done = true;
+console.dir(Object.prototype);
+console.log('a done');
+console.log('模块是否载入完' + module.loaded);
+console.log('模块名'+module.filename);
+console.log('模块是否载入完' + module.loaded);

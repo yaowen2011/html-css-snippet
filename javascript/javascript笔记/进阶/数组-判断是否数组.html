@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //思路： 通过原型链的方式来判断
+    var arr = [];
+
+    //方法一：
+    if (arr instanceof Array) {
+        console.log(111);
+    }
+
+    //方法二
+    if (arr.constructor === Array) {
+        console.log(111);
+    }
+
+    //方法三
+    //使用typeof 方法不可以
+    if (Object.prototype.toString.call(arr) === '[object Array]') {
+        console.log(111);
+    }
+
+    //ES5
+    if (Array.isArray(arr)) {
+        console.log(111);
+    }
+
+    //完美判断
+    function isArray(arr) {
+        if (Array.isArray) {
+            return Array.isArray(arr);
+        } else {
+//            if (Object.prototype.toString.call(arr) === '[object Array]') {
+//                return true;
+//            } else {
+//                return false;
+//            }
+
+            //注意看 布尔值  怎么返回
+            return Object.prototype.toString.call(arr) === '[object Array]';
+        }
+    }
+
+
+</script>
+</body>
+</html>

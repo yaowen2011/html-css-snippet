@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*ie下定义小高度容器*/
+        .test {
+            height: 1px;/*ie6下不能起作用,ie7没问题*/
+            background-color: red;
+        }
+
+        /*解决方案*/
+        #test{overflow:hidden;height:1px;font-size:0;line-height:0;}
+    </style>
+</head>
+<body>
+    <div class="test" id="test"></div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位版轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        .box {
+            position: relative;
+            margin: 100px auto;
+            width: 790px;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul > li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 790px;
+            height: 340px;
+            transform: translateX(200%);
+        }
+
+        ol {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 10px;
+            font-size: 0;
+            text-align: center;
+        }
+
+        ol > li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            margin: 0 4px;
+            cursor: pointer;
+            /*background-color: #fff;*/
+        }
+
+        ol > li.current {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+        <li><img src="images/5.jpg" alt=""></li>
+        <li><img src="images/6.jpg" alt=""></li>
+        <li><img src="images/7.jpg" alt=""></li>
+        <li><img src="images/8.jpg" alt=""></li>
+    </ul>
+    <ol>
+        <!--动态生成小点点-->
+        <!--<li class="current"></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+    </ol>
+    <!--<div class="arrow">-->
+        <!--<div class="arrow-l"></div>-->
+        <!--<div class="arrow-r"></div>-->
+    <!--</div>-->
+</div>
+
+<script>
+    //找对象
+    var liList = document.querySelectorAll('.box > ul > li');
+    var liWidth = liList[0].offsetWidth;
+
+    //动态生成小点点
+    var box = document.querySelector(".box");
+    var ol = document.querySelector(".box > ol");
+    for (var i = 0; i < liList.length; ++i) {
+        var li = document.createElement('li');
+        if (i === 0) {
+            li.classList.add('current');
+        }
+        li.dataset.index = i;
+        ol.appendChild(li);
+    }
+
+    //找到所有的小点点
+    var points = document.querySelectorAll(".box > ol > li");
+
+
+    //图片默认在屏幕外
+    //step 1 移到屏幕内
+    var left = liList.length - 1;
+    var center = 0;
+    var right = 1;
+
+    //归位函数(逻辑)
+    liList[left].style.transform = "translateX(-" + liWidth + "px)";
+    liList[center].style.transform = "translateX(0px)";
+    liList[right].style.transform = "translateX(" + liWidth + "px)";
+
+    //自动播放
+    var timer = null;
+    timer = setInterval(function () {
+        left = center;
+        center = right;
+        right++;
+
+        if (right >= liList.length) {
+            right = 0;
+        }
+        //添加过渡 (给看得见的元素添加过渡)
+        //看的见的元素  总是 left right
+        //left center right 不仅可以给 liList使用  还可以给 pointsList使用
+        liList[left].style.transition = "transform .8s";//注意时间  要小于 2秒
+        liList[center].style.transition = "transform .8s";
+        liList[right].style.transition = "none";
+
+        //归位函数(逻辑)
+        liList[left].style.transform = "translateX(-" + liWidth + "px)";
+        liList[center].style.transform = "translateX(0px)";
+        liList[right].style.transform = "translateX(" + liWidth + "px)";
+
+        //移动小点点
+        changePoints();
+    }, 2000);
+
+    //点击小点点切换图片
+    points.forEach(function (item) {
+        item.addEventListener('click', function () {
+//            center = this.dataset.index;
+//            left = center - 1;
+//            right = center + 1;
+//            loadPic();
+
+        })
+    });
+
+    //同步小点点
+    function changePoints() {
+
+        //排他
+        for (var i = 0; i < points.length; ++i) {
+            points[i].classList.remove('current');
+        }
+
+        //添加current
+        points[center].classList.add('current');
+    }
+
+    //移位 函数
+    function loadPic() {
+        liList[left].style.transform = "translateX(-" + liWidth + "px)";
+        liList[center].style.transform = "translateX(0px)";
+        liList[right].style.transform = "translateX(" + liWidth + "px)";
+    }
+</script>
+</body>
+</html>

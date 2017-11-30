@@ -64,6 +64,36 @@
 //                "; next search begins at " + pattern.lastIndex);
 //    }
 
+    //注意这里 ？ 的用法取消贪婪模式
+    //以及replace 中  回调函数的用法  这个也是回调函数的典型用法
+    var s = 'zzzzzzz[a]123[/a],zzz[a]123[/a]'.replace(/\[(.+?)\]/g, function(s, tag) {
+        return '<' + tag + '>';
+    });
+    console.log(s);
+
+    //输出重复次数最多的子串
+    var str = 'abcaabcaaaaqwe';
+    function search(str) {
+        return str.match(/(\w)\1+/g).sort((x, y) => y.length - x.length)[0];
+    }
+    console.log(str.match(/(\w)\1+/g));
+    console.log(search(str));
+
+    var str = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e';
+    // /([^&=]+)=([\w\W]*?)(&|$|#)/g,
+    var matchs = str.match(/[?&](\w+?)=(\w+?)[&]?/g);
+    console.log(matchs);
+
+    console.log('=========================');
+    var matchs;
+    var str = 'http://item.taobao.com/item.htm?a=1&b=2&c=1&d=xxx&e';
+    var reg = /[?&](\w+?)=(\w+?)[^&=]/g;
+    var tmpObj = {};
+    while( (matchs = reg.exec(str)) != null ) {//赋值运算符的优先级是最低的
+        tmpObj[matchs[1]] = matchs[2];
+        console.log(matchs);
+    }
+    console.log(tmpObj);
 </script>
 </body>
 </html>

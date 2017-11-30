@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //适用于已经排好序的数组中查找
+    //二元查找
+    function binarySearch(arr, target) {
+        var start = 0;
+        var end = arr.length - 1;
+        while (start <= end) {
+            //中间点每次在循环内设置
+            var pivot = Math.floor((start + end) / 2);
+            if (arr[pivot] === target) {
+                return pivot;
+            } else if (target > arr[pivot]) {
+                start = pivot + 1;
+            } else if (target < arr[pivot]) {
+                end = pivot - 1;
+            } else {
+                return -1;
+            }
+        }
+    }
+//    console.log(binarySearch([1, 2, 3, 4, 5, 6, 7], 5));
+
+    //使用于排好序
+//    function binarySearch2(arr, target) {
+//        //pivot 不断收缩left 和 right
+//        var left = 0;
+//        var right = arr.length - 1;
+//
+//        //这个和移动端 的轮播图 left center right 思路差不多
+//        while (left <= right) {
+//            var pivot = Math.floor((right+left)/2);
+//
+//            if (arr[pivot] === target) {
+//                return pivot;
+//            }
+//
+//            if (target < arr[pivot]) {
+//                right = pivot - 1;
+//            } else if (target > arr[pivot]) {
+//                left = pivot + 1;
+//            }
+//        }
+//
+//        return null;
+//    }
+//
+//    var index = binarySearch2([1, 2, 3, 4, 5, 6, 7], 5);
+//    console.log(index);
+
+    //前提适拥有已经排好序的数组中查找
+    //递归的形式实现 二分查找
+    function binSearch(arr, low, high, target) {
+        if (low > high) return -1;
+
+        //关键点 重置low 和 high
+        var pivot = Math.floor((low + high) / 2);
+        if (arr[pivot] === target) {
+            return pivot;
+        } else if (target < arr[pivot]) {
+            high = pivot - 1; //去左半区找
+        } else if (target > arr[pivot]) {
+            low = pivot + 1;
+        } else {
+            return -1;
+        }
+
+        return binSearch(arr, low, high, target);
+    }
+//    var arr = [1, 2, 3, 4, 5, 6, 7];
+//    console.log(binSearch(arr, 0, arr.length - 1, 7));
+
+    function binSearch2(arr, low, high, target) {
+        var pivot = Math.floor((low + high) / 2);
+
+        if (arr[pivot] === target) {
+            return pivot;
+        }
+
+        if (arr[pivot] < target) {
+            low = pivot + 1;
+        } else if (arr[pivot] > target) {
+            high = pivot - 1;
+        } else {
+            return -1;
+        }
+
+        return binSearch2(arr, low, high, target);
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    console.log(binSearch2(arr, 0, arr.length - 1, 5));
+</script>
+</body>
+</html>

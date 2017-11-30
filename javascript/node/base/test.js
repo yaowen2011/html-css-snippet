@@ -1,10 +1,20 @@
-var o = {
-	a:3
-}
+module.exports = {
+    id: module.id,
+    filename: module.filename,
+    isLoaded: module.loaded,
+    parent: module.parent,
+    children: module.children
 
-function test(o) {
-	o.a = 4;
-}
 
-test(0);
-console.log(o.a);
+
+
+
+
+
+
+
+
+
+
+
+}

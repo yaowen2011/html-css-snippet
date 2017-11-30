@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .fl {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+            margin: 30px;
+        }
+
+        .two {
+            margin-left: -60px;
+            /*标准文档流  移动后 位置会空出来*/
+        }
+    </style>
+</head>
+<body>
+    <div class="fl one"></div>
+    <div class="fl two"></div>
+    <div class="fl"></div>
+    <div class="fl"></div>
+</body>
+</html>

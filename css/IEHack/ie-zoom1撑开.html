@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #test{zoom:1;overflow:hidden;border:1px solid #ddd;background:#eee;}
+        #test h1{float:left;}
+        #test .nav{float:right;background:#aaa;}
+        #test .nav ul{zoom:1;overflow:hidden;margin:0;padding:0;list-style:none;}
+        #test .nav li{float:left;margin:0 5px;}
+        
+        .desc {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="test">
+    <h1>Doyoe</h1>
+    <div class="nav">
+        <ul>
+            <li><a href="http://css.doyoe.com/">CSS参考手册</a></li>
+            <li><a href="http://blog.doyoe.com/">CSS探索之旅</a></li>
+            <li><a href="http://demo.doyoe.com/">web前端实验室</a></li>
+        </ul>
+    </div>
+</div>
+<div class="desc">
+    如上代码，IE6及更早浏览器div.nav会被设置了zoom:1的ul给撑开。
+
+    列举几个解决方法：
+    　设置ul为浮动元素；
+    　设置ul为inline元素；
+    　设置ul的width
+</div>
+</body>
+</html>

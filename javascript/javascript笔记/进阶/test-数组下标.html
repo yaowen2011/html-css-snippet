@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var arr = new Array(1, 3, 5);
+    arr[4] = 'z';
+    console.log(arr[3]);    //undefined
+    console.log(arr); //[1, 3, 5, 4: "z"],undefined 不显示,后续内容会显示索引值
+    arr2 = arr.reverse(); //["z", 2: 5, 3: 3, 4: 1];反向后,1 不显示
+    console.log(arr); //["z", 2: 5, 3: 3, 4: 1],arr 本身也会反向
+    arr3 = arr.concat(arr2);//拼接字符串
+    console.log(arr3); //["z", 2: 5, 3: 3, 4: 1, 5: "z", 7: 5, 8: 3, 9: 1] 1 和 6 不显示
+
+    var arr2 = [1, 2, 3, 4];
+    console.log(arr2.reverse());
+</script>
+</body>
+</html>
