@@ -1,0 +1,387 @@
+/* 进行背景初始化 */
+.page1 {
+  /* 我们发现, 背景图片, 居中, 底部对齐, 才好看 */
+  background: #F9DD67 url("../images/bg-01-990-600.png") no-repeat center bottom;
+}
+.page2 {
+  background: #84A2D4 url("../images/bg-02-2000-600.png") no-repeat center bottom;
+}
+.page3 {
+  background: #EF674D;
+}
+.page4 {
+  background: #FFEEDD url("../images/bg-04-2000-600.png") no-repeat center bottom;
+}
+.page5 {
+  /* 我们发现第五屏幕花纹重复的, 直接平铺即可 */
+  background: url("../images/bg-05-2000-1500.png");
+}
+.page6 {
+  /*background: #85D9ED url("../images/bg-06-2500-600.png") no-repeat 20% bottom;*/
+  background: #85D9ED url("../images/bg-06-2500-600.png") no-repeat 100% bottom;
+}
+.page7 {
+  background: #8AC060 url("../images/bg-07-2000-1500.png") no-repeat center bottom;
+}
+.page8 {
+  background: url("../images/bg-08.png");
+}
+
+
+/* 公共部分 */
+/* 可以让任意大小的盒子水平居中 */
+.middle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.go {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* 下一屏 */
+.next {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 999;
+  cursor: pointer;
+  animation: next .5s infinite;
+}
+@keyframes next {
+  50% {
+    bottom: 11%;
+  }
+}
+
+
+
+
+/*-------------------S 第 1 屏开始 ----------------------*/
+/* 飞艇 */
+.one-flytitle {
+  /* 通过 bottom 控制上下位置 */
+  bottom: 500px;
+  /* 通过 margin-left 控制左右位置 */
+  margin-left: 100px;
+  
+  /* 2. 使用动画 */
+  /* 动画名称, 执行时间, 执行次数 */
+  animation: one-flytitle 4s infinite;
+}
+/* 1. 定义动画 */
+@keyframes one-flytitle {
+  50% {
+    bottom: 550px;
+  }
+}
+/* 沙发 */
+.one-sofa {
+  bottom: 320px;
+  margin-left: -150px;
+  animation: one-sofa 3s infinite;
+}
+@keyframes one-sofa {
+  50% {
+    bottom: 350px;
+  }
+}
+/* 气泡 */
+.one-tips {
+  bottom: 150px;
+}
+
+/*-------------------E 第 1 屏结束 ----------------------*/
+
+
+/*-------------------S 第 2 屏开始 ----------------------*/
+/* 商品栏 */
+.two-goods {
+  width: 441px;
+  height: 218px;
+  bottom: 215px;
+  display: none;
+}
+
+/* 搜索容器 */
+.two-search-wrapper {
+  position: absolute;
+  bottom: 330px;
+  margin-left: 600px;
+  z-index: 999;
+}
+
+/* 搜索文字 */
+.two-search-words {
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  display: none;
+}
+
+/* 假的搜索框 */
+.two-search-copy {
+  bottom: 330px;
+  display: none;
+  z-index: 999;
+}
+
+/* 提示文字 */
+.two-words {
+  bottom: 550px;
+  display: none;
+}
+
+/* 白色蒙层 */
+.two-cover {
+  width: 105px;
+  height: 105px;
+  background-color: white;
+  bottom: 328px;
+  margin-left: -55px;
+  display: none;
+}
+
+/* 掉下去的沙发 */
+.two-only-sofa {
+  width: 105px;
+  height: 105px;
+  bottom: 328px;
+  margin-left: -55px;
+  z-index: 333;
+  display: none;
+}
+
+/*-------------------E 第 2 屏结束 ----------------------*/
+
+
+/*-------------------S 第 3 屏开始 ----------------------*/
+/* 第三屏主盒子 */
+.three-main {
+  width: 990px;
+  height: 600px;
+  bottom: 0;
+  background: url("../images/03-main.png") no-repeat;
+}
+
+/* 尺码 */
+.three-sel {
+  bottom: 160px;
+  margin-left: 200px;
+}
+.three-sel-active {
+  display: none;
+}
+
+/* 购物车按钮 */
+.three-btn {
+  bottom: 70px;
+  margin-left: 150px;
+}
+.three-btn-active {
+  display: none;
+}
+
+.three-sofa-rotate {
+  bottom: 210px;
+  margin-left: -120px;
+  z-index: 666;
+  display: none;
+}
+
+
+/*-------------------E 第 3 屏结束 ----------------------*/
+
+
+/*-------------------S 第 4 屏开始 ----------------------*/
+/* 云朵 */
+.four-cloud {
+  bottom: 500px;
+  /* 2. 调用动画 动画名称 动画时间 动画次数 */
+  animation: four-cloud 10s infinite;
+}
+/* 1. 声明动画 */
+@keyframes four-cloud {
+  50% {
+    margin-left: -300px;
+  }
+}
+
+
+/* 购物车 容器, 为了不产生定位偏差, 父容器应该和整个屏幕一样大 */
+.four-car-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* 小车车 */
+.four-car {
+  bottom: 50px;
+  margin-left: -250px;
+  z-index: 999;
+}
+/* 购物车里面的小沙发 */
+.four-sofa-rotate {
+  bottom: 240px;
+  margin-left: -185px;
+  display: none;
+}
+
+
+/* 文字 */
+.four-words {
+  bottom: 470px;
+}
+.four-words-active {
+  display: none;
+}
+
+/* 地址容器 */
+.four-address-wrapper {
+  bottom: 170px;
+  display: none;
+}
+
+/* 地址文本 */
+.four-address-txt {
+  position: absolute;
+  top: 55px;
+  left: 35px;
+}
+
+/*-------------------E 第 4 屏结束 ----------------------*/
+
+
+
+
+/*-------------------S 第 5 屏开始 ----------------------*/
+/* 手 */
+.five-hand {
+  margin-left: 250px;
+  /* 最终状态 */
+  /*bottom: 0;*/
+  bottom: -375px;
+}
+/* 鼠标 */
+.five-mouse {
+  bottom: 220px;
+  margin-left: 300px;
+}
+.five-mouse-active {
+  display: none;
+}
+/* 银行卡 */
+.five-card {
+  bottom: 200px;
+  margin-left: -220px;
+  z-index: 666;
+}
+/* 订单 */
+.five-order {
+  /*最终状态*/
+  /*bottom: 370px;*/
+  bottom: 290px;
+  margin-left: -250px;
+}
+/* 文字 */
+.five-words {
+  bottom: 530px;
+  margin-left: -100px;
+  display: none;
+}
+/* 沙发 */
+.five-sofa-rotate {
+  /* 最终掉到bottom: 100px*/
+  /*bottom: 100px;*/
+  /* 默认应该是在上面的 */
+  /* bottom 百分比相对于有定位的父容器 */
+  bottom: 100%;
+  margin-left: -200px;
+  z-index: 333;
+  
+  opacity: 0;
+}
+
+/*-------------------E 第 5 屏结束 ----------------------*/
+
+
+/*-------------------S 第 6 屏开始 ----------------------*/
+
+/* 收货箱子 */
+.six-box {
+  bottom: 450px;
+  margin-left: -500px;
+  /* 动画状态 */
+  /*margin-left: -210px;*/
+  z-index: 666;
+}
+/* 地址牌子 */
+.six-address {
+  bottom: 110px;
+  margin-left: -60px;
+  display: none;
+}
+
+/* 送货小车车 */
+.six-car {
+  bottom: 0;
+  margin-left: -200px;
+  z-index: 999;
+}
+
+
+/* 动画第2步, 人出来 */
+.six-man {
+  /* middle做的事情 */
+  /*position: absolute;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%);*/
+  
+  /* (1) 注意: 因为下面要使用 right进行定位, 所以要换一种居中方式 */
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  
+  /* (2) 由于换了居中方式, 用right:50%来定位的, 所以需要通过 margin-right 控制左右*/
+  margin-right: 200px;
+  bottom: 0;
+
+  /* (3) 设置最终状态, 通过jquery设置right 和 bottom, 让小人跑到门旁边去 */
+  right: 420px;
+  bottom: 112px;
+}
+
+
+/* 门 */
+.six-door {
+  position: absolute;
+  right: 285px;
+  bottom: 116px;
+}
+/* 小姐姐 */
+.six-women {
+  position: absolute;
+  right: 390px;
+  bottom: 116px;
+}
+/* 请收货 */
+.six-getProduct {
+  position: absolute;
+  right: 440px;
+  bottom: 410px;
+}
+/* 文字 */
+.six-words {
+  position: absolute;
+  right: 730px;
+  bottom: 400px;
+}
+
+/*-------------------E 第 6 屏结束 ----------------------*/
