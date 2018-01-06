@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js 三大家族（offset/scroll/client）</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            padding: 100px;
+            margin: 100px;
+            position: relative;
+            border: 100px solid #000;
+            background-color: pink;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box3">
+        <div class="box2" style="left: 10px">
+            桃花屋下桃花仙
+            桃花仙人种桃树
+            右宅桃花换酒钱
+            桃花屋下桃花仙
+            桃花仙人种桃树
+            右宅桃花换酒钱
+        </div>
+    </div>
+</div>
+
+<script>
+    var box1 = document.getElementsByClassName("box1")[0];
+    var box2 = document.getElementsByClassName("box2")[0];
+
+    //--------------------------- 第一家族：方便的offset家族 ---------------------
+
+    //offset:偏移，补偿，位移的意思 偏移的距离。
+    //offsetHeight和offsetWidth: 可以检测盒子的宽高。
+    //包括宽高本身，padding，border。不包括margin
+    //offsetHeight = height+padding+border;(不加margin)
+    //offsetWidth = width+padding+border;(不加margin)
+    console.log(box1.offsetHeight);
+    console.log(box1.offsetWidth);
+
+    //offset..和style.. 区别
+    //    一、最大区别在于offsetLeft可以返回没有定位盒子的距离左侧的位置。
+    //          如果父系盒子中都没有定位，以body为准。
+    //        style.left只能获取行内式，如果没有返回“”;
+
+    //    二、offsetTop 返回的是数字，而 style.top 返回的是字符串，XXpx。
+    //          div.offsetLeft = 100;    div.style.left = "100px";
+
+    //    三、offsetTop 只读，而 style.top 可读写。（只读是获取值，可写是赋值）
+    //          style.left和style.top可以赋值
+    //          offsetLeft和offsetTop只能获取值
+
+    //    四、如果没有给 HTML 元素指定过 top 样式，则style.top 返回的是空字符串。
+    //          style.left只能获取行内式，如果没有返回“”;
+    console.log(box2.offsetLeft);// 返回值不带px
+    console.log(box2.offsetTop);
+    console.log(box2.style.left);//只能获取行内样式 带有px
+    console.log(box2.style.top);
+
+    //offsetParent：
+    //返回最近的带有定为的父盒子(父盒子有定位)
+    //父盒子没有定位就返回body
+    console.log(box3.offsetParent);
+
+
+    //--------------------------- 第二家族：scroll家族 -----------------------------
+
+    //scroll:是--卷页，卷曲的意思 (被卷曲了多少)
+    //scrollWidth和scrollHeight不包括border和margin
+    //scrollWidth = width + padding;
+    // 不包括 border和margin;
+
+    //高度特点：如果文字超出了盒子，高度为超出盒子的内容的高。不超出是盒子本身高度
+    //IE8以下，不包括IE8 为盒子本身内容的多少。
+    console.log(box1.scrollWidth);
+    console.log(box1.scrollHeight);
+
+    window.onscroll = function () {
+        console.log(scroll().top);
+        console.log(scroll().left);
+    }
+
+    function scroll(){
+        //如果这个属性存在，那么返回值应该是0-无穷大
+        //如果没有返回值是undefined；
+        //只要判断不是undefined就可以调用此方法
+        //练习使用此种封装
+        if(window.pageYOffset !== undefined){
+            return {
+                "top": window.pageYOffset,
+                "left": window.pageXOffset
+            };
+        }else if(document.compatMode === "CSS1Compat"){
+            return {
+                "top": document.documentElement.scrollTop,
+                "left": document.documentElement.scrollLeft
+            };
+        }else{
+            return {
+                "top": document.body.scrollTop,
+                "left": document.body.scrollLeft
+            };
+        }
+
+        //简单封装（实际工作使用）
+//            return {
+//                "top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+//                "left":  window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+//            }
+    }
+
+
+
+
+
+
+
+
+
+
+    //--------------------------- 第二家族：client家族 -----------------------------
+
+</script>
+
+</body>
+</html>

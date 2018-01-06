@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>box-shadow 方案</title>
+    <style>
+        .box01 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            box-shadow: 0 0 0 10px #655, 0 0 0 15px red;
+            margin: 0 auto;
+        }
+
+        .box02 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            border: 10px solid #765;
+            outline: 4px solid deeppink;
+            margin: 30px auto;
+        }
+
+    </style>
 </head>
 <body>
 
+
+<div class="box01">
+    <!--/*投影属性和边框 不一样  不会影响布局  不会受到box-sizing的影响*/-->
+</div>
+
+
+<div class="box02">
+    <!--outline的思路-->
+</div>
 </body>
 </html>

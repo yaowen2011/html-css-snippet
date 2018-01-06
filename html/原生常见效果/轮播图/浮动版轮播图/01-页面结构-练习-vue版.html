@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .carousel {
+            width: 790px;
+            height: 340px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel ul {
+            width: 900%;
+            position: absolute;
+            top: 0;
+            /*transition: all .4s;*/
+        }
+
+        .carousel ul li {
+            float: left;
+        }
+
+        .carousel ol {
+            width: 182px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, .5);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .carousel ol li {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            float: left;
+            margin-top: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .carousel ol li.now {
+            background-color: red;
+        }
+
+        .left,
+        .right {
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            line-height: 60px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            font-family: "宋体";
+            font-size: 24px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .left:hover,
+        .right:hover {
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        .arrow {
+            display: none;
+        }
+
+        .carousel:hover .arrow {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app" class="carousel">
+    <ul :style="ulStyleObject">
+        <li v-for="(item, index) in list" v-bind:index="index">
+            <a href="#">
+                <img :src="item.url" alt="">
+            </a>
+        </li>
+    </ul>
+    <ol>
+        <li v-for="(item, index) in navLen" v-bind:index="index" :class="{'now': index==currNavIdx}" ></li>
+    </ol>
+    <div class="arrow">
+        <a href="javascript:void(0);" class="left" @click="left()">&lt;</a>
+        <a href="javascript:void(0);" class="right" @click="right()">&gt;</a>
+    </div>
+</div>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        mounted: function() {
+            this.ulBox = this.$el.querySelector('ul');
+//            console.log(this.ulBox);
+        },
+        data: {
+            ulBox: null,        //ul dom实例
+            ulOffsetLeft: 0,    //ul的offsetLeft
+            ulStyleObject: {
+                transition: 'all .4s',
+                left: 0
+            },
+            liWidth: 790,       //单个里的宽度
+            currIndex: 0,
+            list: [
+                {
+                    url: 'images/1.jpg'
+                },{
+                    url: 'images/2.jpg'
+                },{
+                    url: 'images/3.jpg'
+                },{
+                    url: 'images/4.jpg'
+                },{
+                    url: 'images/5.jpg'
+                },{
+                    url: 'images/6.jpg'
+                },{
+                    url: 'images/7.jpg'
+                },{
+                    url: 'images/8.jpg'
+                },{
+                    url: 'images/1.jpg'
+                },
+
+            ],
+
+        },
+        computed: {
+            //导航的小圆点数量
+            navLen() {
+                return this.list.length - 1
+            },
+            //小圆点索引
+            currNavIdx() {
+                return (this.currIndex === this.list.length-1) ? 0 : this.currIndex
+            }
+        },
+        beforeUpdate: function() {
+
+//            if (this.currIndex >= this.list.length-1) {
+//                this.ulStyleObject['transition'] = 'none';
+//            } else {
+//                this.ulStyleObject['transition'] = 'all .4s';
+//            }
+
+        },
+        methods: {
+            //点击右箭头
+            right() {
+                if (this.currIndex >= this.list.length-1) {
+                    this.currIndex = 0;
+//                    this.ulStyleObject.transition = 'none';
+//                    this.ulStyleObject['transition-property'] = 'none';
+                    //怎么瞬移呢
+//                    this.ulStyleObject.left = 0;
+                    //直接操作DOM处理掉
+                    this.ulBox.style.transition = 'none';
+                    this.ulBox.style.left = 0;
+                    //触发重绘
+                    this.ulBox.offsetLeft;
+                    this.ulBox.style.transition = 'all .4s';
+//                    this.ulBox.offsetLeft;
+                }
+
+//                this.$nextTick(function() {
+                    this.currIndex++;
+//                    this.ulStyleObject['transition-property'] = 'all';
+//                    this.ulStyleObject.transition = 'all .4s';
+                    this.ulStyleObject.left = -this.liWidth * this.currIndex + 'px';
+//                })
+            },
+            left() {
+                if (this.currIndex <= 0) {
+                    this.ulStyleObject.transition = 'none';
+                    this.ulStyleObject.left = -(this.list.length-1)*this.liWidth + 'px';
+                    this.currIndex = this.list.length - 1;
+                }
+                this.currIndex--;
+                this.ulStyleObject.transition = 'all .4s';
+                this.ulStyleObject.left = -this.liWidth * this.currIndex + 'px';
+            }
+        }
+    })
+</script>
+</body>
+</html>
