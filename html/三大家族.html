@@ -17,6 +17,7 @@
             width: 100px;
             height: 100px;
             background-color: red;
+            border: 3px solid lightblue;
         }
     </style>
 </head>
@@ -37,6 +38,7 @@
 <script>
     var box1 = document.getElementsByClassName("box1")[0];
     var box2 = document.getElementsByClassName("box2")[0];
+    var box3 = document.getElementsByClassName("box3")[0];
 
     //--------------------------- 第一家族：方便的offset家族 ---------------------
 
@@ -119,17 +121,18 @@
 //            }
     }
 
+    //--------------------------- 第三家族：client家族 -----------------------------
 
+    // box.clientWidth box.clientHeight
+    console.log(window.clientWidth) //可视区域宽度
+    console.log(window.clientHeight)
 
-
-
-
-
-
-
-
-    //--------------------------- 第二家族：client家族 -----------------------------
-
+    // 鼠标位置 event对象用
+    // event.clientX event.clientY
+    console.log(box2.clientTop, box2.clientLeft, 'clientTop-clientLeft')
+    //----------------------------event对象----------------------
+    //在页面位置就等于 = 看得见的+看不见的
+    //pageY/pageX=event.clientY/clientX+scroll().top/scroll().left
 </script>
 
 </body>
