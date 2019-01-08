@@ -1,0 +1,90 @@
+//CURD about npm
+npm ls
+
+npm ls -g
+npm root -g command  //locate global node_modules folder
+
+npm serach 
+
+//install 
+npm install commander@">=1.0.0 < 1.1.0"
+
+npm install mocha --save-dev //add devDependencies to package.json automatically
+npm install mocha --save
+
+//update
+npm outdated
+npm update npm -g
+
+//remove
+npm rm commander
+
+
+Linking  Packages
+step 1: cd foo-module  
+	npm link
+step 2: cd bar-module
+	npm link foo-module
+
+//if unlink
+	cd bar-module
+	npm unlink foo-module
+
+        cd foo-module
+        npm unlink
+        
+//require
+var commander = require("commander");
+
+require("http");//will always load the core http module //in the lib directory
+require("/some/path/foo");
+require("./foo");//relative path  由下向上搜索
+
+//file extension
+.js  .json  .node(treated as compiled addon modules)
+//add additionall support
+require.extensions[".javascript"] = require.extensions[".js"];
+
+//resolving a module location
+require.resolve("http");
+//module caching
+
+//package design
+npm init
+package.json
+{
+    "name":"package-name",
+    "version":"0.0.0",
+    "description":"this is a description of the module",//searched by npm search command
+    "keywords":["foo", "bar", "baz"],
+    "author":{
+        "name":"colin dog",
+        "email":"colin@120.com",
+        "url":"http://www.xxx.com"
+    },
+    "contributors":[
+        {"name":"colin dog",
+        "email":"colin@120.com",
+        "url":"http://www.xxx.com"},
+        {"name":"colin dog",
+        "email":"colin@120.com",
+        "url":"http://www.xxx.com"}
+      ],
+     "main":"./src/bar.js",//the main entry point
+     "dependencies":{
+        "commander":"1.1.x"
+     },
+     "devDependencies":{
+        "mocha":"~1.8.1"
+     }
+     "engines":{
+        "node":">=0.10.12",
+        "npm":"1.2.x"
+     },
+     "scripts":{
+        "start":"node server.js",
+        "test":"echo \"Error: no test specified\" && exit 1",
+        "install":"",
+        "postinstall":""
+     }
+}

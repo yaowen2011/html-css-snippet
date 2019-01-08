@@ -1,0 +1,2 @@
+http://www.cnblogs.com/super-d2/archive/2012/06/12/2546236.html
+用一个专业一点的说法就是：函数调用返回后一个没有释放资源的栈区；
