@@ -68,3 +68,35 @@ function drawTriangle(x, y, width, color, direction) {
 function paintSpaceShip(x, y) {
   drawTriangle(x, y, 20, '#ff0000', 'up')
 }
+
+var ENEMY_FREQ = 1500;
+var Enemies = Rx.Observable.interval(ENEMY_FREQ)
+  .scan(prev => {
+    var enemy = {
+      x: parseInt(Math.random() * canvas.width),
+      y: -30
+    }
+
+    enemyArray.push(enemy)
+    return enemyArray;  // 这一次处理的中间结果
+  }, []);// 从一个空数组init 
+
+// 游戏主体
+var Game = Rx.Observable
+  .combineLatest(
+    StarStream, SpaceShip, Enemies,
+    function(stars, spaceship, enemies) {
+      return {
+        stars: stars,
+        spaceship: spaceship,
+        enemies: enemies
+      }
+    }
+  )
+Game.subscribe(renderScene)
+
+// 绘制主场景
+function renderScene(actors) {
+  paintStars(actors.stars);
+  paintSpaceShip(actors.spaceship.x, actors.spaceship.y)
+}
