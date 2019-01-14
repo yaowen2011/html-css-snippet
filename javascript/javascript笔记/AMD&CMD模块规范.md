@@ -5,7 +5,7 @@ JS中的模块规范（CommonJS，AMD，CMD）
 commonJS 引入模块是同步的 ，会造成浏览器端假死现象。
 
 
-    （AMD）（Asynchronous Module Definition）
+-  （AMD）（Asynchronous Module Definition）
 
     目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js
     因为的异步的，所以 require('[math]', function() {
@@ -14,11 +14,11 @@ commonJS 引入模块是同步的 ，会造成浏览器端假死现象。
     });
 
 
-    CMD
+-    CMD
     目前，主要有 sea.js
 
 
-    AMD和CMD
+-    AMD和CMD
     两者的主要区别如下：
 
     定位有差异。
