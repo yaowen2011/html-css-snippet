@@ -11,7 +11,7 @@ var SpaceShip = mouseMove
   })
   .startWith({
     x: canvas.width /2,  // 给动态数据结构设置个初始值
-    y: HERO_y
+    y: HERO_Y
   })
 
 // 绘制视图方法
@@ -37,10 +37,16 @@ function paintSpaceShip(x, y) {
 function renderScene(actors) {
   paintStars(actors.stars);
   paintSpaceShip(actors.spaceship.x, actors.spaceship.y);
+  paintEnemies(actors.enemies)
 }
 
-var Game = Rx.Observable
+var Game$ = Rx.Observable
   .combineLatest(
-    
+    StarStream, SpaceShip, Enemies$,
+    function(stars, spaceship, enemies) {
+      return { stars: stars, spaceship: spaceship, enemies: enemies }
+    }
   )
+  .sample(SPEED)
+Game$.subscribe(renderScene)
   

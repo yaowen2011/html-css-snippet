@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+    
+    
+HTMLElement.prototype.pressKey = function(code) {
+	var evt = document.createEvent("UIEvents");
+	evt.keyCode = code;
+  evt.initEvent("keydown", true, true, window, 1);
+  // 注意这里的this， 这个方法是标准dom元素才可以触发
+	this.dispatchEvent(evt);
+}
+
+
+document.body.onkeydown = function(e) {
+    console.log("key pressed, code=" + e.keyCode);
+};
+
+setTimeout(function() {
+  document.body.pressKey(123);
+}, 3000)
+
+</script>
+</body>
+</html>

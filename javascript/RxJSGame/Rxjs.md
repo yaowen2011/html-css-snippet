@@ -24,7 +24,7 @@
     - race，预设条件为其中一个数据流完成
     - forkJoin，预设条件为所有数据流都完成
     - zip，取各来源数据流最后一个值合并为对象
-    - combineLatest，取各来源数据流最后一个值合并为数组
+    - combineLatest，取各来源数据流最后一个值合并为数组,某个流生成数据，combineLatest就会生成数据
     - 另，最好使用 $ 结尾的命名方式来表示Observable，例：input$。
 
 # rxjs的订阅模式，和传统观察者模式区别

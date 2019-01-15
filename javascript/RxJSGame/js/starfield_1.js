@@ -43,4 +43,4 @@ function paintStars(stars) {
 }
 
 // 订阅数据源更新视图
-StarStream.subscribe(starArr => paintStars(starArr))
+// StarStream.subscribe(starArr => paintStars(starArr))
