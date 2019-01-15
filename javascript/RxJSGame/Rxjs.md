@@ -1,3 +1,42 @@
+# 参考
+- Reactive programming with RxJS.pdf
+- [RxJS在angular中](https://www.jianshu.com/p/727c9f302805)
+- [RxJS6之前后API大改动](https://www.cnblogs.com/timetimetime/p/9139926.html)
+# 常用API分类
+  - 创建数据流：
+    - 单值：of, empty, never
+    - 多值：from
+    - 定时：interval, timer
+    - 从事件创建：fromEvent
+    - 从Promise创建：fromPromise
+    - 自定义创建：create
+  - 转换操作：
+    - 改变数据形态：map, mapTo, pluck
+    - 过滤一些值：filter, skip, first, last, take
+    - 时间轴上的操作：delay, timeout, throttle, debounce, audit,  bufferTime
+    - 累加：reduce, scan
+    - 异常处理：throw, catch, retry, finally
+    - 条件执行：takeUntil, delayWhen, retryWhen, subscribeOn,  ObserveOn
+    - 转接：switch
+  - 组合数据流：
+    - concat，保持原来的序列顺序连接两个数据流
+    - merge，合并序列
+    - race，预设条件为其中一个数据流完成
+    - forkJoin，预设条件为所有数据流都完成
+    - zip，取各来源数据流最后一个值合并为对象
+    - combineLatest，取各来源数据流最后一个值合并为数组
+    - 另，最好使用 $ 结尾的命名方式来表示Observable，例：input$。
+
+# rxjs的订阅模式，和传统观察者模式区别
+- 拉取和推送是两种不同的协议，用来描述数据生产者 (Producer)如何与数据消费者 (Consumer)如何进行通信的。
+  - 什么是拉取？ - 在拉取体系中，由消费者来决定何时从生产者那接收数据。生产者本身不知道数据是何时交付到消费者手中的。
+  - 什么是推送？ - 在推送体系中，由生产者来决定何时把数据发送给消费者。消费者本身不知道何时会接收到数据。
+  - RxJS中不订阅Observable，是不会被执行的 
+  - Observable 的核心关注点：
+    - 创建 Observables
+    - 订阅 Observables
+    - 执行 Observables
+    - 清理 Observables
 # 使用rxjs 封装一个xmlHttpRequest
 ```javascript
 function get(url) {
