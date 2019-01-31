@@ -135,13 +135,52 @@ new IScroll(document.querySelector('.scroll-wrapper02'), {
   //     e.stopPropagation();   
   // }
 });
-
+document.addEventListener('touchmove', function(event) {
+  // event.stopPropagation()  父容器  这个很奇怪 父容器阻止冒泡 
+})
 // display: block; visibility: visible;有影响有影响
 // iscroll5 不支持onBeforeScrollStart，如果页面有两个iscroll5的wrapper嵌套，无法阻止，事件冒泡
 // 用iframe来隔离两个父子iscroll 也是个办法
 // iscroll的严重问题，这种情况严重影响了浏览器默认的事件机制，无法阻止事件冒泡
 // todo iscroll的click 理解
 // https://blog.csdn.net/ling369523246/article/details/50589620
+// iscroll inside iscroll  https://github.com/cubiq/iscroll/issues/392
+
+// Iscroll inside Iscroll的解决办法
+// 方法一：
+// 在iscroll的生命周期钩子函数中，disable()父级的iscroll的滑动
+// const iscroll = new Iscroll('#scroll-wapper', options)
+//   var that = this
+//   iscroll.on('beforeScrollStart', () => {
+//     if (this.ParentIscroll) {
+//       this.ParentIscroll.disable()
+//     }
+//   })
+//   iscroll.on('scrollStart', () => {
+//     if (this.ParentIscroll) {
+//       this.ParentIscroll.disable()
+//     }
+//   })
+//   iscroll.on('scroll', () => {
+//     if (this.ParentIscroll) {
+//       this.ParentIscroll.disable()
+//     }
+//   })
+//   iscroll.on('scrollEnd', () => {
+//     if (this.ParentIscroll) {
+//       this.ParentIscroll.enable()
+//     }
+//   })
+
+// 方法二： 
+// 不要让多个iscroll的结构是嵌套的，让不同iscroll的跟节点，他们是同级别的html结构
+
+// 方法三：
+// iframe 分开多个iscroll的执行环境
+
+// iscroll 的ul区域，会形成fix效果，导致子组件会如果fixed 布局，就找不到全屏
+// JRoll 同样问题  transform: translate(0px, -53px); translate 自动会形成fixed的类似的区域
+
 </script>
 </body>
 </html>

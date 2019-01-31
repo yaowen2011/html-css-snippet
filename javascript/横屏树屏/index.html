@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1">
+<style>
+body {}
+
+header {
+position: fixed;
+width: 100%;
+height: 15vw;
+bottom: 0;
+/*left:0;*/
+background: red;
+}
+
+.box {
+width: 40vw;
+margin: 0 auto;
+}
+
+@media all and (orientation: portrait) {
+  #hengping {
+    display: none !important;
+  }
+}
+/*设备横屏时的样式*/
+
+@media all and (orientation: landscape) {
+  #hengping {
+    display: block !important;
+  }
+}
+
+#hengping {
+  display: none;
+  /* background: black; */
+  position: fixed;
+  left: 0;
+  /* right:0;*/
+  bottom: 0;
+  /*top:0;*/
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style>
+</head>
+
+<body>
+<header></header>
+<div id="hengping"></div>
+<div class="box">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto unde ratione aspernatur in ipsam nemo doloribus cum architecto nihil minus! Reprehenderit perspiciatis accusamus, provident odio facere dolores asperiores dolorem, sint.
+</div>
+</body>
+<script src="./assets/js/jquery.min.js"></script>
+<script>
+// 横竖屏幕提醒
+(function transverse() {
+  if (window.orientation == 90 || window.orientation == -90) {
+    var t=$(window).scrollTop()
+    $('#hengping').hide();
+    // setTimeout(function(){
+    $(window).scrollTop(t+1);
+    // 横屏
+    $('#hengping').show();
+  } else if (window.orientation == 180 || window.orientation === 0) {
+    //竖屏
+    var t=$(window).scrollTop()
+    $('#hengping').hide();
+    // setTimeout(function(){
+    $(window).scrollTop(t+1);
+    // },2000)
+  }
+  window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", transverse, false);
+})();
+</script>
+
+<!-- ios 微信端出现这样问题 安卓微信测试了几台没有这个问题-->
+
+</html>
