@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+  <style>
+#page-wrap { width: 80%; margin: 60px auto; }
+#page-wrap > div { margin: 0 0 50px 0; min-width: 500px; width: 100%; }
+
+.group:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.group { display: inline-block; }
+
+#doug-neiner-three { 
+			overflow: hidden;
+			background-color: #ccc; 
+			background-image: -moz-linear-gradient(
+				left, 
+				#eee, 
+				#eee 25%,
+				#ccc 25%,
+				#ccc 75%,
+				#eee 75%,
+				#eee 100%
+			);
+			
+			background-image: -webkit-gradient(
+				linear,
+				left top,
+				right top,
+				
+				color-stop(0, #eee),
+				color-stop(25%, #eee),
+				color-stop(25%, #ccc),
+				color-stop(75%, #ccc),
+				color-stop(75%, #eee),
+				color-stop(100%, #eee)
+			);   
+		
+		}
+		#doug-neiner-three .col {
+			width: 21%; float: left; padding: 2%;
+		}
+		#doug-neiner-three .col:nth-child(1) { margin-left:  25%; width: 46%; } /* PRIMARY */
+		#doug-neiner-three .col:nth-child(2) { margin-left: -75%; } 
+		
+  </style>
+
+</head>
+<body>
+    <div id="page-wrap">	
+        <div id="doug-neiner-three" class="group">
+          
+              <div class="col"><h3>I am listed first in source order.</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>	
+              <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
+              <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
+          
+            </div>
+        </div>
+</body>
+</html>
