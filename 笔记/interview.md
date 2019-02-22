@@ -87,7 +87,41 @@ Array.prototype.shuffle = function() {
   - 发送cookie改成做其他事情，都是在伪造用户请求
 - 闭包的运用
 
-- 冒泡排序
+``````javascript
+//- bubble sort
+function bubbleSort(arr) {
+  for (var i = 0; i < arr.length; ++i) {
+    // move the minimun value to the right at first time
+    for (var j = 0; j < arr.length - i; ++j) {// means the lefted unsorted elements
+      if (arr[j] < arr[j+1]) { // the swap element only happened in the inner 
+        let temp = arr[j]
+        arr[j] = arr[j+1]
+        arr[j+1] = temp
+      }
+    }
+  }
+  return arr
+}
+bubbleSort([1,2,4,5,12])
+// quick sort
+function quickSort(arr, length = arr.length - 1, start = 0) {
+  // 递归出口
+  if (arr.length <= 1) {
+    return arr
+  }
+  let pivot = arr[arr.length - 1]
+  let left = []
+  let right = []
+  while (start < length) {
+    if (arr[start] < pivot) left.push(arr[start])
+    else right.push(arr[start])
+    start++
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)]
+}
+quickSort([4,1,2,44,2,44,100,0])
+``````
 
 - http状态码 100~500
   - 303 304
@@ -112,8 +146,8 @@ Array.prototype.shuffle = function() {
     - 简单来说一定要加上限制，因为服务器的硬盘容量，处理器能力都是由上限的
   - 按需加载 defer async   of webpack
   - 启用缓存
-- 写个function，清除字符串前后的空格？
 ``````javascript
+//- 写个function，清除字符串前后的空格？
 function trimSpace(str) {
   return str.replace(/^\s+/, '').replace(/\s+$/, '')
 } 
@@ -123,8 +157,11 @@ function trimSpace(str) {
 - 正则表达式提取“everything is ok, a nice day, a very NICE day”zhong
 
 - console.log("22"+2-"2") 类似这种的计算的基本逻辑
-- console.log(NaN == Undefined)
-
+  - 
+- console.log(NaN == undefined)
+  - null 和 undefined 只和相互之间相等
+- 函数节流 函数去抖动
+  - 
 - 函数形参和局部变量同名的问题？
 [参考](https://www.jianshu.com/p/7d384261ee75)
 ``````javascript
@@ -149,6 +186,19 @@ function fun(foo) {
 };
 fun(foo);
 console.log(foo.n);
+
+// 题三：
+var name = "The Window";
+var object = {
+　name : "My Object",
+　getNameFunc : function(){
+　　var that = this;
+　　return function(){
+　　　return that.name;
+　　};
+  }
+};　　
+console.log(object.getNameFunc()()); // My Object
 ``````
 
 ## css部分
@@ -158,6 +208,8 @@ console.log(foo.n);
     - 左侧盒子： flex: 0 0 200px,右侧盒子width: 100%;
   - 父容器relative；左边元素absolute定位
 - transition animation
+  - transition: property duration timing-function delay
+  - animation: name duration timing-function delay iteration-count direction fill-mode play-state
 
 - rem布局
 - css实现等高布局
@@ -192,3 +244,4 @@ console.log(foo.n);
     [reference](https://css-tricks.com/fluid-width-equal-height-columns/)
 - 实现溢出文本省略号
 - 选择器 E+F E~F
+  - 同级的节点 + 必须是相邻的节点， ~ 只要是同级的节点就可以
