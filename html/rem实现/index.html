@@ -8,6 +8,22 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <script>
+  // 实现方式一： 设计稿尺寸缩小到320   40px/20 = 2rem 这样转换成rem
+  (function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+
+  </script>
 </body>
 </html>
