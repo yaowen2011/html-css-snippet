@@ -1,3 +1,83 @@
+## learn something in 3 steps
+  - 1. download a simple demo from github, then run it, read the code of it;
+  - 2. goto the official site, read its document fully and **slowly**;
+  - 3. find the details of tis implementation by reading its source code;
+## reading the relative documents to enhance the comprehension
+  - It's a good way to improve yourself
+## redux
+  - [doc link](https://redux.js.org/introduction/getting-started)
+  - It helps simplify a lot of common use cases, including store setup, 
+  - creating reducers and writing immutable update logic...
+## multiple arrow functions
+``````jsx
+const handleClick = id => event {
+  event.preventDefault()
+  // Dispatch some delete action by passing record id
+}
+
+const Confirm = props => (
+  <div>
+    <h1>Are you sure to delete?</h1>
+    <button onClick={handleClick(props.id)}>
+      Delete
+    </button>
+  </div
+)
+``````
+
+## connect: Extracting Data with mapStateToProps
+``````jsx
+// TodoList.js
+function mapStateToProp(state) {
+  const { todos } = state
+  return { todoList: todos.allIds}
+  // the return value must be a plain object that contain the data the component needs
+  // component will receive: props.todoList
+}
+export default connect(mapStateToProp)(TodoList)
+// mapStateToProp: Functions Should Be Pure and Synchronous
+``````
+
+## mapDispatchToProps
+``````jsx
+// method 1:
+function Counter({ count, dispatch }) {
+  // After you have connected your component, you will get a function-prop: dispatch
+  return (
+    <div>
+      <button onClick={() => dispatch({type: 'DECREMENT'})}>-</button>
+      <span>{ count }</span>
+      <button onClick={() => dispatch({type: 'IECREMENT'})}>+</button>
+    </div>
+  )
+}
+// method 2:
+
+``````
+
+## thunk
+``````javascript
+// reference https://medium.com/fullstack-academy/thunks-in-redux-the-basics-85e538a3fe60
+// Eager version
+function yell(text) {
+  console.log(text + '!')
+}
+yell('help--help me.')
+
+// Lazy version
+function thunkedYell(text) {
+  return function thunk() {
+    console.log(text + '!!')
+  }
+}
+const thunk = thunkedYell('bonjour')
+// wait for it...
+thunk()// 'bonjour'
+
+// there is a more simple version used arrorw function
+const yell        = text => console.log(text + '!')
+const thunkedYell = text => () => console.log(text + '!')
+``````
 ## 高阶组件
 - 抽象 可复用  
 - 存在的本质，还是程序对 抽象性的 追求，一套封装下来，可以持续性地复用；
