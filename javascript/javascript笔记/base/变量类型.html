@@ -65,7 +65,7 @@
     //方法1：Number
     console.log(Number('12abc'), '执行Number(\'12abc\')');//NaN
     //方法2：parseInt()
-    console.log(parseInt('12abc'));
+    console.log(parseInt('12abc'));//12
     console.log(parseInt(true));//NaN
     console.log(parseInt(null));//NaN
     console.log(parseInt(undefined));//NaN
@@ -83,8 +83,7 @@
         //Number 0 NaN  false 其他true
         //Null Undefined false
     console.log(Boolean(0));//true
-    console.log(Boolean('0'));
-    console.log();
+    console.log(Boolean('0'));// true
     //方法2：!!
 
     var num = 1;
