@@ -30,13 +30,13 @@
     }
 
     //请写出以下输出结果：
-    Foo.getName();  //2
-    getName();      //4
-    Foo().getName();    //1
-    getName();          //1
-    new Foo.getName();  //2
-    new Foo().getName();//3
-    new new Foo().getName();//new (new Foo().getName)()
+    Foo.getName();  //2 call the static method
+    getName();      //4 expression function will assign at later 
+    Foo().getName();    //1  function simply being executed,and pollute the global environment
+    getName();          //1  that's why here will print 1
+    new Foo.getName();  //2  notice the brackets ignored here
+    new Foo().getName();//3  will simply call the method bind to the prototype
+    new new Foo().getName();// 3 new (new Foo().getName)()
 
     //var tmp = new Foo();
     //tmp.getName tmp没有这个方法 去Foo的prototype上去找
