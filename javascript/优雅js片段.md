@@ -17,3 +17,16 @@
     }
 ``````
 
+- 获取自增id
+``````js
+function getId(heroes: Hero[]): number {
+    let heroes = [
+        {id: 11, name: 'james bond'},
+        {id: 12, name: 'james bond'},
+        {id: 13, name: 'james bond'},
+        {id: 14, name: 'james bond'},
+    ]
+    return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
+}
+``````
+
