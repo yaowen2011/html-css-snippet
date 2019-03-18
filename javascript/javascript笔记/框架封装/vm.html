@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // model
+  function Model () {
+    this._state = {}
+    return this
+  }
+
+  Model.prototype.get = function (key) {
+    return this._state[key]
+  }
+
+  Model.prototype.set = function (key, value) {
+    this._state[key] = value
+    return this
+  }
+
+  // view 层
+  function View (container, html) {
+    this.container = container
+    this.html = html
+    return this
+  }
+  View.prototype.template = function(model) {
+    var _html = this.html
+    Object
+      .keys(model)
+      .forEach(function(key) {
+        _html = _html.replace(new Regexp('({{\s?'+key+'\s?}})', 'g'), model[key])
+      })
+
+    return $(_html)
+  }
+  View.prototype.render = function (model) {
+    this
+      .template(model)
+      .appendTo(this.container)
+  }
+
+  // controller
+  var model = new Model()
+    .set('foo', 10)
+    .set('bar', 20)
+  
+  // demo
+  var html = '<div class="{{ foo }}">{{ bar }}</div>'
+  new View($('#container'), html)
+    .render(model)
+  </script>
+</body>
+</html>
