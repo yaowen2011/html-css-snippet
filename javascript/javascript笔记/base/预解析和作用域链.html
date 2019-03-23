@@ -133,10 +133,10 @@
 
     var a = 5, b = 3;
     function test() {
-        alert(b++);
-        var a = 4;
-        alert(--a);
-        alert(this.a);
+        alert(b++);// 3
+        var a = 4; 
+        alert(--a);//3
+        alert(this.a);// 5
     }
     var temp = (new test());//this.a 为undefined 可见构造函数中 申明对象属性时，一定要this.a=4 不然取this.a就是
                             //undefined

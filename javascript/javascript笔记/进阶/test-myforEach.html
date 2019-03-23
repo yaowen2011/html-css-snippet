@@ -9,6 +9,7 @@
 </head>
 <body>
 <script>
+    // encapsulate a function like Array.prototype.forEach
     function myForEach(arr, callback) {
         for (var i = 0; i < arr.length; ++i) {
             callback && callback(arr[i], i);
