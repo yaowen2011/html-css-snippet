@@ -1,0 +1,63 @@
+/*
+* @Author: Administrator
+* @Date:   2017-08-24 10:21:21
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-08-24 15:41:20
+*/
+/* 分类主体 */
+body,html {
+	height: 100%;
+	max-width: 640px;
+	min-width: 320px;
+	margin:0 auto;
+}
+/* 这个容器必须得到整个屏幕的高度
+整个屏幕的高度需要从html开始依次
+继承100%才能够得到整个屏幕的高度 */
+.cate-main {
+	height: 100%;
+	padding-top: 45px;
+	box-sizing:border-box;
+}
+.cate-main .left {
+	width: 74px;
+	border-right: 1px solid #ccc;
+	height: 100%;
+	overflow: hidden;
+}
+.cate-main .left li {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
+.cate-main .right {
+	height: 100%;
+	margin-left: 75px;
+	/* 这里注意一个事情：左边浮动  右边标准流  在标准流里面清除浮动会连带左边的浮动一起清除
+	如果这个时候左边的盒子的高度很高，右边清除浮动的时候会将左边的高度直接获取过来
+	解决方法：用overflow去清除浮动，因为overflow会隔离出一个BFC区域，这样左边的浮动就不会干扰
+	到右边的浮动 */
+	overflow: hidden;
+}
+.cate-main .right .wrap {
+	padding: 10px 0 0 10px;
+}
+.cate-main .right .wrap .items {
+	margin-top: 10px;
+}
+.cate-main .right .wrap h3 {
+	font-size: 16px;
+	line-height: 2;
+}
+.cate-main .right .wrap ul {
+	background-color: #fff;
+}
+.cate-main .right .wrap a {
+	display: block;
+	padding:0 10px;
+}
+.wrap .items li p {
+	text-align: center;
+	line-height: 2;
+}

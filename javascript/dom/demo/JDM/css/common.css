@@ -1,0 +1,178 @@
+/* 精灵图公共类 */
+.jd-sprite:before {
+	content: '';
+	background:  url(../images/icons/jd-sprites.png)  no-repeat;
+	/* 将精灵图缩放至200px  这里不能用50% 因为这个百分比参照的是自身盒子的宽高 */
+	-webkit-background-size: 200px;
+	background-size: 200px;
+}
+/* 控制水平垂直居中公共类 */
+.jd-center:before,.jd-self-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);
+}
+/* 水平居中公共类 */
+.jd-center-x:before,.jd-self-center-x {
+	position: absolute;
+	left: 50%;
+	transform:translateX(-50%);
+}
+/* 垂直居中公共类 */
+.jd-center-y:before,.jd-self-center-y {
+	position: absolute;
+	top: 50%;
+	transform:translateY(-50%);
+}
+/* 公共头部样式 */
+.common-header {
+	height: 44px;
+	border-bottom: 1px solid #ccc;
+	background:linear-gradient(to bottom,#fff,#e0e0e0);
+	position: fixed;
+	width: 100%;
+	z-index: 998;
+	left: 0;
+	top: 0;
+}
+.common-header .left {
+	width: 40px;
+	height: 44px;
+	position: relative;
+}
+.common-header .left:before {
+	width: 13px;
+	height: 20px;
+	background-position: -25px 0;
+}
+.common-header .right {
+	width: 42px;
+	height: 44px;
+	position: relative;
+}
+.common-header .right:before {
+	width: 18px;
+	height: 18px;
+	background-position: -61px -1px;
+}
+.common-header .center {
+	height: 44px;
+	margin:0 42px 0 40px;
+}
+.common-header .center input[type="search"]{
+	width: 100%;
+	height: 30px;
+	border:1px solid #ccc;
+	margin-top: 8px;
+	border-radius: 5px;
+	text-indent: 10px;
+	outline: none;
+}
+.common-header .center h2 {
+	text-align: center;
+	line-height: 44px;
+	font-size: 18px;
+	font-weight: 400;
+}
+.mt-45 {
+	margin-top: 45px;
+}
+
+/* 公共的checkbox类 */
+/* 奇淫技巧 */
+.checkbox-wrap {
+	width: 40px;
+	height: 35px;
+	position: relative;
+}
+
+.checkbox-wrap input[type="checkbox"] {
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.checkbox-wrap:before {
+	width: 20px;
+	height: 20px;
+	background-position: -180px -90px;
+}
+.checkbox-wrap.checked:before {
+	background-position: -180px -70px;
+}
+/* 模态框 */
+.modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,.5);
+	z-index: 999;
+	display: none;
+}
+.modal .modal-wrap {
+	width: 80%;
+	height: 165px;
+	background-color: #fff;
+	border-radius: 5px;
+	padding:10px;
+	box-sizing:border-box;
+}
+.modal .modal-wrap .modal-t {
+	height: 90px;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+}
+.modal .modal-wrap p {
+	width: 100%;
+	text-align: center;
+}
+.modal-b {
+	padding-top: 10px;
+}
+.modal-b  button {
+	width: 45%;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+.modal-b  button.sure {
+	background-color: #D90000;
+	color: #fff;
+}
+@keyframes bounceMyInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-50%, -30%, 0);
+  }
+
+  75% {
+    transform: translate3d(-50%, -60%, 0);
+  }
+
+  90% {
+    transform: translate3d(-50%, -45%, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.bounceMyInDown {
+  animation: bounceMyInDown 1s linear 0s forwards;
+}

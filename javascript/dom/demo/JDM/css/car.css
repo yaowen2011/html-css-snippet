@@ -1,0 +1,109 @@
+/*
+* @Author: Administrator
+* @Date:   2017-08-24 15:39:56
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-08-25 10:33:07
+*/
+.safe-tips {
+	height: 34px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background-color: #fff;
+	line-height: 34px;
+	text-align: center;	
+}
+.safe-tips p:before {
+	content: '';
+	width: 18px;
+	height: 18px;
+	background:  url(../images/icons/safe_icon.png) 0 0 no-repeat;
+	display: inline-block;
+	-webkit-background-size:100%;
+	background-size:100%;
+	vertical-align: middle;
+}
+.safe-tips span {
+	display: inline-block;
+	/* 让元素以中线进行对齐 */
+	vertical-align: middle;
+	margin-left: 3px;
+}
+
+/* 购物车主体区域 */
+.car-main {
+	background-color: #fff;
+	margin-top: 15px;
+}
+.car-main .car-t {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	height: 35px;
+	line-height: 35px;
+}
+.jd-self-sell {
+	position: relative;
+	text-indent: 20px;
+}
+.jd-self-sell:before {
+	width: 15px;
+	height: 10px;
+	-webkit-background-size: 120px;
+	background-size: 120px;
+	left: 0;
+}
+.car-main .car-t .jd-free {
+	color: #D90000;
+	margin-right: 10px;
+}
+.car-main .car-b .items {
+	padding:10px 0;
+	border-bottom: 1px solid #ccc;
+}
+.car-main .car-b .img-wrap {
+	width: 80px;
+}
+.car-main .car-b .txt-wrap {
+	margin-left: 130px;
+}
+.car-main .car-b .set-wrap {
+	margin-top: 15px;
+}
+.btn-wrap {
+	width: 120px;
+	height: 32px;
+	border: 1px solid #ccc;
+}
+.btn-wrap span {
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+}
+.btn-wrap span:nth-child(2) input {
+	width: 100%;
+	text-align: center;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	height: 100%;
+	box-sizing:border-box;
+}
+.del {
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.del-t {
+	width: 20px;
+	height: 5px;
+	background:  url(../images/icons/delete_up.png) 0 0 no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	transition:transform .5s;
+	transform-origin:left bottom;
+}
+.del-b {
+	width: 18px;
+	height: 18px;
+	background:  url(../images/icons/delete_down.png) 0 0 no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	margin:0 auto;
+}

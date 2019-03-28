@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			height: 400px;
+			background-color: pink;
+			position: relative;
+		}
+		.center {
+			width: 100px;
+			height: 400px;
+			top: 0;
+			left: 50%;
+			margin-left: -50px;
+			background-color: green;
+			/* 定位的元素默认比浮动的元素的层级要高 */
+			position: absolute;
+		}
+		.left,.right {
+			width: 50%;
+			float: left;
+			height: 400px;
+			background-color: yellow;
+			/* 可以自动内减掉padding和border */
+			box-sizing:border-box;
+		}
+		.left {
+			padding-right: 60px;
+		}
+		.right {
+			padding-left: 60px;
+		}
+		.content {
+			height: 400px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left">
+			<div class="content"></div>
+		</div>
+		<div class="right">
+			<div class="content"></div>
+		</div>
+		<div class="center">
+			呵呵哒
+		</div>
+	</div>
+</body>
+</html>

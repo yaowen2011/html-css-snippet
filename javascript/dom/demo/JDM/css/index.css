@@ -1,0 +1,245 @@
+/*
+* @Author: Administrator
+* @Date:   2017-08-21 15:03:41
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-08-25 11:52:13
+*/
+html {
+	max-width: 640px;
+	min-width: 320px;
+	margin:0 auto;
+}
+.jd-header {
+	height: 40px;	
+	/* background-color: rgba(201, 21, 35, 1); */
+	/* 脱标的元素会自动收缩到内容的大小 */
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 998;
+	max-width: 640px;
+	min-width: 320px;
+}
+.jd-header .left {
+	width: 75px;
+	height: 40px;
+	position: relative;
+}
+.jd-header .left:before {
+	width: 56px;
+	height: 21px;
+	background-position: 0 -109px;
+}
+.jd-header .right {
+	width: 50px;
+	height: 40px;
+}
+.jd-header .right a {
+	text-align: center;
+	line-height: 40px;
+	display: block;
+	color: #fff;
+	font-size: 14px;
+}
+.jd-header .center {
+	height: 40px;
+	margin:0 50px 0 75px;
+	position: relative;
+}
+.jd-header .center:before {
+	content: '';
+	width: 19px;
+	height: 19px;
+	left: 5px;
+	background-position:-60px -110px;
+}
+.jd-header .center input {
+	width: 100%;
+	height: 30px;
+	border-radius: 15px;
+	background-color: #fff;
+	margin-top: 5px;
+	text-indent: 30px;
+	outline: none;
+}
+
+/* 轮播区域 */
+.carouselWrap {
+	position: relative;
+	overflow: hidden;
+}
+.carouselWrap ul {
+	/* 这个高度先写一个最小高，真正的高度需要在JS里面动态去求 */
+	min-height: 143px;	
+}
+.carouselWrap ul li {
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 0;
+	/* 这里面不要直接用left去移动，利用transform去移动，因为这样不会改变最初始的原点 */
+	transform:translateX(300%);
+}
+.points {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+}
+.points li {
+	width: 5px;
+	height: 5px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: inline-block;
+	margin:0 2px;
+}
+.points li.active {
+	background-color: #fff;
+}
+/* 导航区域 */
+.jd-nav {
+	padding:10px 0;
+}
+.jd-nav li a {
+	display: block;
+	padding:0 15px;
+}
+.jd-nav li p {
+	text-align: center;
+	line-height: 3;
+	font-size: 14px;
+}
+
+/* 京东快报 */
+.jd-news {
+	height: 35px;
+	background-color: #fff;
+	margin:0 10px;
+	border-radius: 5px;
+}
+.jd-news .left {
+	width: 80px;
+	height: 35px;
+}
+.jd-news .left img {
+	margin-top: 9px;
+}
+.jd-news .right {
+	width: 40px;
+	height: 35px;
+	line-height: 35px;
+}
+.jd-news .center {
+	height: 35px;
+	margin:0 40px 0 80px;
+	overflow: hidden;
+}
+.jd-news .center li {
+	height: 35px;
+	line-height: 35px;
+	text-indent: 10px;
+}
+
+/* 京东秒杀 */
+.jd-sec-kill {
+	margin-top: 20px;
+	background-color: #fff;
+}
+.jd-sec-kill .sec-t {
+	height: 35px;
+}
+.jd-sec-kill .sec-txt {
+	line-height: 35px;
+	text-indent: 35px;
+	font-size: 14px;
+	letter-spacing: 5px;
+	color: #D90000;	
+	position: relative;
+}
+.jd-sec-kill .sec-txt:before {
+	width: 18px;
+	height: 22px;
+	left: 5px;
+	background-position: -84px -109px;
+}
+.jd-sec-kill .more-kill {
+	line-height: 35px;
+	margin-right: 10px;
+}
+.jd-sec-kill .sec-time {
+	/* 利用font-size：0可以干掉行内块默认的空文本节点的空隙 */
+	font-size: 0;
+	margin-top: 7px;
+}
+.jd-sec-kill .sec-time span{
+	display: inline-block;
+	padding:3px 2px;
+	background-color: #000;
+	font-size: 12px;
+	color: #fff;
+}
+.jd-sec-kill .sec-time span:nth-child(3n) {
+	background-color: #FFF;
+	color: #000;
+}
+.jd-sec-kill .sec-time span:nth-child(3n+1) {
+	border-radius: 5px 0 0 5px;
+}
+.jd-sec-kill .sec-time span:nth-child(3n+2){
+	border-radius: 0 5px 5px 0;
+}
+.jd-sec-kill .sec-b {
+	/* 解决IOS默认滑动很卡的情况 */
+	-webkit-overflow-scrolling : touch;
+	/* auto 一旦超出默认产生滚动条 */
+	overflow: auto;
+}
+.jd-sec-kill .sec-b ul {
+	/* 这里先写死 后期到JS里面动态求 */
+	width: 1000px;
+}
+.jd-sec-kill .sec-b li {
+	width: 92px;
+}
+.jd-sec-kill .sec-b li a {
+	display: block;
+	padding:5px 15px;
+	border-right: 1px solid #ccc;
+}
+.jd-sec-kill .sec-b li p {
+	text-align: center;
+	line-height: 1.5;
+}
+.new-price {
+	color: #D90000;
+	font-size: 14px;
+}
+.old-price {
+ 	text-decoration: line-through;
+}
+
+/* 产品区域 */
+.jd-product li {
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.jd-product li:nth-child(2n+1):after {
+	content: '';
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #ccc;
+}
+.jd-product a {
+	display: block;
+	padding:10px;
+}
+@media (min-width: 520px) {
+	.jd-nav li p {
+		font-size: 18px;
+	}
+}
