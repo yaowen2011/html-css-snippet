@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .waterfall {
+      position: relative;
+    }
+
+    .box {
+      border: 1px solid red;
+      padding: 5px;
+      position: absolute;
+      transition: all 1s;
+    }
+
+    .box img {
+      display: block;
+      width: 192px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="waterfall">
+  <div class="box"><img src="images/P_000.jpg" alt=""></div>
+  <div class="box"><img src="images/P_001.jpg" alt=""></div>
+  <div class="box"><img src="images/P_002.jpg" alt=""></div>
+  <div class="box"><img src="images/P_003.jpg" alt=""></div>
+  <div class="box"><img src="images/P_004.jpg" alt=""></div>
+  <div class="box"><img src="images/P_005.jpg" alt=""></div>
+  <div class="box"><img src="images/P_006.jpg" alt=""></div>
+  <div class="box"><img src="images/P_007.jpg" alt=""></div>
+  <div class="box"><img src="images/P_008.jpg" alt=""></div>
+  <div class="box"><img src="images/P_009.jpg" alt=""></div>
+  <div class="box"><img src="images/P_010.jpg" alt=""></div>
+  <div class="box"><img src="images/P_011.jpg" alt=""></div>
+  <div class="box"><img src="images/P_012.jpg" alt=""></div>
+  <div class="box"><img src="images/P_013.jpg" alt=""></div>
+  <div class="box"><img src="images/P_014.jpg" alt=""></div>
+  <div class="box"><img src="images/P_015.jpg" alt=""></div>
+  <div class="box"><img src="images/P_016.jpg" alt=""></div>
+  <div class="box"><img src="images/P_017.jpg" alt=""></div>
+  <div class="box"><img src="images/P_018.jpg" alt=""></div>
+  <div class="box"><img src="images/P_019.jpg" alt=""></div>
+  <div class="box"><img src="images/P_020.jpg" alt=""></div>
+
+</div>
+
+<script>
+  //等图片加载，才能获取高度。
+  window.onload = function () {
+
+    //1. 确定瀑布流是几列
+    //列数 = 可视区宽度/(盒子的宽度+间隙)
+    var waterfall = document.querySelector(".waterfall");
+    //动态更新的
+    var divs = waterfall.children;
+
+    //瀑布流设置位置
+    function fn(){
+
+      var pageWidth = window.innerWidth;//可视区宽度
+      var boxWidth = divs[0].offsetWidth;//一个盒子的宽度
+      var gap = 10;//间歇的宽度
+      var cols = parseInt(pageWidth / (boxWidth + gap))//列数;
+
+      var arr = [];
+      //设置第一行的盒子
+      for (var i = 0; i < cols; i++) {
+        //第一行盒子的top是0
+        divs[i].style.top = 0;
+        //设置盒子的left值
+        divs[i].style.left = i * (boxWidth + gap) + "px";
+        //将盒子的高度添加到数组中，方便后续的排列
+        arr.push(divs[i].offsetHeight);
+      }
+
+
+      //其他的盒子
+      for(i = cols; i < divs.length;i++){
+        //1. 获取到数组最小列的下标
+        var index = 0;//假设数组第0项就是最小值
+        var min = arr[0];
+        //遍历数组
+        for(var j = 0; j < arr.length; j++){
+          if(min > arr[j]){
+            min = arr[j];
+            index = j;
+          }
+        }
+        //2. 设置left
+        divs[i].style.left = index * (boxWidth + gap) + "px";
+        //3. 设置top
+        divs[i].style.top = min + gap + "px";
+        //4. 修改高度  arr[index]:最小列的高度  加上刚刚新增的盒子的高度
+        arr[index] += divs[i].offsetHeight + gap;
+      }
+    }
+
+    fn();
+
+    //注册窗口重置大小事件
+    window.onresize = function () {
+      fn();
+    }
+
+    //注册滚动事件
+    window.onscroll = function () {
+      //何时加载图片， 当最后一张图片要出现的时候，说明后面就没有图片，需要去加载图片了。
+      // 可视区高度 + scrollTop >= 最后一张图片的offsetTop时，需要加载图片
+      var pageHeight = window.innerHeight;
+      var scrollTop = window.pageYOffset;
+      var offsetTop = divs[divs.length-1].offsetTop;
+      if(pageHeight + scrollTop >= offsetTop){
+        console.log("没图片，快加载");
+        //需要发送一个ajax请求，获取图片
+        var datas = [
+            "images/P_000.jpg",
+            "images/P_001.jpg",
+            "images/P_002.jpg",
+            "images/P_003.jpg",
+            "images/P_004.jpg",
+            "images/P_005.jpg",
+            "images/P_006.jpg",
+            "images/P_007.jpg",
+            "images/P_008.jpg",
+            "images/P_009.jpg",
+            "images/P_010.jpg",
+            "images/P_011.jpg",
+            "images/P_012.jpg",
+            "images/P_013.jpg",
+            "images/P_014.jpg",
+            "images/P_015.jpg",
+            "images/P_016.jpg",
+            "images/P_017.jpg",
+            "images/P_018.jpg",
+            "images/P_019.jpg",
+            "images/P_020.jpg",
+        ];
+
+        //根据数组，创建div，添加到waterfall
+        for(var i = 0; i < datas.length; i++) {
+          var div = document.createElement("div");
+          waterfall.appendChild(div);
+          div.className = "box";
+          div.innerHTML = '<img src="'+datas[i]+'" alt="">';
+        }
+
+        fn();
+      }
+    }
+
+  }
+
+
+
+</script>
+
+</body>
+</html>

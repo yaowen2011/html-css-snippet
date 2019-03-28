@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    .accordion {
+      width: 1200px;
+      height: 400px;
+      margin: 100px auto;
+      overflow: hidden;
+    }
+
+    .accordion ul {
+      width: 1300px;
+    }
+    
+    .accordion li {
+      width: 240px;
+      height: 400px;
+      float: left;
+      /*border: 1px solid #000;*/
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<div class="accordion">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+
+<script src="animate.js"></script>
+<script>
+
+  var lis = document.querySelectorAll(".accordion li");
+  //给所有li添加背景图片
+  for(var i = 0; i < lis.length; i++) {
+    lis[i].style.backgroundImage = "url(images/"+(i+1)+".jpg)";
+
+    //给li注册鼠标经过事件
+    lis[i].addEventListener("mouseover", function () {
+      //让所有的li的宽度变成100
+      for(var i = 0; i < lis.length; i++) {
+        animate(lis[i], {width:100});
+      }
+      //让当前li的宽度变成800
+      animate(this, {width:800});
+    });
+
+
+    lis[i].addEventListener("mouseout", function () {
+      //让所有的li的宽度变成100
+      for(var i = 0; i < lis.length; i++) {
+        animate(lis[i], {width:240});
+      }
+    });
+  }
+
+
+  //DOM 操作页面结构
+
+</script>
+
+</body>
+</html>

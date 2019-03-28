@@ -1,0 +1,192 @@
+// 加载初始的base
+@import url(base.less);
+html {
+	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+}
+// 主色调
+@mainColor : #328fe1;
+.main-Color{
+	color: @mainColor;
+}
+.cz-header {
+	height: 2.0rem;
+	line-height: 2.0rem;
+	background-color: @mainColor;
+	position: relative;
+	> h3 {
+		text-align: center;
+		font-size: 0.75rem;
+		color: #fff;
+		font-weight: 400;
+	}
+	> .back {
+		width: 1.025rem;
+		height: 0.925rem;
+		background:  url(../images/icons/back.png) 0 0 no-repeat;
+		left: 0.5rem;
+		.center-y();
+		.bgz();
+	}
+}
+
+/* 本例子css -------------------------------------- */
+.focus {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.focus .hd {
+	width: 100%;
+	height: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	text-align: center;
+}
+
+.focus .hd ul {
+	overflow: hidden;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	height: 5px;
+	background-color: rgba(51, 51, 51, 0.5);
+}
+
+.focus .hd ul li {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+}
+
+.focus .hd ul .on {
+	background: #FF4000;
+}
+
+.focus .bd {
+	position: relative;
+	z-index: 0;
+}
+
+.focus .bd li img {
+	width: 100%;
+}
+
+.focus .bd li a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 取消链接高亮 */
+}
+
+.cz-shop {
+	padding: 0.6rem 0 0.45rem 0.25rem;
+	background-color: #fff;
+	> .left {
+		width: 2.975rem;
+		height: 2.975rem;
+		border: 0.025rem solid #ccc;
+		padding: 3px;
+		.bz();
+	}
+	> .right {
+		margin-left: 3.675rem;
+		> h3 {
+			font-size: 0.55rem;
+			color: #515567;
+			font-weight: 400;
+		}
+		> p {
+			font-size: 0.45rem;
+		}
+		> .btn-wrap {
+			margin-top: 0.3rem;
+			font-size: 0;
+			> button {
+				width: 3.45rem;
+				height: 1.1rem;
+				background-color: @mainColor;
+				color: #fff;
+				border: none;
+				border-radius: 5px;
+				font-size: 0.45rem;
+			}
+			> button:nth-of-type(2){
+				margin-left: 1.0rem;
+			}
+		}
+	}
+}
+
+
+
+.shop-desc {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 0 0.75rem;
+	> li {
+		height: 1.5rem;
+		line-height: 1.5rem;
+		font-size: 0.45rem;
+		position: relative;
+		.num-desc {
+			min-width: 3.4rem;
+		}
+		.num {
+			right: 0;
+		}
+		.line {
+			width: 1.4rem;
+			height: 0.05rem;
+			background-color: @mainColor;
+			right: 0;
+		}
+	}
+}
+
+.shop-tit {
+	height: 1.95rem;
+	line-height: 1.95rem;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-top: 0.425rem;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+.shop-product {
+	> .shop-p-t {
+		height: 1.75rem;
+		line-height: 1.75rem;
+		font-size: 0.55rem;
+		color: #868686;
+		text-indent: 0.25rem;
+		position: relative;
+		> .arrow {
+			width: 0.35rem;
+			height: 0.4rem;
+			right: 0.25rem;
+			background:  url(../images/icons/arrow.png) 0 0 no-repeat;
+			.bgz();
+		}
+	}
+	> .shop-p-b {
+		padding-top: 0.3rem;
+		li {
+			padding:0 0.125rem;
+			.bz();
+			> .content {
+				border: 1px solid #ccc;
+				height: 8.575rem;
+				> p {
+					padding:0 0.125rem;
+					.txt_cut();
+				}
+				> p:nth-of-type(2) {
+					margin-top: 0.3rem;
+				}
+			}
+		}
+	}
+
+}

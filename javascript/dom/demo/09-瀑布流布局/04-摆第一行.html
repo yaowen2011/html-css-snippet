@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .waterfall {
+      position: relative;
+    }
+
+    .box {
+      border: 1px solid red;
+      padding: 5px;
+      position: absolute;
+    }
+
+    .box img {
+      display: block;
+      width: 192px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="waterfall">
+  <div class="box"><img src="images/P_000.jpg" alt=""></div>
+  <div class="box"><img src="images/P_001.jpg" alt=""></div>
+  <div class="box"><img src="images/P_002.jpg" alt=""></div>
+  <div class="box"><img src="images/P_003.jpg" alt=""></div>
+  <div class="box"><img src="images/P_004.jpg" alt=""></div>
+  <div class="box"><img src="images/P_005.jpg" alt=""></div>
+  <div class="box"><img src="images/P_006.jpg" alt=""></div>
+  <div class="box"><img src="images/P_007.jpg" alt=""></div>
+  <div class="box"><img src="images/P_008.jpg" alt=""></div>
+  <div class="box"><img src="images/P_009.jpg" alt=""></div>
+  <div class="box"><img src="images/P_010.jpg" alt=""></div>
+  <div class="box"><img src="images/P_011.jpg" alt=""></div>
+  <div class="box"><img src="images/P_012.jpg" alt=""></div>
+  <div class="box"><img src="images/P_013.jpg" alt=""></div>
+  <div class="box"><img src="images/P_014.jpg" alt=""></div>
+  <div class="box"><img src="images/P_015.jpg" alt=""></div>
+  <div class="box"><img src="images/P_016.jpg" alt=""></div>
+  <div class="box"><img src="images/P_017.jpg" alt=""></div>
+  <div class="box"><img src="images/P_018.jpg" alt=""></div>
+  <div class="box"><img src="images/P_019.jpg" alt=""></div>
+  <div class="box"><img src="images/P_020.jpg" alt=""></div>
+</div>
+
+<script>
+
+
+  //等图片加载，才能获取高度。
+  window.onload = function () {
+
+
+    //1. 确定瀑布流是几列
+    //列数 = 可视区宽度/(盒子的宽度+间隙)
+
+    var divs = document.querySelectorAll(".box");
+    var pageWidth = window.innerWidth;//可视区宽度
+    var boxWidth = divs[0].offsetWidth;//一个盒子的宽度
+    var gap = 10;//间歇的宽度
+    var cols = parseInt(pageWidth / (boxWidth + gap))//列数;
+
+    var arr = [];
+    //设置第一行的盒子
+
+
+    for (var i = 0; i < cols; i++) {
+      //第一行盒子的top是0
+      divs[i].style.top = 0;
+      //设置盒子的left值
+      divs[i].style.left = i * (boxWidth + gap) + "px";
+      //将盒子的高度添加到数组中，方便后续的排列
+      arr.push(divs[i].offsetHeight);
+    }
+
+
+
+  }
+
+</script>
+
+</body>
+</html>

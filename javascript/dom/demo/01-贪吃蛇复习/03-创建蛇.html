@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #map {
+      width: 800px;
+      height: 600px;
+      background-color: #ccc;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<button>开始游戏</button>
+<div id="map"></div>
+
+
+<script src="food.js"></script>
+<script src="snake.js"></script>
+<script>
+
+  var map = document.getElementById("map");
+
+  //游戏构造函数,管理所有的对象，地图
+    //属性： 蛇  食物对象   地图   level   score
+    //方法： 开始游戏
+  function Game(map){
+    this.map = map;
+    this.snake = new Snake();
+    this.food = new Food();
+
+
+    //渲染蛇
+    this.snake.render(this.map);
+    //渲染食物
+    this.food.render(this.map);
+  }
+
+  var g = new Game(map);
+  console.log(g);
+
+
+</script>
+
+</body>
+</html>

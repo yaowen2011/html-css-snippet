@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- css reset css 样式初始化 -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/jquery.fullPage.css">
+  <!-- 引入我们自己的 css 文件 -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- 所有屏幕 公共部分 固定定位 -->
+<!-- 前往购物中心 -->
+<div class="go">
+  <img src="images/00-goshopping.png" alt="">
+</div>
+
+<!-- 下一屏幕更精彩 -->
+<div class="next">
+  <img src="images/00-next.png" alt="">
+</div>
+
+<!-- 1. 引包 2. 结构 3. 初始化 -->
+<div id="shopping">
+  
+  
+  <!-- 一共 8 屏, section -->
+  <!-- 第 1 屏 -->
+  <div class="section page1">
+    <!-- 飞艇 -->
+    <img class="middle one-flytitle" src="images/01-flytitle.png" alt="">
+    <!-- 沙发气泡 -->
+    <img class="middle one-sofa" src="images/01-sofa.png" alt="">
+    <!-- tips气泡 -->
+    <img class="middle one-tips" src="images/01-tips.png" alt="">
+  </div>
+  
+  <!-- 第 2 屏 -->
+  <div class="section page2">
+    <!-- 商品栏 -->
+    <img class="two-goods middle" src="images/02-goods.png" alt="">
+    <!-- 搜索框 -->
+    <div class="two-search-wrapper middle move">
+      <img class="two-search" src="images/02-search.png" alt="">
+      <img class="two-search-words" src="images/02-search-words.png" alt="">
+    </div>
+    <!-- 偷梁换柱 假的搜索框 -->
+    <img class="two-search-copy middle" src="images/02-search-copy.png" alt="">
+    
+    <!-- 提示文本 -->
+    <img class="two-words middle" src="images/02-words.png" alt="">
+    
+    
+    <!-- 白色蒙层 cover -->
+    <div class="two-cover middle move"></div>
+    
+    <!-- 假沙发 -->
+    <img class="two-only-sofa middle" src="images/00-only-sofa.png" alt="">
+    
+  </div>
+  
+  <!-- 第 3 屏 -->
+  <div class="section page3">
+    <!-- main -->
+    <div class="middle three-main">
+      <!-- 尺码选择 -->
+      <img class="middle three-sel" src="images/03-sel-img.gif" alt="">
+      <img class="middle three-sel three-sel-active" src="images/03-sel-img-a.gif" alt="">
+       <!-- 购物车按钮 -->
+      <img class="middle three-btn" src="images/03-btn.gif" alt="">
+      <img class="middle three-btn three-btn-active" src="images/03-btn-a.gif" alt="">
+    </div>
+    
+    
+    <!-- 假图片放在main 外面, 相对于整个屏幕来定位, 同时也方便维护-->
+    <img class="middle three-sofa-rotate" src="images/00-sofa-rotate.png" alt="">
+  </div>
+  
+  <!-- 第 4 屏 -->
+  <div class="section page4">
+    
+    <!-- 购物车容器  要整个一起跑, 肯定要定位 -->
+    <div class="four-car-wrapper move">
+      <!-- 购物car-->
+      <img class="middle four-car" src="images/04-car.png" alt="">
+      <!-- 假沙发 -->
+      <img class="middle four-sofa-rotate" src="images/00-sofa-rotate.png" alt="">
+    </div>
+    
+    <!-- 云朵 -->
+    <img class="middle four-cloud" src="images/04-cloud.png" alt="">
+    <!-- 文字 -->
+    <img class="middle four-words" src="images/04-words.png" alt="">
+    <img class="middle four-words four-words-active" src="images/04-words-a.png" alt="">
+    
+    <!-- 地址 -->
+    <div class="middle four-address-wrapper move">
+      <img class="four-address-card" src="images/04-address-card.png" alt="">
+      <img class="four-address-txt" src="images/04-address-txt.png" alt="">
+    </div>
+  </div>
+  
+  <!-- 第 5 屏 -->
+  <div class="section page5">
+    <!-- 掉进来的沙发 -->
+    <img class="middle five-sofa-rotate" src="images/00-sofa-rotate.png" alt="">
+    
+    <!-- 订单 -->
+    <img class="middle five-order" src="images/05-order.png" alt="">
+    
+    <!-- 银行卡 -->
+    <img class="middle five-card" src="images/05-card.png" alt="">
+
+    <!-- 鼠标 -->
+    <img class="middle five-mouse" src="images/05-mouse.png" alt="">
+    <img class="middle five-mouse five-mouse-active" src="images/05-mouse-a.png" alt="">
+  
+    <!-- 手 -->
+    <img class="middle five-hand" src="images/05-hand.png" alt="">
+
+    <!-- 提示文本 -->
+    <img class="middle five-words" src="images/05-words.png" alt="">
+  </div>
+  
+  <!-- 第 6 屏 -->
+  <div class="section page6">
+    <!-- 云朵 -->
+    <img class="middle six-cloud" src="images/06-cloud.png" alt="">
+    <!-- 箱子 -->
+    <img class="middle six-box" src="images/06-box.png" alt="">
+    <!-- 送货小车车 -->
+    <img class="middle six-car" src="images/06-car.png" alt="">
+    <!-- 地址牌子 -->
+    <img class="middle six-address" src="images/06-address-88.png" alt="">
+    
+    <!-- 快递小哥: 难点 -->
+    <!-- 1. 从货车里面出来, 要和货车定位方式一样, 都要中心定位再偏移 -->
+    <!-- 2. 通过 right 右对齐, 站到门旁边 -->
+    <img class="six-man" src="images/06-man.png" alt="">
+    
+    
+    <!-- 下面的盒子 都要 以 右边定位 -->
+    <!-- 核心点: 背景有个门, 他是以右边进行定位显示的 -->
+    <!-- 所以我们的们, 必须也以右边为基准进行定位, 不能中心定位了, 不加middle -->
+    <!-- 门 -->
+    <img class="six-door" src="images/06-door.png" alt="">
+    <!-- 小姐姐 -->
+    <img class="six-women" src="images/06-women.png" alt="">
+    
+    <!-- 请收货 -->
+    <img class="six-getProduct" src="images/06-getProduct.png" alt="">
+    <!-- 文字 -->
+    <img class="six-words" src="images/06-words.png" alt="">
+  </div>
+  
+  <!-- 第 7 屏 -->
+  <div class="section page7">
+    <!-- 星星容器 -->
+    <div class="middle seven-star-wrapper">
+      <!-- 评分小星星 -->
+      <img class="seven-star" src="images/07-star.png" alt="">
+    </div>
+    <!-- 好评文字 -->
+    <img class="middle seven-good" src="images/07-good.png" alt="">
+    
+  </div>
+  
+  <!-- 第 8 屏 -->
+  <div class="section page8">
+    <!-- 再来一次 -->
+    <img class="middle eight-again" src="images/08-again.png" alt="">
+    <!-- 开始购物 -->
+    <img class="middle eight-btn" src="images/08-btn.gif" alt="">
+    
+    <!-- 小手, 不要中心定位, 最终通过鼠标的坐标定位 -->
+    <img class="eight-hand" src="images/08-hand.png" alt="">
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

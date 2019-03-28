@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      cursor: move;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<script>
+
+  //给box注册鼠标按下事件
+    //1. 记录下来按下的位置
+    //2. 给document注册鼠标移动事件，让div跟着鼠标跑
+
+  //给document注册鼠标弹起事件
+    //清除document的鼠标移动事件
+
+  var box = document.getElementById("box");
+  //onmousedown : 鼠标按下
+  //onmouseup   : 鼠标弹起
+  box.onmousedown = function (e) {
+
+    //1. 记录按下时，鼠标在box中按下的位置
+    var spaceX = e.pageX - box.offsetLeft;
+    var spaceY = e.pageY - box.offsetTop;
+
+    //2. 给document注册鼠标移动事件
+    document.onmousemove = function (e) {
+      box.style.left = e.pageX - spaceX + "px";
+      box.style.top = e.pageY - spaceY + "px";
+    }
+  }
+  document.onmouseup = function () {
+    //清除document的鼠标移动事件
+    document.onmousemove = null;
+  }
+
+</script>
+
+</body>
+</html>

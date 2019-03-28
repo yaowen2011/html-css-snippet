@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .big {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mask {
+      width: 175px;
+      height: 175px;
+      background: rgba(255, 255, 0, 0.4);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      cursor: move;
+      display: none;
+    }
+
+    .small {
+      position: relative;
+    }
+
+    .box img {
+      vertical-align: top;
+    }
+
+    #bigBox img {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="box">
+  <div id="smallBox" class="small">
+    <img src="images/001.jpg" width="350" alt=""/>
+    <div id="mask" class="mask"></div>
+  </div>
+  <div id="bigBox" class="big">
+    <img src="images/0001.jpg" width="800" alt=""/>
+  </div>
+</div>
+
+<script>
+
+  var box = document.getElementById("box");
+  var smallBox = document.getElementById("smallBox");
+  var mask = document.getElementById("mask");
+  var bigBox = document.getElementById("bigBox");
+  var bigImg = bigBox.children[0];
+
+  //1. 鼠标经过smallbox的时候，需要显示mask和bigBox
+  smallBox.onmouseover = function () {
+    mask.style.display = "block";
+    bigBox.style.display = "block";
+  }
+  //2. 鼠标离开smallbox的时候，需要隐藏mask和bigBox
+  smallBox.onmouseout = function () {
+    mask.style.display = "none";
+    bigBox.style.display = "none";
+  }
+
+  //3. 鼠标在smallBox中移动，需要移动mask和bigImg
+  smallBox.onmousemove = function (e) {
+
+    //1. 获取到鼠标在smallBox中的位置
+    var spaceX = e.pageX - box.offsetLeft;
+    var spaceY = e.pageY - box.offsetTop;
+
+    var x = spaceX - mask.offsetWidth / 2;
+    var y = spaceY - mask.offsetHeight / 2;
+
+    if (x < 0) {
+      x = 0;
+    }
+    if (x > smallBox.offsetWidth - mask.offsetWidth) {
+      x = smallBox.offsetWidth - mask.offsetWidth;
+    }
+    if (y < 0) {
+      y = 0;
+    }
+    if (y > smallBox.offsetHeight - mask.offsetHeight) {
+      y = smallBox.offsetHeight - mask.offsetHeight
+    }
+
+    mask.style.left = x + "px";
+    mask.style.top = y + "px";
+
+
+
+    //移动大图片   大图片移动的距离/mask移动的距离  = 大图片的宽度/smallBox的宽度
+    bigImg.style.left = -bigImg.offsetWidth/smallBox.offsetWidth * x + "px";
+    bigImg.style.top = -bigImg.offsetHeight/smallBox.offsetHeight * y + "px";
+
+  }
+
+
+</script>
+
+</body>
+</html>

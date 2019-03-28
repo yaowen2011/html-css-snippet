@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .waterfall {
+            position: relative;
+        }
+
+        .box {
+            border: 1px solid red;
+            padding: 5px;
+            position: absolute;
+        }
+
+        .box img {
+            display: block;
+            width: 192px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="waterfall">
+    <div class="box"><img src="images/P_000.jpg" alt=""></div>
+    <div class="box"><img src="images/P_001.jpg" alt=""></div>
+    <div class="box"><img src="images/P_002.jpg" alt=""></div>
+    <div class="box"><img src="images/P_003.jpg" alt=""></div>
+    <div class="box"><img src="images/P_004.jpg" alt=""></div>
+    <div class="box"><img src="images/P_005.jpg" alt=""></div>
+    <div class="box"><img src="images/P_006.jpg" alt=""></div>
+    <div class="box"><img src="images/P_007.jpg" alt=""></div>
+    <div class="box"><img src="images/P_008.jpg" alt=""></div>
+    <div class="box"><img src="images/P_009.jpg" alt=""></div>
+    <div class="box"><img src="images/P_010.jpg" alt=""></div>
+    <div class="box"><img src="images/P_011.jpg" alt=""></div>
+    <div class="box"><img src="images/P_012.jpg" alt=""></div>
+    <div class="box"><img src="images/P_013.jpg" alt=""></div>
+    <div class="box"><img src="images/P_014.jpg" alt=""></div>
+    <div class="box"><img src="images/P_015.jpg" alt=""></div>
+    <div class="box"><img src="images/P_016.jpg" alt=""></div>
+    <div class="box"><img src="images/P_017.jpg" alt=""></div>
+    <div class="box"><img src="images/P_018.jpg" alt=""></div>
+    <div class="box"><img src="images/P_019.jpg" alt=""></div>
+    <div class="box"><img src="images/P_020.jpg" alt=""></div>
+</div>
+<script>
+    //由于float的特性 这里使用 定位 来摆放元素
+    var space = 30;
+    var waterFall = document.querySelector('.waterfall');
+    var divList = document.querySelectorAll('.waterfall div');
+    var liWidth = divList[0].offsetWidth;
+    var liNum = parseInt(document.body.offsetWidth / (liWidth + space));
+//    console.log(liNum);
+    //反求版心
+    var waterFallWidth = liNum * liWidth + (liNum - 1) * space;
+    waterFall.style.width = waterFallWidth + 'px';
+
+    //摆放第一行
+    //反向俄罗斯方块
+    var heightArr = [];
+    for (var i = 0; i < divList.length; ++i) {
+        if (i < liNum) {
+            divList[i].style.left = liWidth * i + space * i + 'px';
+//            console.log(divList[i].offsetHeight + '\n\r');
+//            heightArr[i] = divList[i].offsetHeight;
+            heightArr.push(divList[i].offsetHeight);
+        } else {
+            //找出最低的
+            var min = 0;
+            var minHeight = heightArr[min];
+            for (var j = 1; j < heightArr.length; ++j) {
+                if (minHeight > heightArr[j]) {
+                    minHeight = heightArr[j];
+                    min = j;
+                }
+            }
+
+            divList[i].style.left = (liWidth * min + space * min) + 'px';
+            divList[i].style.top = (minHeight + space) + 'px';
+
+            heightArr[min] += divList[i].offsetHeight + space;//左边min的key问题很大 一开始set写错了
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

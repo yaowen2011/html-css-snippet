@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>百度LOGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+    
+    .logo {
+      width: 270px;
+      height: 129px;
+      margin: 100px auto;
+      background-image: url(baidu.png);
+      background-position: 0 0;
+    }
+  </style>
+</head>
+<body>
+<div class="logo"></div>
+<script>
+  
+  var logo = document.querySelector(".logo");
+  var count = 0;
+  setInterval(function () {
+    count++;
+
+    if(count > 64){
+      count = 0;
+    }
+
+    logo.style.backgroundPosition = "-"+270*count+"px 0px";
+
+
+  },15);
+
+</script>
+</body>
+</html>

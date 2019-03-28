@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .carousel {
+      width: 790px;
+      height: 340px;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    
+    .carousel ul {
+      width: 800%;
+      position: absolute;
+    }
+    
+    .carousel ul li {
+      float: left;
+    }
+
+    .carousel ol {
+      width: 182px;
+      height: 20px;
+      background-color: rgba(255,255,255, .5);
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px;
+    }
+
+    .carousel ol li {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      float: left;
+      margin-top: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .carousel ol li.now{
+      background-color: red;
+    }
+
+    .left,
+    .right {
+      width: 30px;
+      height: 60px;
+      background-color: rgba(0,0,0,0.3);
+      position: absolute;
+      top: 50%;
+      margin-top:-30px;
+      line-height: 60px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      font-family: "宋体";
+      font-size: 24px;
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      right: 0;
+    }
+    
+    .left:hover,
+    .right:hover{
+      background-color: rgba(0,0,0,.8);
+    }
+
+    .arrow {
+      display: none;
+    }
+
+    .carousel:hover .arrow {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel">
+  <ul>
+    <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/7.jpg" alt=""></a></li>
+    <li><a href="#"><img src="images/8.jpg" alt=""></a></li>
+  </ul>
+  <ol>
+    <li class="now"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ol>
+  <div class="arrow">
+    <a href="javascript:void(0);" class="left">&lt;</a>
+    <a href="javascript:void(0);" class="right">&gt;</a>
+  </div>
+</div>
+
+</body>
+</html>
