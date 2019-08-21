@@ -209,12 +209,12 @@ box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink; //粉色可见宽度是5px
 
 ## 伪类和伪元素选择器
 - [参考地址](https://segmentfault.com/a/1190000012156828)
-- 伪类包含两种：状态伪类和结构性伪类
+- 伪类包含两种：状态伪类和结构性伪类 偏向多个
   - (状态伪类) :focus :link :visited :hover :active
   - (结构伪类) :first-child :last-child :nth-child()
   - :nth-of-type() :empty
 
-- 伪元素
+- 伪元素 偏向单个
   - ::before ::after ::first-letter ::first-line
 
 ## p:nth-child(2) { color: red;} 和 p:nth-of-type(2) { color: red;}区别
@@ -258,4 +258,25 @@ box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink; //粉色可见宽度是5px
   background-image: url($url + "@2x.png")
   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
     background-image: url($url + "@3x.png")
+```
+
+## 动画
+```css
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 ```

@@ -4,6 +4,10 @@
 
 ### 原型链三角形
 - todo
+
+### xss 和csrf攻击
+- xss 可以设置cookie httponly
+- csrf 加一手验证码 
 ### vue的实现原理
 - todo
 - 每秒输出一个值，输出1-100
@@ -83,6 +87,15 @@ Array.prototype.shuffle = function() {
   - 简单来说： By wrapping the **import** function into an arrow function,
   - https://webpack.js.org/guides/lazy-loading/
   - todo浏览器的 benchwork的方式
+
+## 如何实现不用一个临时变量,来交换数组中两个元素的位置
+```js
+var arr = [1, 2];
+arr[0] = arr.reduce(function(acc, curr, idx) { acc[idx] = curr; return acc }, {})
+arr[1] = arr[0][0]
+arr[0] = arr[0][1]
+console.log(arr)
+```
 
 ## 正则
 ```js
@@ -173,7 +186,7 @@ function trimSpace(str) {
 } 
 ``````
 ##e.target e.currentTarget区别
-- 
+- e.currentTarget是会变化的  e.target 怎么冒泡都是那个对象
 
 - defer 和 async 区别
   - To explain is a lot easier, defer is the equivalent of jQuery.ready() - it means your script is guaranteed that the DOM is ready and all HTML has been parsed. Async means the file can potential load before the DOM is even parsed, which means you more than likely will not have access to the DOM.

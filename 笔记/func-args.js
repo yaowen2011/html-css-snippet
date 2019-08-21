@@ -1,3 +1,14 @@
+function test() {
+  var n = 4399;
+  
+  function add() {
+    n++
+    console.log(n)
+  }
+  
+}
+
+
 //
 function sidEffecting(ary) {
   ary[0] = ary[2]
