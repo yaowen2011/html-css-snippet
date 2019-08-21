@@ -45,5 +45,4 @@ console.log(b)
 // 原型链
 function f() {}
 var a = f.__proto__, b = Object.getPrototypeOf(f)
-console.log(a === b) // false
-// console.log(b)
+console.log(a === b) // true

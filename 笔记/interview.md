@@ -78,10 +78,24 @@ Array.prototype.shuffle = function() {
   - https://webpack.js.org/guides/lazy-loading/
   - todo浏览器的 benchwork的方式
 
+## 正则
+```js
+// 前瞻：
+exp1(?=exp2) 查找exp2前面的exp1
+// 后顾：
+(?<=exp2)exp1 查找exp2后面的exp1
+// 负前瞻：
+exp1(?!exp2) 查找后面不是exp2的exp1
+// 负后顾：
+(?<!exp2)exp1 查找前面不是exp2的exp1
+```
 
+- "中国人".replace(/(?<=中国)人/, "rr") // 匹配中国人中的人，将其替换为rr，结果为 中国rr
+- "法国人".replace(/(?<=中国)人/, "rr") // 结果为 法国人，因为人前面不是中国，所以无法匹配到
 - 一个函数，用于给金额数添加千分位符？
   - (12345.67).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  // 12,345.67
-  
+- 邮箱正则
+  -   
 - 谈谈js脚本攻击？
   - xss（css） CSRF 可以基于css的一些东西，伪造用户的请求
   - 发送cookie改成做其他事情，都是在伪造用户请求
