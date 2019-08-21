@@ -1,3 +1,11 @@
+function test01() {
+  console.log(a)
+  var a=123;
+  function a() {
+    console.log(456)
+  }
+}
+
 function test() {
   var n = 4399;
   
@@ -5,7 +13,7 @@ function test() {
     n++
     console.log(n)
   }
-  
+
 }
 
 
