@@ -1,5 +1,9 @@
 
+## https://juejin.im/post/5c875791e51d456b30397846
 ## js部分
+
+### vue的实现原理
+
 - 每秒输出一个值，输出1-100
 ``````javascript
 for (var i = 1; i<= 100; ++i) {
@@ -166,6 +170,9 @@ function trimSpace(str) {
   return str.replace(/^\s+/, '').replace(/\s+$/, '')
 } 
 ``````
+##e.target e.currentTarget区别
+- 
+
 - defer 和 async 区别
   - To explain is a lot easier, defer is the equivalent of jQuery.ready() - it means your script is guaranteed that the DOM is ready and all HTML has been parsed. Async means the file can potential load before the DOM is even parsed, which means you more than likely will not have access to the DOM.
 - 正则表达式提取“everything is ok, a nice day, a very NICE day”zhong
