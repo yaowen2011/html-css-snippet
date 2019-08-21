@@ -2,8 +2,10 @@
 ## https://juejin.im/post/5c875791e51d456b30397846
 ## js部分
 
+### 原型链三角形
+- todo
 ### vue的实现原理
-
+- todo
 - 每秒输出一个值，输出1-100
 ``````javascript
 for (var i = 1; i<= 100; ++i) {
@@ -111,7 +113,7 @@ function bubbleSort(arr) {
   for (var i = 0; i < arr.length; ++i) {
     // move the minimun value to the right at first time
     for (var j = 0; j < arr.length - i; ++j) {// means the lefted unsorted elements
-      if (arr[j] < arr[j+1]) { // the swap element only happened in the inner 
+      if (arr[j] < arr[j+1]) { // the swap element behavior only happened in the inner 
         let temp = arr[j]
         arr[j] = arr[j+1]
         arr[j+1] = temp
