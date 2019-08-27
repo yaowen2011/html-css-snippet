@@ -1,3 +1,9 @@
+// 这个g是不会被定义的 
+var f = function g() {
+  return 23;
+};
+typeof g();
+
 function test01() {
   console.log(a)
   var a=123;

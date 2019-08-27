@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 注意这里必须使用闭包，保存好之前的timer
+    // 直到拖动窗口停止，此监听方法只会被执行一次
+    window.addEventListener('resize', (function(e) {
+      var t;
+      return function() {
+          if(t) clearTimeout(t)
+          t = setTimeout(function() {
+            console.log('拖动窗口 只执行一次')
+          }, 500)
+        }
+      })())
+  </script>
+</body>
+</html>

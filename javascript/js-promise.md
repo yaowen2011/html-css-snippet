@@ -1,3 +1,20 @@
+## promise
+- https://blog.csdn.net/lq15310444798/article/details/81275278
+```js
+Promise.resolve('foo');//等价于如下
+new Promise((resolve)=>{
+    resolve('foo');
+})
+
+setTimeout(function(){
+    console.log("three");//下一轮事件循环执行
+},0);
+Promise.resolve().then(function(){
+    console.log("two");
+});
+console.log("one");
+//输出是one,two,three不是one,three,two
+```
 ## 封装 async & await 
 - https://davidwalsh.name/async-generators
 
