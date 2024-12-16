@@ -19,7 +19,7 @@
     "less-loader": "^0.7.7",
     "style-loader": "^0.8.0",
     "url-loader": "^0.5.5",
-    "webpack-dev-server": "^1.6.5"
+    "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "react": "^0.13.3",
