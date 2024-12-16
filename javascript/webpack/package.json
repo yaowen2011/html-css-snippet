@@ -22,7 +22,7 @@
     "webpack-dev-server": "^1.6.5"
   },
   "dependencies": {
-    "react": "^0.13.3",
+    "react": "^15.6.2",
     "react-router": "^0.13.3"
   }
 }
